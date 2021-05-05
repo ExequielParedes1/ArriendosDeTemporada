@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="ArriendoTemporadaEntities">
+    <EntitySetMapping Name="ACOMPANANTE">
+      <EntityTypeMapping TypeName="Model.ACOMPANANTE">
+        <MappingFragment StoreEntitySet="ACOMPANANTE">
+          <ScalarProperty Name="ID_ACOMPANANTE" ColumnName="ID_ACOMPANANTE" />
+          <ScalarProperty Name="RUT_ACOMPANANTE" ColumnName="RUT_ACOMPANANTE" />
+          <ScalarProperty Name="PASAPORTE" ColumnName="PASAPORTE" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="APELLIDO_P" ColumnName="APELLIDO_P" />
+          <ScalarProperty Name="APELLIDO_M" ColumnName="APELLIDO_M" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CHECKEO">
+      <EntityTypeMapping TypeName="Model.CHECKEO">
+        <MappingFragment StoreEntitySet="CHECKEO">
+          <ScalarProperty Name="ID_CHECKEO" ColumnName="ID_CHECKEO" />
+          <ScalarProperty Name="TIPO_CHECKEO" ColumnName="TIPO_CHECKEO" />
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+          <ScalarProperty Name="USUARIO_RUT_USUARIO" ColumnName="USUARIO_RUT_USUARIO" />
+          <ScalarProperty Name="RESERVA_ID_RESERVA" ColumnName="RESERVA_ID_RESERVA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CLIENTE">
+      <EntityTypeMapping TypeName="Model.CLIENTE">
+        <MappingFragment StoreEntitySet="CLIENTE">
+          <ScalarProperty Name="ID_CLIENTE" ColumnName="ID_CLIENTE" />
+          <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
+          <ScalarProperty Name="PASAPORTE" ColumnName="PASAPORTE" />
+          <ScalarProperty Name="PASSWRD" ColumnName="PASSWRD" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="APELLIDO_P" ColumnName="APELLIDO_P" />
+          <ScalarProperty Name="APELLIDO_M" ColumnName="APELLIDO_M" />
+          <ScalarProperty Name="NUM_CELULAR" ColumnName="NUM_CELULAR" />
+          <ScalarProperty Name="CORREO" ColumnName="CORREO" />
+          <ScalarProperty Name="NACIONALIDAD" ColumnName="NACIONALIDAD" />
+          <ScalarProperty Name="CLIENTE_FRECUENTE" ColumnName="CLIENTE_FRECUENTE" />
+          <ScalarProperty Name="ESTADO_CLIENTE" ColumnName="ESTADO_CLIENTE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DPTO">
+      <EntityTypeMapping TypeName="Model.DPTO">
+        <MappingFragment StoreEntitySet="DPTO">
+          <ScalarProperty Name="ID_DPTO" ColumnName="ID_DPTO" />
+          <ScalarProperty Name="NUM_DEPTO" ColumnName="NUM_DEPTO" />
+          <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="REGION" ColumnName="REGION" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="VALOR_DIARIO" ColumnName="VALOR_DIARIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="INVENTARIO">
+      <EntityTypeMapping TypeName="Model.INVENTARIO">
+        <MappingFragment StoreEntitySet="INVENTARIO">
+          <ScalarProperty Name="ID_INV" ColumnName="ID_INV" />
+          <ScalarProperty Name="NOMBRE_ARTI" ColumnName="NOMBRE_ARTI" />
+          <ScalarProperty Name="TIPO_ARTI" ColumnName="TIPO_ARTI" />
+          <ScalarProperty Name="VALOR_ARTI" ColumnName="VALOR_ARTI" />
+          <ScalarProperty Name="DPTO_ID_DPTO" ColumnName="DPTO_ID_DPTO" />
+          <ScalarProperty Name="ESTADO_INVENTARIO" ColumnName="ESTADO_INVENTARIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MANTENCION">
+      <EntityTypeMapping TypeName="Model.MANTENCION">
+        <MappingFragment StoreEntitySet="MANTENCION">
+          <ScalarProperty Name="ID_MANTECION" ColumnName="ID_MANTECION" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="VALOR" ColumnName="VALOR" />
+          <ScalarProperty Name="FECHA_INI" ColumnName="FECHA_INI" />
+          <ScalarProperty Name="FECHA_TERM" ColumnName="FECHA_TERM" />
+          <ScalarProperty Name="DPTO_ID_DPTO" ColumnName="DPTO_ID_DPTO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MULTA">
+      <EntityTypeMapping TypeName="Model.MULTA">
+        <MappingFragment StoreEntitySet="MULTA">
+          <ScalarProperty Name="ID_MULTA" ColumnName="ID_MULTA" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="MONTO" ColumnName="MONTO" />
+          <ScalarProperty Name="RESERVA_ID_RESERVA" ColumnName="RESERVA_ID_RESERVA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PAGO">
+      <EntityTypeMapping TypeName="Model.PAGO">
+        <MappingFragment StoreEntitySet="PAGO">
+          <ScalarProperty Name="ID_PAGO" ColumnName="ID_PAGO" />
+          <ScalarProperty Name="MONTO" ColumnName="MONTO" />
+          <ScalarProperty Name="FECHA_PAGO" ColumnName="FECHA_PAGO" />
+          <ScalarProperty Name="RESERVA_ID_RESERVA" ColumnName="RESERVA_ID_RESERVA" />
+          <ScalarProperty Name="TIPO_PAGO" ColumnName="TIPO_PAGO" />
+          <ScalarProperty Name="TRANSBANK_ID_TRANSBANK" ColumnName="TRANSBANK_ID_TRANSBANK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RESERVA">
+      <EntityTypeMapping TypeName="Model.RESERVA">
+        <MappingFragment StoreEntitySet="RESERVA">
+          <ScalarProperty Name="ID_RESERVA" ColumnName="ID_RESERVA" />
+          <ScalarProperty Name="FECHA_INICIO" ColumnName="FECHA_INICIO" />
+          <ScalarProperty Name="FECHA_FIN" ColumnName="FECHA_FIN" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="CLIENTE_ID_CLIENTE" ColumnName="CLIENTE_ID_CLIENTE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="REVISION_INV">
+      <EntityTypeMapping TypeName="Model.REVISION_INV">
+        <MappingFragment StoreEntitySet="REVISION_INV">
+          <ScalarProperty Name="USUARIO_RUT_USUARIO" ColumnName="USUARIO_RUT_USUARIO" />
+          <ScalarProperty Name="ID_REVISION" ColumnName="ID_REVISION" />
+          <ScalarProperty Name="FECHA_REVISION" ColumnName="FECHA_REVISION" />
+          <ScalarProperty Name="DPTO_ID_DPTO" ColumnName="DPTO_ID_DPTO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SERVICIO">
+      <EntityTypeMapping TypeName="Model.SERVICIO">
+        <MappingFragment StoreEntitySet="SERVICIO">
+          <ScalarProperty Name="ID_SERVICIO" ColumnName="ID_SERVICIO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="TIPO" ColumnName="TIPO" />
+          <ScalarProperty Name="HORARIO_INICIO" ColumnName="HORARIO_INICIO" />
+          <ScalarProperty Name="HORARIO_FIN" ColumnName="HORARIO_FIN" />
+          <ScalarProperty Name="PUNTO_REUNION" ColumnName="PUNTO_REUNION" />
+          <ScalarProperty Name="VALOR" ColumnName="VALOR" />
+          <ScalarProperty Name="RECORRIDO" ColumnName="RECORRIDO" />
+          <ScalarProperty Name="VEHICULO" ColumnName="VEHICULO" />
+          <ScalarProperty Name="CHOFER" ColumnName="CHOFER" />
+          <ScalarProperty Name="ESTADO_SERVICIO" ColumnName="ESTADO_SERVICIO" />
+          <ScalarProperty Name="CUPO" ColumnName="CUPO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TRANSBANK">
+      <EntityTypeMapping TypeName="Model.TRANSBANK">
+        <MappingFragment StoreEntitySet="TRANSBANK">
+          <ScalarProperty Name="ID_TRANSBANK" ColumnName="ID_TRANSBANK" />
+          <ScalarProperty Name="TOTAL_TBK" ColumnName="TOTAL_TBK" />
+          <ScalarProperty Name="ESTADO_TBK" ColumnName="ESTADO_TBK" />
+          <ScalarProperty Name="FECHA_TBK" ColumnName="FECHA_TBK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USUARIO">
+      <EntityTypeMapping TypeName="Model.USUARIO">
+        <MappingFragment StoreEntitySet="USUARIO">
+          <ScalarProperty Name="RUT_USUARIO" ColumnName="RUT_USUARIO" />
+          <ScalarProperty Name="CONTRASENIA" ColumnName="CONTRASENIA" />
+          <ScalarProperty Name="ROL" ColumnName="ROL" />
+          <ScalarProperty Name="NOMBRE_USUARIO" ColumnName="NOMBRE_USUARIO" />
+          <ScalarProperty Name="APELLIDO_P" ColumnName="APELLIDO_P" />
+          <ScalarProperty Name="APELLIDO_M" ColumnName="APELLIDO_M" />
+          <ScalarProperty Name="ESTADO_USUARIO" ColumnName="ESTADO_USUARIO" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GASTOS">
+      <EntityTypeMapping TypeName="Model.GASTOS">
+        <MappingFragment StoreEntitySet="GASTOS">
+          <ScalarProperty Name="TIPO_GASTO" ColumnName="TIPO_GASTO" />
+          <ScalarProperty Name="VALOR" ColumnName="VALOR" />
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+          <ScalarProperty Name="DPTO_ID_DPTO" ColumnName="DPTO_ID_DPTO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RESERVA_SERVICIO">
+      <EntityTypeMapping TypeName="Model.RESERVA_SERVICIO">
+        <MappingFragment StoreEntitySet="RESERVA_SERVICIO">
+          <ScalarProperty Name="RESERVA_ID_RESERVA" ColumnName="RESERVA_ID_RESERVA" />
+          <ScalarProperty Name="SERVICIO_ID_SERVICIO" ColumnName="SERVICIO_ID_SERVICIO" />
+          <ScalarProperty Name="CANTIDAD_CUPO" ColumnName="CANTIDAD_CUPO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="RESERVA_AC" TypeName="Model.RESERVA_AC" StoreEntitySet="RESERVA_AC">
+      <EndProperty Name="ACOMPANANTE">
+        <ScalarProperty Name="ID_ACOMPANANTE" ColumnName="ACOMPANANTE_ID_ACOMPANANTE" />
+      </EndProperty>
+      <EndProperty Name="RESERVA">
+        <ScalarProperty Name="ID_RESERVA" ColumnName="RESERVA_ID_RESERVA" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="RESERVA_DEPTO" TypeName="Model.RESERVA_DEPTO" StoreEntitySet="RESERVA_DEPTO">
+      <EndProperty Name="DPTO">
+        <ScalarProperty Name="ID_DPTO" ColumnName="DPTO_ID_DPTO" />
+      </EndProperty>
+      <EndProperty Name="RESERVA">
+        <ScalarProperty Name="ID_RESERVA" ColumnName="RESERVA_ID_RESERVA" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="DELETE_INVENTARIO" FunctionName="Model.Store.DELETE_INVENTARIO" />
+    <FunctionImportMapping FunctionImportName="DELETE_RESERVA" FunctionName="Model.Store.DELETE_RESERVA" />
+    <FunctionImportMapping FunctionImportName="DELETE_SERVICIO" FunctionName="Model.Store.DELETE_SERVICIO" />
+    <FunctionImportMapping FunctionImportName="INHABILITAR_CLIENTE" FunctionName="Model.Store.INHABILITAR_CLIENTE" />
+    <FunctionImportMapping FunctionImportName="INHABILITAR_DPTO" FunctionName="Model.Store.INHABILITAR_DPTO" />
+    <FunctionImportMapping FunctionImportName="INHABILITAR_USUARIO" FunctionName="Model.Store.INHABILITAR_USUARIO" />
+    <FunctionImportMapping FunctionImportName="INSERT_CLIENTE" FunctionName="Model.Store.INSERT_CLIENTE" />
+    <FunctionImportMapping FunctionImportName="INSERT_DPTO" FunctionName="Model.Store.INSERT_DPTO" />
+    <FunctionImportMapping FunctionImportName="INSERT_INVENTARIO" FunctionName="Model.Store.INSERT_INVENTARIO" />
+    <FunctionImportMapping FunctionImportName="INSERT_RESERVA" FunctionName="Model.Store.INSERT_RESERVA" />
+    <FunctionImportMapping FunctionImportName="INSERT_SERVICIO" FunctionName="Model.Store.INSERT_SERVICIO" />
+    <FunctionImportMapping FunctionImportName="INSERT_USUARIO" FunctionName="Model.Store.INSERT_USUARIO" />
+    <FunctionImportMapping FunctionImportName="UPDATE_CLIENTE" FunctionName="Model.Store.UPDATE_CLIENTE" />
+    <FunctionImportMapping FunctionImportName="UPDATE_DPTO" FunctionName="Model.Store.UPDATE_DPTO" />
+    <FunctionImportMapping FunctionImportName="UPDATE_INVENTARIO" FunctionName="Model.Store.UPDATE_INVENTARIO" />
+    <FunctionImportMapping FunctionImportName="UPDATE_RESERVA" FunctionName="Model.Store.UPDATE_RESERVA" />
+    <FunctionImportMapping FunctionImportName="UPDATE_SERVICIO" FunctionName="Model.Store.UPDATE_SERVICIO" />
+    <FunctionImportMapping FunctionImportName="UPDATE_USUARIO" FunctionName="Model.Store.UPDATE_USUARIO" />
+  </EntityContainerMapping>
+</Mapping>

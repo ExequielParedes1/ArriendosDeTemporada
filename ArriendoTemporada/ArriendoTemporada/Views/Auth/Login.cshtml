@@ -1,0 +1,18 @@
+﻿@model ArriendoTemporada.Negocio.Cliente
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(c => c.Rut_Cliente, "Ingrese su rut")
+    @Html.TextBoxFor(c => c.Rut_Cliente)
+    <br />
+    @Html.LabelFor(c => c.Passwrd, "Ingrese su contraseña")
+    @Html.PasswordFor(c => c.Passwrd)
+    <br />
+
+    <button>Ingresar</button>
+}

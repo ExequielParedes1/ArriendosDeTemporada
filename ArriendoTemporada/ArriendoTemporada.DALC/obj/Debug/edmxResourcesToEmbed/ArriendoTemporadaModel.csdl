@@ -1,0 +1,577 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ACOMPANANTE">
+    <Key>
+      <PropertyRef Name="ID_ACOMPANANTE" />
+    </Key>
+    <Property Name="ID_ACOMPANANTE" Type="Int32" Nullable="false" />
+    <Property Name="RUT_ACOMPANANTE" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="PASAPORTE" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="APELLIDO_P" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="APELLIDO_M" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="RESERVA" Relationship="Self.RESERVA_AC" FromRole="ACOMPANANTE" ToRole="RESERVA" />
+  </EntityType>
+  <EntityType Name="CHECKEO">
+    <Key>
+      <PropertyRef Name="ID_CHECKEO" />
+    </Key>
+    <Property Name="ID_CHECKEO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TIPO_CHECKEO" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="FECHA" Type="DateTime" Nullable="false" />
+    <Property Name="USUARIO_RUT_USUARIO" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RESERVA_ID_RESERVA" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="RESERVA" Relationship="Self.CHECKEO_RESERVA_FK" FromRole="CHECKEO" ToRole="RESERVA" />
+    <NavigationProperty Name="USUARIO" Relationship="Self.CHECKEO_USUARIO_FK" FromRole="CHECKEO" ToRole="USUARIO" />
+  </EntityType>
+  <EntityType Name="CLIENTE">
+    <Key>
+      <PropertyRef Name="ID_CLIENTE" />
+    </Key>
+    <Property Name="ID_CLIENTE" Type="Decimal" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="RUT_CLIENTE" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="PASAPORTE" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="PASSWRD" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="APELLIDO_P" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="APELLIDO_M" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NUM_CELULAR" Type="Int32" Nullable="false" />
+    <Property Name="CORREO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NACIONALIDAD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CLIENTE_FRECUENTE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ESTADO_CLIENTE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="RESERVA" Relationship="Self.RESERVA_CLIENTE_FK" FromRole="CLIENTE" ToRole="RESERVA" />
+  </EntityType>
+  <EntityType Name="DPTO">
+    <Key>
+      <PropertyRef Name="ID_DPTO" />
+    </Key>
+    <Property Name="ID_DPTO" Type="Int32" Nullable="false" />
+    <Property Name="NUM_DEPTO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DIRECCION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="REGION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ESTADO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VALOR_DIARIO" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="GASTOS" Relationship="Self.GASTOS_DPTO_FK" FromRole="DPTO" ToRole="GASTOS" />
+    <NavigationProperty Name="INVENTARIO" Relationship="Self.INVENTARIO_DPTO_FK" FromRole="DPTO" ToRole="INVENTARIO" />
+    <NavigationProperty Name="MANTENCION" Relationship="Self.MANTENCION_DPTO_FK" FromRole="DPTO" ToRole="MANTENCION" />
+    <NavigationProperty Name="REVISION_INV" Relationship="Self.REVISION_INV_DPTO_FK" FromRole="DPTO" ToRole="REVISION_INV" />
+    <NavigationProperty Name="RESERVA" Relationship="Self.RESERVA_DEPTO" FromRole="DPTO" ToRole="RESERVA" />
+  </EntityType>
+  <EntityType Name="INVENTARIO">
+    <Key>
+      <PropertyRef Name="ID_INV" />
+    </Key>
+    <Property Name="ID_INV" Type="Int32" Nullable="false" />
+    <Property Name="NOMBRE_ARTI" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TIPO_ARTI" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VALOR_ARTI" Type="Int32" Nullable="false" />
+    <Property Name="DPTO_ID_DPTO" Type="Int32" Nullable="false" />
+    <Property Name="ESTADO_INVENTARIO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="DPTO" Relationship="Self.INVENTARIO_DPTO_FK" FromRole="INVENTARIO" ToRole="DPTO" />
+  </EntityType>
+  <EntityType Name="MANTENCION">
+    <Key>
+      <PropertyRef Name="ID_MANTECION" />
+    </Key>
+    <Property Name="ID_MANTECION" Type="Int32" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VALOR" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="FECHA_INI" Type="DateTime" Nullable="false" />
+    <Property Name="FECHA_TERM" Type="DateTime" Nullable="false" />
+    <Property Name="DPTO_ID_DPTO" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="DPTO" Relationship="Self.MANTENCION_DPTO_FK" FromRole="MANTENCION" ToRole="DPTO" />
+  </EntityType>
+  <EntityType Name="MULTA">
+    <Key>
+      <PropertyRef Name="ID_MULTA" />
+    </Key>
+    <Property Name="ID_MULTA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MONTO" Type="Int32" Nullable="false" />
+    <Property Name="RESERVA_ID_RESERVA" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="RESERVA" Relationship="Self.MULTA_RESERVA_FK" FromRole="MULTA" ToRole="RESERVA" />
+  </EntityType>
+  <EntityType Name="PAGO">
+    <Key>
+      <PropertyRef Name="ID_PAGO" />
+    </Key>
+    <Property Name="ID_PAGO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MONTO" Type="Int32" Nullable="false" />
+    <Property Name="FECHA_PAGO" Type="DateTime" Nullable="false" />
+    <Property Name="RESERVA_ID_RESERVA" Type="Int32" Nullable="false" />
+    <Property Name="TIPO_PAGO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="TRANSBANK_ID_TRANSBANK" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <NavigationProperty Name="RESERVA" Relationship="Self.PAGO_RESERVA_FK" FromRole="PAGO" ToRole="RESERVA" />
+    <NavigationProperty Name="TRANSBANK" Relationship="Self.PAGO_TRANSBANK_FK" FromRole="PAGO" ToRole="TRANSBANK" />
+  </EntityType>
+  <EntityType Name="RESERVA">
+    <Key>
+      <PropertyRef Name="ID_RESERVA" />
+    </Key>
+    <Property Name="ID_RESERVA" Type="Int32" Nullable="false" />
+    <Property Name="FECHA_INICIO" Type="DateTime" Nullable="false" />
+    <Property Name="FECHA_FIN" Type="DateTime" Nullable="false" />
+    <Property Name="ESTADO" Type="Int16" Nullable="false" />
+    <Property Name="CLIENTE_ID_CLIENTE" Type="Decimal" Precision="20" Scale="0" Nullable="false" />
+    <NavigationProperty Name="CHECKEO" Relationship="Self.CHECKEO_RESERVA_FK" FromRole="RESERVA" ToRole="CHECKEO" />
+    <NavigationProperty Name="CLIENTE" Relationship="Self.RESERVA_CLIENTE_FK" FromRole="RESERVA" ToRole="CLIENTE" />
+    <NavigationProperty Name="MULTA" Relationship="Self.MULTA_RESERVA_FK" FromRole="RESERVA" ToRole="MULTA" />
+    <NavigationProperty Name="PAGO" Relationship="Self.PAGO_RESERVA_FK" FromRole="RESERVA" ToRole="PAGO" />
+    <NavigationProperty Name="RESERVA_SERVICIO" Relationship="Self.RESERVA_SERVICIO_RESERVA_FK" FromRole="RESERVA" ToRole="RESERVA_SERVICIO" />
+    <NavigationProperty Name="ACOMPANANTE" Relationship="Self.RESERVA_AC" FromRole="RESERVA" ToRole="ACOMPANANTE" />
+    <NavigationProperty Name="DPTO" Relationship="Self.RESERVA_DEPTO" FromRole="RESERVA" ToRole="DPTO" />
+  </EntityType>
+  <EntityType Name="REVISION_INV">
+    <Key>
+      <PropertyRef Name="ID_REVISION" />
+    </Key>
+    <Property Name="USUARIO_RUT_USUARIO" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID_REVISION" Type="Int32" Nullable="false" />
+    <Property Name="FECHA_REVISION" Type="DateTime" Nullable="false" />
+    <Property Name="DPTO_ID_DPTO" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="DPTO" Relationship="Self.REVISION_INV_DPTO_FK" FromRole="REVISION_INV" ToRole="DPTO" />
+    <NavigationProperty Name="USUARIO" Relationship="Self.REVISION_INV_USUARIO_FK" FromRole="REVISION_INV" ToRole="USUARIO" />
+  </EntityType>
+  <EntityType Name="SERVICIO">
+    <Key>
+      <PropertyRef Name="ID_SERVICIO" />
+    </Key>
+    <Property Name="ID_SERVICIO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TIPO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="HORARIO_INICIO" Type="DateTime" Nullable="false" />
+    <Property Name="HORARIO_FIN" Type="DateTime" Nullable="false" />
+    <Property Name="PUNTO_REUNION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VALOR" Type="Int32" Nullable="false" />
+    <Property Name="RECORRIDO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="VEHICULO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CHOFER" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ESTADO_SERVICIO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CUPO" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="RESERVA_SERVICIO" Relationship="Self.RESERVA_SERVICIO_SERVICIO_FK" FromRole="SERVICIO" ToRole="RESERVA_SERVICIO" />
+  </EntityType>
+  <EntityType Name="TRANSBANK">
+    <Key>
+      <PropertyRef Name="ID_TRANSBANK" />
+    </Key>
+    <Property Name="ID_TRANSBANK" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TOTAL_TBK" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ESTADO_TBK" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA_TBK" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="PAGO" Relationship="Self.PAGO_TRANSBANK_FK" FromRole="TRANSBANK" ToRole="PAGO" />
+  </EntityType>
+  <EntityType Name="USUARIO">
+    <Key>
+      <PropertyRef Name="RUT_USUARIO" />
+    </Key>
+    <Property Name="RUT_USUARIO" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CONTRASENIA" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ROL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NOMBRE_USUARIO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="APELLIDO_P" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="APELLIDO_M" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ESTADO_USUARIO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="CHECKEO" Relationship="Self.CHECKEO_USUARIO_FK" FromRole="USUARIO" ToRole="CHECKEO" />
+    <NavigationProperty Name="REVISION_INV" Relationship="Self.REVISION_INV_USUARIO_FK" FromRole="USUARIO" ToRole="REVISION_INV" />
+  </EntityType>
+  <EntityType Name="GASTOS">
+    <Key>
+      <PropertyRef Name="TIPO_GASTO" />
+      <PropertyRef Name="VALOR" />
+      <PropertyRef Name="FECHA" />
+      <PropertyRef Name="DPTO_ID_DPTO" />
+    </Key>
+    <Property Name="TIPO_GASTO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VALOR" Type="Int32" Nullable="false" />
+    <Property Name="FECHA" Type="DateTime" Nullable="false" />
+    <Property Name="DPTO_ID_DPTO" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="DPTO" Relationship="Self.GASTOS_DPTO_FK" FromRole="GASTOS" ToRole="DPTO" />
+  </EntityType>
+  <EntityType Name="RESERVA_SERVICIO">
+    <Key>
+      <PropertyRef Name="RESERVA_ID_RESERVA" />
+      <PropertyRef Name="SERVICIO_ID_SERVICIO" />
+      <PropertyRef Name="CANTIDAD_CUPO" />
+    </Key>
+    <Property Name="RESERVA_ID_RESERVA" Type="Int32" Nullable="false" />
+    <Property Name="SERVICIO_ID_SERVICIO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="CANTIDAD_CUPO" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="RESERVA" Relationship="Self.RESERVA_SERVICIO_RESERVA_FK" FromRole="RESERVA_SERVICIO" ToRole="RESERVA" />
+    <NavigationProperty Name="SERVICIO" Relationship="Self.RESERVA_SERVICIO_SERVICIO_FK" FromRole="RESERVA_SERVICIO" ToRole="SERVICIO" />
+  </EntityType>
+  <Association Name="CHECKEO_RESERVA_FK">
+    <End Role="RESERVA" Type="Self.RESERVA" Multiplicity="1" />
+    <End Role="CHECKEO" Type="Self.CHECKEO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RESERVA">
+        <PropertyRef Name="ID_RESERVA" />
+      </Principal>
+      <Dependent Role="CHECKEO">
+        <PropertyRef Name="RESERVA_ID_RESERVA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CHECKEO_USUARIO_FK">
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+    <End Role="CHECKEO" Type="Self.CHECKEO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="RUT_USUARIO" />
+      </Principal>
+      <Dependent Role="CHECKEO">
+        <PropertyRef Name="USUARIO_RUT_USUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RESERVA_CLIENTE_FK">
+    <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+    <End Role="RESERVA" Type="Self.RESERVA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTE">
+        <PropertyRef Name="ID_CLIENTE" />
+      </Principal>
+      <Dependent Role="RESERVA">
+        <PropertyRef Name="CLIENTE_ID_CLIENTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="GASTOS_DPTO_FK">
+    <End Role="DPTO" Type="Self.DPTO" Multiplicity="1" />
+    <End Role="GASTOS" Type="Self.GASTOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DPTO">
+        <PropertyRef Name="ID_DPTO" />
+      </Principal>
+      <Dependent Role="GASTOS">
+        <PropertyRef Name="DPTO_ID_DPTO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="INVENTARIO_DPTO_FK">
+    <End Role="DPTO" Type="Self.DPTO" Multiplicity="1" />
+    <End Role="INVENTARIO" Type="Self.INVENTARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DPTO">
+        <PropertyRef Name="ID_DPTO" />
+      </Principal>
+      <Dependent Role="INVENTARIO">
+        <PropertyRef Name="DPTO_ID_DPTO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MANTENCION_DPTO_FK">
+    <End Role="DPTO" Type="Self.DPTO" Multiplicity="1" />
+    <End Role="MANTENCION" Type="Self.MANTENCION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DPTO">
+        <PropertyRef Name="ID_DPTO" />
+      </Principal>
+      <Dependent Role="MANTENCION">
+        <PropertyRef Name="DPTO_ID_DPTO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="REVISION_INV_DPTO_FK">
+    <End Role="DPTO" Type="Self.DPTO" Multiplicity="1" />
+    <End Role="REVISION_INV" Type="Self.REVISION_INV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DPTO">
+        <PropertyRef Name="ID_DPTO" />
+      </Principal>
+      <Dependent Role="REVISION_INV">
+        <PropertyRef Name="DPTO_ID_DPTO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MULTA_RESERVA_FK">
+    <End Role="RESERVA" Type="Self.RESERVA" Multiplicity="1" />
+    <End Role="MULTA" Type="Self.MULTA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RESERVA">
+        <PropertyRef Name="ID_RESERVA" />
+      </Principal>
+      <Dependent Role="MULTA">
+        <PropertyRef Name="RESERVA_ID_RESERVA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PAGO_RESERVA_FK">
+    <End Role="RESERVA" Type="Self.RESERVA" Multiplicity="1" />
+    <End Role="PAGO" Type="Self.PAGO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RESERVA">
+        <PropertyRef Name="ID_RESERVA" />
+      </Principal>
+      <Dependent Role="PAGO">
+        <PropertyRef Name="RESERVA_ID_RESERVA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PAGO_TRANSBANK_FK">
+    <End Role="TRANSBANK" Type="Self.TRANSBANK" Multiplicity="1" />
+    <End Role="PAGO" Type="Self.PAGO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TRANSBANK">
+        <PropertyRef Name="ID_TRANSBANK" />
+      </Principal>
+      <Dependent Role="PAGO">
+        <PropertyRef Name="TRANSBANK_ID_TRANSBANK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RESERVA_SERVICIO_RESERVA_FK">
+    <End Role="RESERVA" Type="Self.RESERVA" Multiplicity="1" />
+    <End Role="RESERVA_SERVICIO" Type="Self.RESERVA_SERVICIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RESERVA">
+        <PropertyRef Name="ID_RESERVA" />
+      </Principal>
+      <Dependent Role="RESERVA_SERVICIO">
+        <PropertyRef Name="RESERVA_ID_RESERVA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="REVISION_INV_USUARIO_FK">
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+    <End Role="REVISION_INV" Type="Self.REVISION_INV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="RUT_USUARIO" />
+      </Principal>
+      <Dependent Role="REVISION_INV">
+        <PropertyRef Name="USUARIO_RUT_USUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RESERVA_SERVICIO_SERVICIO_FK">
+    <End Role="SERVICIO" Type="Self.SERVICIO" Multiplicity="1" />
+    <End Role="RESERVA_SERVICIO" Type="Self.RESERVA_SERVICIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SERVICIO">
+        <PropertyRef Name="ID_SERVICIO" />
+      </Principal>
+      <Dependent Role="RESERVA_SERVICIO">
+        <PropertyRef Name="SERVICIO_ID_SERVICIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RESERVA_AC">
+    <End Role="ACOMPANANTE" Type="Self.ACOMPANANTE" Multiplicity="*" />
+    <End Role="RESERVA" Type="Self.RESERVA" Multiplicity="*" />
+  </Association>
+  <Association Name="RESERVA_DEPTO">
+    <End Role="DPTO" Type="Self.DPTO" Multiplicity="*" />
+    <End Role="RESERVA" Type="Self.RESERVA" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="ArriendoTemporadaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ACOMPANANTE" EntityType="Self.ACOMPANANTE" />
+    <EntitySet Name="CHECKEO" EntityType="Self.CHECKEO" />
+    <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" />
+    <EntitySet Name="DPTO" EntityType="Self.DPTO" />
+    <EntitySet Name="INVENTARIO" EntityType="Self.INVENTARIO" />
+    <EntitySet Name="MANTENCION" EntityType="Self.MANTENCION" />
+    <EntitySet Name="MULTA" EntityType="Self.MULTA" />
+    <EntitySet Name="PAGO" EntityType="Self.PAGO" />
+    <EntitySet Name="RESERVA" EntityType="Self.RESERVA" />
+    <EntitySet Name="REVISION_INV" EntityType="Self.REVISION_INV" />
+    <EntitySet Name="SERVICIO" EntityType="Self.SERVICIO" />
+    <EntitySet Name="TRANSBANK" EntityType="Self.TRANSBANK" />
+    <EntitySet Name="USUARIO" EntityType="Self.USUARIO" />
+    <EntitySet Name="GASTOS" EntityType="Self.GASTOS" />
+    <EntitySet Name="RESERVA_SERVICIO" EntityType="Self.RESERVA_SERVICIO" />
+    <AssociationSet Name="CHECKEO_RESERVA_FK" Association="Self.CHECKEO_RESERVA_FK">
+      <End Role="RESERVA" EntitySet="RESERVA" />
+      <End Role="CHECKEO" EntitySet="CHECKEO" />
+    </AssociationSet>
+    <AssociationSet Name="CHECKEO_USUARIO_FK" Association="Self.CHECKEO_USUARIO_FK">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="CHECKEO" EntitySet="CHECKEO" />
+    </AssociationSet>
+    <AssociationSet Name="RESERVA_CLIENTE_FK" Association="Self.RESERVA_CLIENTE_FK">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="RESERVA" EntitySet="RESERVA" />
+    </AssociationSet>
+    <AssociationSet Name="GASTOS_DPTO_FK" Association="Self.GASTOS_DPTO_FK">
+      <End Role="DPTO" EntitySet="DPTO" />
+      <End Role="GASTOS" EntitySet="GASTOS" />
+    </AssociationSet>
+    <AssociationSet Name="INVENTARIO_DPTO_FK" Association="Self.INVENTARIO_DPTO_FK">
+      <End Role="DPTO" EntitySet="DPTO" />
+      <End Role="INVENTARIO" EntitySet="INVENTARIO" />
+    </AssociationSet>
+    <AssociationSet Name="MANTENCION_DPTO_FK" Association="Self.MANTENCION_DPTO_FK">
+      <End Role="DPTO" EntitySet="DPTO" />
+      <End Role="MANTENCION" EntitySet="MANTENCION" />
+    </AssociationSet>
+    <AssociationSet Name="REVISION_INV_DPTO_FK" Association="Self.REVISION_INV_DPTO_FK">
+      <End Role="DPTO" EntitySet="DPTO" />
+      <End Role="REVISION_INV" EntitySet="REVISION_INV" />
+    </AssociationSet>
+    <AssociationSet Name="MULTA_RESERVA_FK" Association="Self.MULTA_RESERVA_FK">
+      <End Role="RESERVA" EntitySet="RESERVA" />
+      <End Role="MULTA" EntitySet="MULTA" />
+    </AssociationSet>
+    <AssociationSet Name="PAGO_RESERVA_FK" Association="Self.PAGO_RESERVA_FK">
+      <End Role="RESERVA" EntitySet="RESERVA" />
+      <End Role="PAGO" EntitySet="PAGO" />
+    </AssociationSet>
+    <AssociationSet Name="PAGO_TRANSBANK_FK" Association="Self.PAGO_TRANSBANK_FK">
+      <End Role="TRANSBANK" EntitySet="TRANSBANK" />
+      <End Role="PAGO" EntitySet="PAGO" />
+    </AssociationSet>
+    <AssociationSet Name="RESERVA_SERVICIO_RESERVA_FK" Association="Self.RESERVA_SERVICIO_RESERVA_FK">
+      <End Role="RESERVA" EntitySet="RESERVA" />
+      <End Role="RESERVA_SERVICIO" EntitySet="RESERVA_SERVICIO" />
+    </AssociationSet>
+    <AssociationSet Name="REVISION_INV_USUARIO_FK" Association="Self.REVISION_INV_USUARIO_FK">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="REVISION_INV" EntitySet="REVISION_INV" />
+    </AssociationSet>
+    <AssociationSet Name="RESERVA_SERVICIO_SERVICIO_FK" Association="Self.RESERVA_SERVICIO_SERVICIO_FK">
+      <End Role="SERVICIO" EntitySet="SERVICIO" />
+      <End Role="RESERVA_SERVICIO" EntitySet="RESERVA_SERVICIO" />
+    </AssociationSet>
+    <AssociationSet Name="RESERVA_AC" Association="Self.RESERVA_AC">
+      <End Role="ACOMPANANTE" EntitySet="ACOMPANANTE" />
+      <End Role="RESERVA" EntitySet="RESERVA" />
+    </AssociationSet>
+    <AssociationSet Name="RESERVA_DEPTO" Association="Self.RESERVA_DEPTO">
+      <End Role="DPTO" EntitySet="DPTO" />
+      <End Role="RESERVA" EntitySet="RESERVA" />
+    </AssociationSet>
+    <FunctionImport Name="DELETE_INVENTARIO">
+      <Parameter Name="ID_INVD" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="DELETE_RESERVA">
+      <Parameter Name="ID_RESERVAD" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="DELETE_SERVICIO">
+      <Parameter Name="ID_SERVICIOD" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="INHABILITAR_CLIENTE">
+      <Parameter Name="ID_CLIENTE" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="INHABILITAR_DPTO">
+      <Parameter Name="ID_DPTO" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="INHABILITAR_USUARIO">
+      <Parameter Name="RUT_USUARIO" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="INSERT_CLIENTE">
+      <Parameter Name="RUT_CLIENTE" Mode="In" Type="String" />
+      <Parameter Name="PASAPORTE" Mode="In" Type="String" />
+      <Parameter Name="PASSWRD" Mode="In" Type="String" />
+      <Parameter Name="NOMBRE" Mode="In" Type="String" />
+      <Parameter Name="APELLIDO_P" Mode="In" Type="String" />
+      <Parameter Name="APELLIDO_M" Mode="In" Type="String" />
+      <Parameter Name="NUM_CELULAR" Mode="In" Type="Decimal" />
+      <Parameter Name="CORREO" Mode="In" Type="String" />
+      <Parameter Name="NACIONALIDAD" Mode="In" Type="String" />
+      <Parameter Name="CLIENTE_FRECUENTE" Mode="In" Type="String" />
+      <Parameter Name="ESTADO_CLIENTE" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="INSERT_DPTO">
+      <Parameter Name="NUM_DEPTO" Mode="In" Type="String" />
+      <Parameter Name="DIRECCION" Mode="In" Type="String" />
+      <Parameter Name="DESCRIPCION" Mode="In" Type="String" />
+      <Parameter Name="REGION" Mode="In" Type="String" />
+      <Parameter Name="ESTADO" Mode="In" Type="String" />
+      <Parameter Name="VALOR_DIARIO" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="INSERT_INVENTARIO">
+      <Parameter Name="NOMBRE_ARTI" Mode="In" Type="String" />
+      <Parameter Name="TIPO_ARTI" Mode="In" Type="String" />
+      <Parameter Name="VALOR_ARTI" Mode="In" Type="Decimal" />
+      <Parameter Name="DPTO_ID_DPTO" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="INSERT_RESERVA">
+      <Parameter Name="FECHA_INICIO" Mode="In" Type="DateTime" />
+      <Parameter Name="FECHA_FIN" Mode="In" Type="DateTime" />
+      <Parameter Name="ESTADO" Mode="In" Type="Decimal" />
+      <Parameter Name="CLIENTE_ID_CLIENTE" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="INSERT_SERVICIO">
+      <Parameter Name="NOMBRE" Mode="In" Type="String" />
+      <Parameter Name="TIPO" Mode="In" Type="String" />
+      <Parameter Name="HORARIO_INICIO" Mode="In" Type="DateTime" />
+      <Parameter Name="HORARIO_FIN" Mode="In" Type="DateTime" />
+      <Parameter Name="PUNTO_REUNION" Mode="In" Type="String" />
+      <Parameter Name="VALOR" Mode="In" Type="Decimal" />
+      <Parameter Name="RECORRIDO" Mode="In" Type="String" />
+      <Parameter Name="VEHICULO" Mode="In" Type="String" />
+      <Parameter Name="CHOFER" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="INSERT_USUARIO">
+      <Parameter Name="RUT_USUARIO" Mode="In" Type="String" />
+      <Parameter Name="CONTRASENIA" Mode="In" Type="String" />
+      <Parameter Name="ROL" Mode="In" Type="String" />
+      <Parameter Name="NOMBRE_USUARIO" Mode="In" Type="String" />
+      <Parameter Name="APELLIDO_P" Mode="In" Type="String" />
+      <Parameter Name="APELLIDO_M" Mode="In" Type="String" />
+      <Parameter Name="ESTADO_USUARIO" Mode="In" Type="String" />
+      <Parameter Name="EMAIL" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="UPDATE_CLIENTE">
+      <Parameter Name="ID_CLIENTEU" Mode="In" Type="Decimal" />
+      <Parameter Name="RUT_CLIENTEU" Mode="In" Type="String" />
+      <Parameter Name="PASAPORTEU" Mode="In" Type="String" />
+      <Parameter Name="PASSWRDU" Mode="In" Type="String" />
+      <Parameter Name="NOMBREU" Mode="In" Type="String" />
+      <Parameter Name="APELLIDO_PU" Mode="In" Type="String" />
+      <Parameter Name="APELLIDO_MU" Mode="In" Type="String" />
+      <Parameter Name="NUM_CELULARU" Mode="In" Type="String" />
+      <Parameter Name="CORREOU" Mode="In" Type="String" />
+      <Parameter Name="NACIONALIDADU" Mode="In" Type="String" />
+      <Parameter Name="CLIENTE_FRECUENTEU" Mode="In" Type="String" />
+      <Parameter Name="ESTADO_CLIENTEU" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="UPDATE_DPTO">
+      <Parameter Name="ID_DPTOU" Mode="In" Type="Decimal" />
+      <Parameter Name="NUM_DEPTOU" Mode="In" Type="String" />
+      <Parameter Name="DIRECCIONU" Mode="In" Type="String" />
+      <Parameter Name="DESCRIPCIONU" Mode="In" Type="String" />
+      <Parameter Name="REGIONU" Mode="In" Type="String" />
+      <Parameter Name="ESTADOU" Mode="In" Type="String" />
+      <Parameter Name="VALOR_DIARIOU" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="UPDATE_INVENTARIO">
+      <Parameter Name="ID_INVU" Mode="In" Type="Decimal" />
+      <Parameter Name="NOMBRE_ARTIU" Mode="In" Type="String" />
+      <Parameter Name="TIPO_ARTIU" Mode="In" Type="String" />
+      <Parameter Name="VALOR_ARTIU" Mode="In" Type="Decimal" />
+      <Parameter Name="DPTO_ID_DPTOU" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="UPDATE_RESERVA">
+      <Parameter Name="ID_RESERVAU" Mode="In" Type="Decimal" />
+      <Parameter Name="FECHA_INICIOU" Mode="In" Type="DateTime" />
+      <Parameter Name="FECHA_FINU" Mode="In" Type="DateTime" />
+      <Parameter Name="ESTADOU" Mode="In" Type="Decimal" />
+      <Parameter Name="CLIENTE_ID_CLIENTEU" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="UPDATE_SERVICIO">
+      <Parameter Name="ID_SERVICIOD" Mode="In" Type="Decimal" />
+      <Parameter Name="NOMBREU" Mode="In" Type="String" />
+      <Parameter Name="TIPOU" Mode="In" Type="String" />
+      <Parameter Name="HORARIO_INICIOU" Mode="In" Type="DateTime" />
+      <Parameter Name="HORARIO_FINU" Mode="In" Type="DateTime" />
+      <Parameter Name="PUNTO_REUNIONU" Mode="In" Type="String" />
+      <Parameter Name="VALORU" Mode="In" Type="Decimal" />
+      <Parameter Name="RECORRIDOU" Mode="In" Type="String" />
+      <Parameter Name="VEHICULOU" Mode="In" Type="String" />
+      <Parameter Name="CHOFERU" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="UPDATE_USUARIO">
+      <Parameter Name="RUT_USUARIOU" Mode="In" Type="String" />
+      <Parameter Name="CONTRASENIAU" Mode="In" Type="String" />
+      <Parameter Name="ROLU" Mode="In" Type="String" />
+      <Parameter Name="NOMBRE_USUARIOU" Mode="In" Type="String" />
+      <Parameter Name="APELLIDO_PU" Mode="In" Type="String" />
+      <Parameter Name="APELLIDO_MU" Mode="In" Type="String" />
+      <Parameter Name="ESTADO_USUARIOU" Mode="In" Type="String" />
+      <Parameter Name="EMAILU" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Agregar Cliente</h2>
+
+
+@model ArriendoTemporada.Negocio.Cliente
+@{
+    ViewBag.Title = "Create";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(c => c.Rut_Cliente)
+    @Html.TextBoxFor(c => c.Rut_Cliente)
+    <br />
+    @Html.LabelFor(c => c.Pasaporte)
+    @Html.TextBoxFor(c => c.Pasaporte)
+    <br />
+    @Html.LabelFor(c => c.Passwrd)
+    @Html.TextBoxFor(c => c.Passwrd)
+    <br />
+    @Html.LabelFor(c => c.Nombre)
+    @Html.TextBoxFor(c => c.Nombre)
+    <br />
+    @Html.LabelFor(c => c.Apellido_P)
+    @Html.TextBoxFor(c => c.Apellido_P)
+    <br />
+    @Html.LabelFor(c => c.Apellido_M)
+    @Html.TextBoxFor(c => c.Apellido_M)
+    <br />
+    @Html.LabelFor(c => c.Num_Celular)
+    @Html.TextBoxFor(c => c.Num_Celular)
+    <br />
+    @Html.LabelFor(c => c.Correo)
+    @Html.TextBoxFor(c => c.Correo)
+    <br />
+    @Html.LabelFor(c => c.Nacionalidad)
+    @Html.TextBoxFor(c => c.Nacionalidad)
+    <br />
+    @Html.LabelFor(c => c.Cliente_Frecuente)
+    @Html.TextBoxFor(c => c.Cliente_Frecuente)
+    <br />
+    @Html.LabelFor(c => c.Estado_Cliente)
+    @Html.TextBoxFor(c => c.Estado_Cliente)
+    <br />
+    <button>Guardar</button>
+}
+
+
