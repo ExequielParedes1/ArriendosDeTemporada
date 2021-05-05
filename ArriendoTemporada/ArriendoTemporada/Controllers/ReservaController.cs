@@ -86,7 +86,18 @@ namespace ArriendoTemporada.Controllers
         // GET: Reserva/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            if (new Reserva().Find(id) == null)
+            {
+                TempData["mensaje"] = "No existe la reserva";
+                return RedirectToAction("Index");
+            }
+            if (new Cliente().Delete(id))
+            {
+                TempData["mensaje"] = "Eliminado correctamente";
+                return RedirectToAction("Index");
+            }
+            TempData["mensaje"] = "No se ha podido eliminar";
+            return RedirectToAction("Index");
         }
 
         // POST: Reserva/Delete/5
