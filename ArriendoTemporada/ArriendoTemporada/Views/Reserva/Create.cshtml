@@ -11,11 +11,11 @@
     @Html.DropDownListFor(r => r.Cliente_Id, new SelectList(ViewBag.cliente, "Id", "Nombre"))
     <br />
 
-    @Html.LabelFor(r => r.Fecha_Inicio)
-    @Html.TextBoxFor(r => r.Fecha_Inicio)
+    @Html.LabelFor(r => r.Fecha_Inicio, "Fecha Inicial")
+    @Html.TextBoxFor(r => r.Fecha_Inicio, new { type = "date" })
     <br />
-    @Html.LabelFor(r => r.Fecha_Fin)
-    @Html.TextBoxFor(r => r.Fecha_Fin)
+    @Html.LabelFor(r => r.Fecha_Fin, "Fecha Termino")
+    @Html.TextBoxFor(r => r.Fecha_Fin, new { type = "date" })
     <br />
     @Html.LabelFor(r => r.Estado)
     @Html.TextBoxFor(r => r.Estado)
