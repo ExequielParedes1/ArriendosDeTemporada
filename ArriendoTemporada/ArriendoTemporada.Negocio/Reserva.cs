@@ -86,7 +86,7 @@ namespace ArriendoTemporada.Negocio
                     Estado_Cliente = r.CLIENTE.ESTADO_CLIENTE,
 
                 }
-            }).Where(c => c.Id == id).FirstOrDefault();
+            }).Where(r => r.Id == id).FirstOrDefault();
         }
 
         public bool Update ()
