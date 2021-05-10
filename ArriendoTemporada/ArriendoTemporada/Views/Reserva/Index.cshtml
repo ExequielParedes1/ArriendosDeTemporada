@@ -6,7 +6,11 @@
 }
 
 <h2>Reservas</h2>
+@Html.ActionLink("Reservar", "Create", "Reserva")
 
+@*
+    @Html.ActionLink("Ver reservas", "Index", "Reserva")
+*@
 
 @{ List<Reserva> reservas = (List<Reserva>)ViewBag.reserva; }
 
@@ -22,17 +26,17 @@
 
     @foreach (var reserva in reservas)
     {
-<tr>
-    <td>@reserva.Id</td>
-    <td>@reserva.Cliente_Id</td>
-    <td>@reserva.Fecha_Inicio</td>
-    <td>@reserva.Fecha_Fin</td>
-    <td>@reserva.Estado</td>
-    <td>
-        @Html.ActionLink("Eliminar", "Delete", new { id = reserva.Id })
-        @Html.ActionLink("Editar", "Edit", new { id = reserva.Id })
-    </td>
-</tr>
+        <tr>
+            <td>@reserva.Id</td>
+            <td>@reserva.Cliente.Nombre</td>
+            <td>@reserva.Fecha_Inicio</td>
+            <td>@reserva.Fecha_Fin</td>
+            <td>@reserva.Estado</td>
+            <td>
+                @Html.ActionLink("Eliminar", "Delete", new { id = reserva.Id })
+                @Html.ActionLink("Editar", "Edit", new { id = reserva.Id })
+            </td>
+        </tr>
     }
 </table>
 

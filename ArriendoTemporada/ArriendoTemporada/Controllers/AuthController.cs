@@ -25,6 +25,7 @@ namespace ArriendoTemporada.Controllers
                 {
                     return Redirect(ReturnUrl);
                 }
+                Session["username"] = cliente.Rut_Cliente;
                 return RedirectToAction("Index", "Home");
             }
             TempData["mensaje"] = "Nombre o usuario Incorrectos";

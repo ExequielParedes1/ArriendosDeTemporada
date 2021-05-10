@@ -103,6 +103,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
+    <Compile Include="Controllers\DepartamentoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ReservaController.cs" />
     <Compile Include="Global.asax.cs">
@@ -123,6 +124,7 @@
     <Content Include="Views\Cliente\Edit.cshtml" />
     <Content Include="Views\Reserva\Edit.cshtml" />
     <Content Include="Views\Auth\Login.cshtml" />
+    <Content Include="Views\Departamento\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -133,6 +135,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Src\Img\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ArriendoTemporada.Negocio\ArriendoTemporada.Negocio.csproj">
