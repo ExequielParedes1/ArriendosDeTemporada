@@ -24,11 +24,12 @@ public class servicio {
     private String vehiculo;
     private String chofer;
     private String estado_servicio;
+    private int cupos;
 
     public servicio() {
     }
 
-    public servicio(int id_servicio, String nombre, String tipo, Date hora_ini, Date hora_fin, String punto_reunion, int valor, String recorrido, String vehiculo, String chofer, String estado_servicio) {
+    public servicio(int id_servicio, String nombre, String tipo, Date hora_ini, Date hora_fin, String punto_reunion, int valor, String recorrido, String vehiculo, String chofer, String estado_servicio, int cupos) {
         this.id_servicio = id_servicio;
         this.nombre = nombre;
         this.tipo = tipo;
@@ -40,6 +41,7 @@ public class servicio {
         this.vehiculo = vehiculo;
         this.chofer = chofer;
         this.estado_servicio = estado_servicio;
+        this.cupos = cupos;
     }
 
     public int getId_servicio() {
@@ -130,15 +132,18 @@ public class servicio {
         this.estado_servicio = estado_servicio;
     }
 
-    @Override
-    public String toString() {
-        return "servicio{" + "id_servicio=" + id_servicio + ", nombre=" + nombre + ", tipo=" + tipo + ", hora_ini=" + hora_ini + ", hora_fin=" + hora_fin + ", punto_reunion=" + punto_reunion + ", valor=" + valor + ", recorrido=" + recorrido + ", vehiculo=" + vehiculo + ", chofer=" + chofer + ", estado_servicio=" + estado_servicio + '}';
+    public int getCupos() {
+        return cupos;
     }
 
-    
+    public void setCupos(int cupos) {
+        this.cupos = cupos;
+    }
 
-    
-    
-    
+    @Override
+    public String toString() {
+        return "servicio{" + "id_servicio=" + id_servicio + ", nombre=" + nombre + ", tipo=" + tipo + ", hora_ini=" + hora_ini + ", hora_fin=" + hora_fin + ", punto_reunion=" + punto_reunion + ", valor=" + valor + ", recorrido=" + recorrido + ", vehiculo=" + vehiculo + ", chofer=" + chofer + ", estado_servicio=" + estado_servicio + ", cupos=" + cupos + '}';
+    }
+
     
 }

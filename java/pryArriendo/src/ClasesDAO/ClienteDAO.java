@@ -61,21 +61,21 @@ public class ClienteDAO {
         return validado;
     }
     
-    public boolean eliminarCliente(Connection con, int id) {
-        boolean pasaEliminacion = false;
-        String sql = "{call delete_cliente (?)}";
-        
-        try {
-            CallableStatement pst = con.prepareCall(sql);
-            pst.setInt(1, id);
-            pst.execute();
-            pst.close();
-            pasaEliminacion = true;
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-        return pasaEliminacion;
-    }
+//    public boolean eliminarCliente(Connection con, int id) {
+//        boolean pasaEliminacion = false;
+//        String sql = "{call delete_cliente (?)}";
+//        
+//        try {
+//            CallableStatement pst = con.prepareCall(sql);
+//            pst.setInt(1, id);
+//            pst.execute();
+//            pst.close();
+//            pasaEliminacion = true;
+//        } catch (SQLException e) {
+//            JOptionPane.showMessageDialog(null, e);
+//        }
+//        return pasaEliminacion;
+//    }
     
     public boolean DesabilitarCliente(Connection con, int id) {
         boolean pasoDesabilitar = false;

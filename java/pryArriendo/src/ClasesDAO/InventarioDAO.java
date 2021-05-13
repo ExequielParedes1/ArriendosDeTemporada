@@ -28,7 +28,7 @@ public class InventarioDAO {
     
     public boolean ingresarInventario(Connection con, inventario inv) {
         paso = false;
-            String sql = "{call insert_inventario (?,?,?,?)}";
+            String sql = "{call insert_inventario (?,?,?,?,?)}";
         
         try {
             CallableStatement pst = con.prepareCall(sql);
@@ -36,6 +36,7 @@ public class InventarioDAO {
             pst.setString(2, inv.getTipo_articulo());
             pst.setInt(3, inv.getValor_articulo());
             pst.setInt(4, inv.getDepto());
+            pst.setString(5, inv.getEstado_inventario());
             pst.execute();
             pst.close();
             paso = true;
@@ -48,17 +49,17 @@ public class InventarioDAO {
     
      public void listarInventario(Connection con, JTable tabla) {
         DefaultTableModel model;
-        String [] columnas = {"ID", "Articulo", "Tipo Articulo", "Valor", "ID DEPTO"};
+        String [] columnas = {"ID", "Articulo", "Tipo Articulo", "Valor", "ID DEPTO","ESTADO"};
         model = new DefaultTableModel(null, columnas);
         
         String sql = "Select * from inventario";
-        String[] filas = new String[5];
+        String[] filas = new String[6];
         
         try {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
-                for(int i = 0; i < 5; i++) {
+                for(int i = 0; i < 6; i++) {
                     filas[i] = rs.getString(i+1);
                 }
                 model.addRow(filas);
@@ -69,9 +70,9 @@ public class InventarioDAO {
         }
     }
      
-     public boolean eliminarInventario(Connection con, int id) {
+     public boolean inhabilitarInv(Connection con, int id) {
         boolean pasoEliminar = false;
-        String sql = "{call delete_inventario (?)}";
+        String sql = "{call inhabilitar_inventario (?)}";
         
         try {
             CallableStatement pst = con.prepareCall(sql);
@@ -85,6 +86,33 @@ public class InventarioDAO {
         return pasoEliminar;
     }
      
+     public boolean modificarInv(Connection con, inventario inv) {
+        boolean pasoModi = false;
+        String sql = "{call update_inventario(?,?,?,?,?,?)}";
+        
+        try {
+            CallableStatement pst = con.prepareCall(sql);
+            pst.setInt(1, inv.getId_inventario());
+            pst.setString(2, inv.getNombre_articulo());
+            pst.setString(3, inv.getTipo_articulo());
+            pst.setInt(4, inv.getValor_articulo());
+            pst.setInt(5, inv.getDepto());
+            pst.setString(6, inv.getEstado_inventario());
+            pst.execute();
+            pst.close();
+            pasoModi = true;
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+//            System.out.println(dep.getId_depto());
+//            System.out.println(dep.getNum_depto());
+//            System.out.println(dep.getDireccion());
+//            System.out.println(dep.getDescripcion());
+//            System.out.println(dep.getRegion());
+//            System.out.println(dep.getEstado());
+            
+        return pasoModi;
+    }
     
     public ArrayList<departamento> listDpto(Connection conn) {
         ArrayList<departamento> Adep = new ArrayList<>();

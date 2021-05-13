@@ -10,10 +10,16 @@ import ClasesDTO.UsuarioDTO;
 import ClasesDTO.DepartamentoDTO;
 import ClasesDTO.InventarioDTO;
 import ClasesDTO.ServicioDTO;
+import ClasesEntity.cbDepto;
 import ClasesEntity.cliente;
 import ClasesEntity.departamento;
+import ClasesEntity.inventario;
 import ClasesEntity.servicio;
 import ClasesEntity.usuario;
+import conexionBD.conexion;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.sql.Time;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
@@ -56,8 +62,10 @@ public class vistaAdministrador extends javax.swing.JFrame {
         listarDepto();
         listarClientes();
         listarServicios();
-        cargarArray();
+        listarInventario();
+//        cargarArray();
 //        comboDeptoInventario();
+        cargarCombo();
     }
 
     /**
@@ -77,7 +85,6 @@ public class vistaAdministrador extends javax.swing.JFrame {
         TablaClientes = new javax.swing.JTable();
         jLabel31 = new javax.swing.JLabel();
         btnModClienteTabla = new javax.swing.JButton();
-        btnEliminarCli = new javax.swing.JButton();
         btnDesabilitarClie = new javax.swing.JButton();
         tomaNombreCliente = new javax.swing.JLabel();
         tomaidCliente = new javax.swing.JLabel();
@@ -229,8 +236,6 @@ public class vistaAdministrador extends javax.swing.JFrame {
         jScrollPane6 = new javax.swing.JScrollPane();
         tablaInventario = new javax.swing.JTable();
         jLabel62 = new javax.swing.JLabel();
-        btnEliminarInventario = new javax.swing.JButton();
-        btnModInventario = new javax.swing.JButton();
         jPanel16 = new javax.swing.JPanel();
         jLabel54 = new javax.swing.JLabel();
         jLabel56 = new javax.swing.JLabel();
@@ -244,19 +249,12 @@ public class vistaAdministrador extends javax.swing.JFrame {
         cmbDeptoInventario = new javax.swing.JComboBox<>();
         btnRegistroInventario = new javax.swing.JButton();
         btnListaInventario = new javax.swing.JButton();
-        jPanel17 = new javax.swing.JPanel();
-        txtArticuloMOD = new javax.swing.JTextField();
-        txtTipoArticuloMOD = new javax.swing.JTextField();
-        txtPrecioArticuloMOD = new javax.swing.JSpinner();
-        jLabel63 = new javax.swing.JLabel();
-        jLabel64 = new javax.swing.JLabel();
-        jLabel65 = new javax.swing.JLabel();
-        jLabel66 = new javax.swing.JLabel();
-        jLabel67 = new javax.swing.JLabel();
-        cmbDeptoInventarioMOD = new javax.swing.JComboBox<>();
-        btnModiInventario = new javax.swing.JButton();
-        btnListaInventarioMod = new javax.swing.JButton();
-        jLabel68 = new javax.swing.JLabel();
+        btnModInventario1 = new javax.swing.JButton();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        tablaInventario2 = new javax.swing.JTable();
+        tomaidInv2 = new javax.swing.JLabel();
+        btnLimpiar = new javax.swing.JButton();
+        btnEliminInve = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         tabServicio = new javax.swing.JTabbedPane();
         jPanel24 = new javax.swing.JPanel();
@@ -288,7 +286,9 @@ public class vistaAdministrador extends javax.swing.JFrame {
         jLabel87 = new javax.swing.JLabel();
         txtVehiculo = new javax.swing.JTextField();
         jLabel88 = new javax.swing.JLabel();
-        txtxConductor = new javax.swing.JTextField();
+        txtConductor = new javax.swing.JTextField();
+        jLabel94 = new javax.swing.JLabel();
+        txtCupos = new javax.swing.JSpinner();
         jPanel26 = new javax.swing.JPanel();
         txtRecorridoMOD = new javax.swing.JTextField();
         txtPuntoReunionMOD = new javax.swing.JTextField();
@@ -305,7 +305,7 @@ public class vistaAdministrador extends javax.swing.JFrame {
         btnModServicio = new javax.swing.JButton();
         btnListarServicioMod = new javax.swing.JButton();
         txtVehiculoMOD = new javax.swing.JTextField();
-        txtxConductorMOD = new javax.swing.JTextField();
+        txtConductorMOD = new javax.swing.JTextField();
         jLabel89 = new javax.swing.JLabel();
         jLabel90 = new javax.swing.JLabel();
         cmbTipoServicioMOD = new javax.swing.JComboBox<>();
@@ -314,6 +314,8 @@ public class vistaAdministrador extends javax.swing.JFrame {
         txtNomServicioMOD = new javax.swing.JTextField();
         jLabel93 = new javax.swing.JLabel();
         cmbEstadoServMOD = new javax.swing.JComboBox<>();
+        txtCuposMOD = new javax.swing.JSpinner();
+        jLabel95 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jTabbedPane3 = new javax.swing.JTabbedPane();
         jPanel7 = new javax.swing.JPanel();
@@ -349,13 +351,6 @@ public class vistaAdministrador extends javax.swing.JFrame {
             }
         });
 
-        btnEliminarCli.setText("ELIMINAR CLIENTE");
-        btnEliminarCli.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarCliActionPerformed(evt);
-            }
-        });
-
         btnDesabilitarClie.setText("INHABILITAR CLIENTE");
         btnDesabilitarClie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -372,9 +367,7 @@ public class vistaAdministrador extends javax.swing.JFrame {
                 .addComponent(btnModClienteTabla)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnDesabilitarClie)
-                .addGap(69, 69, 69)
-                .addComponent(btnEliminarCli)
-                .addGap(80, 80, 80))
+                .addGap(283, 283, 283))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap(81, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -400,10 +393,9 @@ public class vistaAdministrador extends javax.swing.JFrame {
                 .addComponent(tomaNombreCliente)
                 .addGap(27, 27, 27)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnModClienteTabla)
-                    .addComponent(btnEliminarCli)
                     .addComponent(btnDesabilitarClie))
                 .addGap(105, 105, 105))
         );
@@ -547,7 +539,7 @@ public class vistaAdministrador extends javax.swing.JFrame {
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtPassCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -685,7 +677,7 @@ public class vistaAdministrador extends javax.swing.JFrame {
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addComponent(jLabel22)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 137, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 173, Short.MAX_VALUE)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtRutClienteMOD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel44)
@@ -807,7 +799,7 @@ public class vistaAdministrador extends javax.swing.JFrame {
                         .addComponent(jLabel21)))
                 .addGap(48, 48, 48)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton3))
@@ -956,7 +948,7 @@ public class vistaAdministrador extends javax.swing.JFrame {
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 688, Short.MAX_VALUE)
+            .addGap(0, 726, Short.MAX_VALUE)
             .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel10Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -1078,7 +1070,7 @@ public class vistaAdministrador extends javax.swing.JFrame {
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnModUsuario)
                     .addComponent(btnListaUserModificacion))
-                .addContainerGap(201, Short.MAX_VALUE))
+                .addContainerGap(237, Short.MAX_VALUE))
         );
 
         tabuser.addTab("Modificar Usuario", jPanel11);
@@ -1124,7 +1116,7 @@ public class vistaAdministrador extends javax.swing.JFrame {
             }
         });
 
-        jButton5.setText("ELIMINAR DEPTO");
+        jButton5.setText("INHABILITAR DEPTO");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -1167,7 +1159,7 @@ public class vistaAdministrador extends javax.swing.JFrame {
                     .addComponent(tomaidDepto))
                 .addGap(18, 18, 18)
                 .addComponent(tomaNombreDepto)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(55, 55, 55)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1274,7 +1266,7 @@ public class vistaAdministrador extends javax.swing.JFrame {
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRegistroDepto)
                     .addComponent(btnListaDepto))
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(101, Short.MAX_VALUE))
         );
 
         tabDepto.addTab("Agregar Depto", jPanel12);
@@ -1364,7 +1356,7 @@ public class vistaAdministrador extends javax.swing.JFrame {
                 .addComponent(jLabel47)
                 .addGap(114, 114, 114)
                 .addComponent(txtNumDeptoMod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 329, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 365, Short.MAX_VALUE)
                 .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel84)
                     .addComponent(txtValorDiarioMOD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1396,7 +1388,7 @@ public class vistaAdministrador extends javax.swing.JFrame {
                     .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel42)
                         .addComponent(cmbEstadoMOD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(173, Short.MAX_VALUE)))
+                    .addContainerGap(209, Short.MAX_VALUE)))
         );
 
         tabDepto.addTab("Modificar Dpto", jPanel23);
@@ -1436,10 +1428,6 @@ public class vistaAdministrador extends javax.swing.JFrame {
         jLabel62.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         jLabel62.setText("Listado de inventario");
 
-        btnEliminarInventario.setText("ELIMINAR INVENTARIO");
-
-        btnModInventario.setText("MODIFICAR INVENTARIO");
-
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
         jPanel15Layout.setHorizontalGroup(
@@ -1452,26 +1440,16 @@ public class vistaAdministrador extends javax.swing.JFrame {
                     .addGroup(jPanel15Layout.createSequentialGroup()
                         .addGap(409, 409, 409)
                         .addComponent(jLabel62)))
-                .addContainerGap(82, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
-                .addGap(252, 252, 252)
-                .addComponent(btnModInventario)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnEliminarInventario)
-                .addGap(257, 257, 257))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel15Layout.createSequentialGroup()
                 .addGap(45, 45, 45)
                 .addComponent(jLabel62)
-                .addGap(68, 68, 68)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnEliminarInventario)
-                    .addComponent(btnModInventario))
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addGap(52, 52, 52)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         tabInventario.addTab("Listar Inventario", jPanel15);
@@ -1490,11 +1468,60 @@ public class vistaAdministrador extends javax.swing.JFrame {
         jLabel61.setText("$");
 
         btnRegistroInventario.setText("REGISTRAR INVENTARIO");
+        btnRegistroInventario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistroInventarioActionPerformed(evt);
+            }
+        });
 
-        btnListaInventario.setText("LISTADO DE INVENTARIO");
+        btnListaInventario.setText("LISTADO TOTAL DE INVENTARIO");
         btnListaInventario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnListaInventarioMouseClicked(evt);
+            }
+        });
+        btnListaInventario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListaInventarioActionPerformed(evt);
+            }
+        });
+
+        btnModInventario1.setText("MODIFICAR INVENTARIO");
+        btnModInventario1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModInventario1ActionPerformed(evt);
+            }
+        });
+
+        tablaInventario2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tablaInventario2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaInventario2MouseClicked(evt);
+            }
+        });
+        jScrollPane8.setViewportView(tablaInventario2);
+
+        btnLimpiar.setText("LIMPIAR CAMPOS");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
+
+        btnEliminInve.setText("ELIMINAR INVENTARIO");
+        btnEliminInve.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminInveActionPerformed(evt);
             }
         });
 
@@ -1503,162 +1530,100 @@ public class vistaAdministrador extends javax.swing.JFrame {
         jPanel16Layout.setHorizontalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel16Layout.createSequentialGroup()
-                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(390, 390, 390)
+                .addComponent(jLabel54)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel16Layout.createSequentialGroup()
-                        .addGap(390, 390, 390)
-                        .addComponent(jLabel54))
-                    .addGroup(jPanel16Layout.createSequentialGroup()
-                        .addGap(220, 220, 220)
-                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel56)
+                            .addComponent(jLabel58))
+                        .addGap(51, 51, 51)
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtTipoArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel59)
+                            .addComponent(jLabel60))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cmbDeptoInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel16Layout.createSequentialGroup()
-                                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel58, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel56, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addGap(51, 51, 51)
-                                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtTipoArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel16Layout.createSequentialGroup()
-                                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel59)
-                                    .addComponent(jLabel60))
-                                .addGap(40, 40, 40)
                                 .addComponent(jLabel61, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cmbDeptoInventario, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtPrecioArticulo)))))
-                    .addGroup(jPanel16Layout.createSequentialGroup()
-                        .addGap(279, 279, 279)
-                        .addComponent(btnListaInventario)
-                        .addGap(115, 115, 115)
-                        .addComponent(btnRegistroInventario)))
-                .addContainerGap(297, Short.MAX_VALUE))
+                                .addComponent(txtPrecioArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(4, 4, 4)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 329, Short.MAX_VALUE)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnRegistroInventario, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btnEliminInve, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnLimpiar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnModInventario1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(92, 92, 92))
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jScrollPane8)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
+                        .addComponent(tomaidInv2)
+                        .addGap(68, 68, 68))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
+                        .addComponent(btnListaInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38))))
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel16Layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(jLabel54)
-                .addGap(163, 163, 163)
-                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel56)
-                    .addComponent(txtArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel58)
-                    .addComponent(txtTipoArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
+                    .addGroup(jPanel16Layout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(jLabel54)
+                        .addGap(43, 43, 43)
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel56))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel58)
+                            .addComponent(txtTipoArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel16Layout.createSequentialGroup()
+                        .addGap(90, 90, 90)
+                        .addComponent(btnRegistroInventario)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnModInventario1)))
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel59)
-                    .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtPrecioArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel61, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(26, 26, 26)
-                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel60)
-                    .addComponent(cmbDeptoInventario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(67, 67, 67)
-                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRegistroInventario)
-                    .addComponent(btnListaInventario))
-                .addContainerGap(164, Short.MAX_VALUE))
+                    .addGroup(jPanel16Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtPrecioArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel59)
+                            .addComponent(jLabel61, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cmbDeptoInventario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel60))
+                        .addGap(11, 11, 11)
+                        .addComponent(tomaidInv2))
+                    .addGroup(jPanel16Layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(btnLimpiar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnEliminInve)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnListaInventario)
+                .addGap(29, 29, 29)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        tabInventario.addTab("Agregar Inventario", jPanel16);
-
-        jLabel63.setText("$");
-
-        jLabel64.setText("VALOR ARTICULO");
-
-        jLabel65.setText("TIPO ARTICULO");
-
-        jLabel66.setText("NOMBRE ARTICULO");
-
-        jLabel67.setText("DEPARTAMENTO");
-
-        cmbDeptoInventarioMOD.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        btnModiInventario.setText("MODIFICAR INVENTARIO");
-
-        btnListaInventarioMod.setText("LISTADO DE INVENTARIO");
-
-        jLabel68.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
-        jLabel68.setText("Modificar Inventario");
-
-        javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
-        jPanel17.setLayout(jPanel17Layout);
-        jPanel17Layout.setHorizontalGroup(
-            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel17Layout.createSequentialGroup()
-                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel17Layout.createSequentialGroup()
-                        .addGap(280, 280, 280)
-                        .addComponent(btnModiInventario)
-                        .addGap(127, 127, 127)
-                        .addComponent(btnListaInventarioMod))
-                    .addGroup(jPanel17Layout.createSequentialGroup()
-                        .addGap(438, 438, 438)
-                        .addComponent(jLabel68)))
-                .addContainerGap(286, Short.MAX_VALUE))
-            .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel17Layout.createSequentialGroup()
-                    .addGap(320, 320, 320)
-                    .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel17Layout.createSequentialGroup()
-                            .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel65, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel66, javax.swing.GroupLayout.Alignment.LEADING))
-                            .addGap(51, 51, 51)
-                            .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtArticuloMOD, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtTipoArticuloMOD, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(jPanel17Layout.createSequentialGroup()
-                            .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel64)
-                                .addComponent(jLabel67))
-                            .addGap(40, 40, 40)
-                            .addComponent(jLabel63, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(cmbDeptoInventarioMOD, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtPrecioArticuloMOD))))
-                    .addContainerGap(320, Short.MAX_VALUE)))
-        );
-        jPanel17Layout.setVerticalGroup(
-            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel17Layout.createSequentialGroup()
-                .addGap(76, 76, 76)
-                .addComponent(jLabel68)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 414, Short.MAX_VALUE)
-                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnModiInventario)
-                    .addComponent(btnListaInventarioMod))
-                .addGap(142, 142, 142))
-            .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel17Layout.createSequentialGroup()
-                    .addGap(250, 250, 250)
-                    .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel66)
-                        .addComponent(txtArticuloMOD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(31, 31, 31)
-                    .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel65)
-                        .addComponent(txtTipoArticuloMOD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(33, 33, 33)
-                    .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel64)
-                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtPrecioArticuloMOD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel63, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGap(26, 26, 26)
-                    .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel67)
-                        .addComponent(cmbDeptoInventarioMOD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(250, Short.MAX_VALUE)))
-        );
-
-        tabInventario.addTab("Modificar Inventario", jPanel17);
+        tabInventario.addTab("Gestion  Inventario", jPanel16);
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
@@ -1743,7 +1708,7 @@ public class vistaAdministrador extends javax.swing.JFrame {
                 .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnModificarServicioList)
                     .addComponent(btnDeshabilitarServ))
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap(109, Short.MAX_VALUE))
         );
 
         tabServicio.addTab("Lista Servicio", jPanel24);
@@ -1791,6 +1756,8 @@ public class vistaAdministrador extends javax.swing.JFrame {
 
         jLabel88.setText("CONDUCTOR");
 
+        jLabel94.setText("CANTIDAD DE CUPOS");
+
         javax.swing.GroupLayout jPanel25Layout = new javax.swing.GroupLayout(jPanel25);
         jPanel25.setLayout(jPanel25Layout);
         jPanel25Layout.setHorizontalGroup(
@@ -1812,6 +1779,9 @@ public class vistaAdministrador extends javax.swing.JFrame {
                             .addComponent(jLabel86))
                         .addGap(37, 37, 37)
                         .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(cmbTipoServicio, javax.swing.GroupLayout.Alignment.LEADING, 0, 186, Short.MAX_VALUE)
+                                .addComponent(txtNomServicio, javax.swing.GroupLayout.Alignment.LEADING))
                             .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(jPanel25Layout.createSequentialGroup()
                                     .addGap(51, 51, 51)
@@ -1821,21 +1791,22 @@ public class vistaAdministrador extends javax.swing.JFrame {
                                 .addComponent(txtLlegada, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txtInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtPuntoReunion, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtRecorrido, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtRecorrido, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(100, 100, 100)
+                        .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel25Layout.createSequentialGroup()
-                                .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(cmbTipoServicio, javax.swing.GroupLayout.Alignment.LEADING, 0, 186, Short.MAX_VALUE)
-                                    .addComponent(txtNomServicio, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addGap(108, 108, 108)
-                                .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(jPanel25Layout.createSequentialGroup()
-                                        .addComponent(jLabel88)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtxConductor))
-                                    .addGroup(jPanel25Layout.createSequentialGroup()
-                                        .addComponent(jLabel87)
-                                        .addGap(30, 30, 30)
-                                        .addComponent(txtVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                .addComponent(jLabel94, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtCupos, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel25Layout.createSequentialGroup()
+                                    .addComponent(jLabel88)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(txtConductor))
+                                .addGroup(jPanel25Layout.createSequentialGroup()
+                                    .addComponent(jLabel87)
+                                    .addGap(30, 30, 30)
+                                    .addComponent(txtVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(124, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel25Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -1849,7 +1820,7 @@ public class vistaAdministrador extends javax.swing.JFrame {
             .addGroup(jPanel25Layout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addComponent(jLabel70)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
                 .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel85)
                     .addComponent(txtNomServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1860,12 +1831,14 @@ public class vistaAdministrador extends javax.swing.JFrame {
                     .addComponent(jLabel86)
                     .addComponent(cmbTipoServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel88)
-                    .addComponent(txtxConductor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
+                    .addComponent(txtConductor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
                 .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtRecorrido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel71, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
+                    .addComponent(jLabel71, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel94)
+                    .addComponent(txtCupos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
                 .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel73)
                     .addComponent(txtPuntoReunion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1938,6 +1911,8 @@ public class vistaAdministrador extends javax.swing.JFrame {
 
         cmbEstadoServMOD.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONE", "DISPONIBLE", "INHABILITADO" }));
 
+        jLabel95.setText("CANTIDAD DE CUPOS");
+
         javax.swing.GroupLayout jPanel26Layout = new javax.swing.GroupLayout(jPanel26);
         jPanel26.setLayout(jPanel26Layout);
         jPanel26Layout.setHorizontalGroup(
@@ -1984,8 +1959,12 @@ public class vistaAdministrador extends javax.swing.JFrame {
                                     .addComponent(jLabel93))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtxConductorMOD)
-                                    .addComponent(cmbEstadoServMOD, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                    .addComponent(txtConductorMOD)
+                                    .addComponent(cmbEstadoServMOD, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(jPanel26Layout.createSequentialGroup()
+                                .addComponent(jLabel95, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtCuposMOD, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel26Layout.createSequentialGroup()
                         .addGap(451, 451, 451)
                         .addComponent(jLabel83))
@@ -2001,7 +1980,7 @@ public class vistaAdministrador extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel26Layout.createSequentialGroup()
                 .addGap(61, 61, 61)
                 .addComponent(jLabel83)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
                 .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel92)
                     .addComponent(txtNomServicioMOD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2012,18 +1991,22 @@ public class vistaAdministrador extends javax.swing.JFrame {
                     .addComponent(jLabel91)
                     .addComponent(cmbTipoServicioMOD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel90)
-                    .addComponent(txtxConductorMOD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtConductorMOD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtRecorridoMOD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel72, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel93)
                     .addComponent(cmbEstadoServMOD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel81)
-                    .addComponent(txtPuntoReunionMOD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
+                .addGap(34, 34, 34)
+                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel95)
+                        .addComponent(txtCuposMOD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel81)
+                        .addComponent(txtPuntoReunionMOD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(23, 23, 23)
                 .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel80)
                     .addComponent(txtInicioMOD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -2082,7 +2065,7 @@ public class vistaAdministrador extends javax.swing.JFrame {
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 688, Short.MAX_VALUE)
+            .addGap(0, 726, Short.MAX_VALUE)
             .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel7Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -2378,14 +2361,14 @@ public class vistaAdministrador extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         if (tomaidDepto.getText().equals("") ) {
-            JOptionPane.showMessageDialog(null, "Por favor Seleccione un Usuario");
+            JOptionPane.showMessageDialog(null, "Por favor Seleccione un Depto.");
         }else{
-            int input = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el Depto ID: " + tomaidDepto.getText() + "?", "Eliminacion de depto", 0);
+            int input = JOptionPane.showConfirmDialog(null, "¿Desea Inhabilitar el Depto ID: " + tomaidDepto.getText() + "?", "Inhabilitar depto", 0);
 
             if (input == 0) {
                 deptoDTO.inhabilitarDepto(Integer.parseInt(tomaidDepto.getText()));
                 listarDepto();
-                JOptionPane.showMessageDialog(null, "Depto Eliminado");
+                JOptionPane.showMessageDialog(null, "Depto Inhabilitado");
             }
         }
     }//GEN-LAST:event_jButton5ActionPerformed
@@ -2562,20 +2545,6 @@ public class vistaAdministrador extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnDesabilitarClieActionPerformed
 
-    private void btnEliminarCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarCliActionPerformed
-        if (tomaidCliente.getText().equals("") ) {
-            JOptionPane.showMessageDialog(null, "Por favor Seleccione un Usuario");
-        }else{
-            int input = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el Cliente ID: " + tomaidCliente.getText() + "?", "Eliminacion De Cliente", 0);
-
-            if (input == 0) {
-                clieDTO.eliminarCliente(Integer.parseInt(tomaidCliente.getText()));
-                listarClientes();
-                JOptionPane.showMessageDialog(null, "Cliente Eliminado");
-            }
-        }
-    }//GEN-LAST:event_btnEliminarCliActionPerformed
-
     private void btnListaClienteMODActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaClienteMODActionPerformed
         tabCliente.setSelectedIndex(0);
         limpiaTabla(TablaClientes);
@@ -2605,7 +2574,9 @@ public class vistaAdministrador extends javax.swing.JFrame {
         }else if(txtLlegada.getDate()==null){
             JOptionPane.showMessageDialog(null, "Por favor seleccione fecha llegada","error",JOptionPane.ERROR_MESSAGE);      
         }else if (Integer.parseInt(txtValor.getValue().toString()) <= 0) {
-            JOptionPane.showMessageDialog(null, "Ingrese valor de tour");
+            JOptionPane.showMessageDialog(null, "Ingrese valor del servicio");
+        }else if (Integer.parseInt(txtCupos.getValue().toString()) <= 0) {
+            JOptionPane.showMessageDialog(null, "Ingrese una cantidad de cupos valida");    
         }else{
 
             try{
@@ -2618,8 +2589,9 @@ public class vistaAdministrador extends javax.swing.JFrame {
                 se.setValor(Integer.parseInt(txtValor.getValue().toString()));
                 se.setRecorrido(txtRecorrido.getText());
                 se.setVehiculo(txtVehiculo.getText());
-                se.setChofer(txtxConductor.getText());
+                se.setChofer(txtConductor.getText());
                 se.setEstado_servicio("DISPONIBLE");
+                se.setCupos(Integer.parseInt(txtCupos.getValue().toString()));
                 
                 
 //                System.out.println(txtRecorrido.getText());
@@ -2647,7 +2619,8 @@ public class vistaAdministrador extends javax.swing.JFrame {
             txtValor.setValue(0);
             txtRecorrido.setText("");
             txtVehiculo.setText("");
-            txtxConductor.setText("");
+            txtConductor.setText("");
+            txtCupos.setValue(0);
 
             limpiaTabla(tablaServicios);
             listarServicios();
@@ -2672,7 +2645,7 @@ public class vistaAdministrador extends javax.swing.JFrame {
          if (tomaIdServicio.getText().equals("") ) {
             JOptionPane.showMessageDialog(null, "Por favor Seleccione un servicio");
         }else{
-            int input = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el Servicio ID: " + tomaIdServicio.getText() + "?", "Deshabilitar servicio", 0);
+            int input = JOptionPane.showConfirmDialog(null, "¿Desea Deshabilitar el Servicio ID: " + tomaIdServicio.getText() + "?", "Deshabilitar servicio", 0);
 
             if (input == 0) {
                 servDTO.inhabilitarServicio(Integer.parseInt(tomaIdServicio.getText()));
@@ -2697,8 +2670,9 @@ public class vistaAdministrador extends javax.swing.JFrame {
         txtValorMOD.setValue(Integer.parseInt(tablaServicios.getValueAt(selecciona_serv, 6).toString()));
         txtRecorridoMOD.setText(tablaServicios.getValueAt(selecciona_serv, 7)+"");
         txtVehiculoMOD.setText(tablaServicios.getValueAt(selecciona_serv, 8)+"");
-        txtxConductorMOD.setText(tablaServicios.getValueAt(selecciona_serv, 9)+"");
+        txtConductorMOD.setText(tablaServicios.getValueAt(selecciona_serv, 9)+"");
         cmbEstadoServMOD.setSelectedItem(tablaServicios.getValueAt(selecciona_serv, 10)+"");
+        txtCuposMOD.setValue(Integer.parseInt(tablaServicios.getValueAt(selecciona_serv, 11).toString()));
         
 
     }//GEN-LAST:event_tablaServiciosMouseClicked
@@ -2725,8 +2699,9 @@ public class vistaAdministrador extends javax.swing.JFrame {
         serv.setValor(Integer.parseInt(txtValorMOD.getValue().toString()));
         serv.setRecorrido(txtRecorridoMOD.getText());
         serv.setVehiculo(txtVehiculoMOD.getText());
-        serv.setChofer(txtxConductorMOD.getText());
+        serv.setChofer(txtConductorMOD.getText());
         serv.setEstado_servicio(cmbEstadoServMOD.getSelectedItem().toString());
+        serv.setCupos(Integer.parseInt(txtCuposMOD.getValue().toString()));
         
         
         
@@ -2743,10 +2718,120 @@ public class vistaAdministrador extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnModServicioActionPerformed
 
+    private void tablaInventario2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaInventario2MouseClicked
+        int selecciona_inv = tablaInventario2.rowAtPoint(evt.getPoint());
+        // para obtener nombre del depto para eliminacion
+        tomaidInv2.setVisible(false);
+        // obtencion de datos
+        tomaidInv2.setText(tablaInventario2.getValueAt(selecciona_inv, 0)+"");
+        txtArticulo.setText(tablaInventario2.getValueAt(selecciona_inv, 1)+"");
+        txtTipoArticulo.setText(tablaInventario2.getValueAt(selecciona_inv, 2)+"");
+        txtPrecioArticulo.setValue(Integer.parseInt(tablaInventario2.getValueAt(selecciona_inv, 3).toString()));
+
+    }//GEN-LAST:event_tablaInventario2MouseClicked
+
+    private void btnModInventario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModInventario1ActionPerformed
+        int iddepto2 = cmbDeptoInventario.getItemAt(cmbDeptoInventario.getSelectedIndex()).getId_depto();
+        inventario in = new inventario();
+        boolean modInv = false;
+
+        in.setId_inventario(Integer.parseInt(tomaidInv2.getText()));
+        in.setNombre_articulo(txtArticulo.getText());
+        in.setTipo_articulo(txtTipoArticulo.getText());
+        in.setValor_articulo(Integer.parseInt(txtPrecioArticulo.getValue().toString()));
+        in.setDepto(iddepto2);
+        in.setEstado_inventario("DISPONIBLE");
+
+        modInv = inDTO.modificarInv(in);
+
+        if (modInv == true) {
+            JOptionPane.showMessageDialog(null, "Modificado con éxito");
+            //limpiarInventario();
+            listarInventario();
+            tabInventario.setEnabledAt(2, false);
+            tabInventario.setSelectedIndex(0);
+
+        }else{
+            JOptionPane.showMessageDialog(null, "Error al modificar");
+        }
+    }//GEN-LAST:event_btnModInventario1ActionPerformed
+
+    private void btnListaInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaInventarioActionPerformed
+        tabInventario.setSelectedIndex(0);
+        limpiaTabla(tablaInventario);
+        listarInventario();
+    }//GEN-LAST:event_btnListaInventarioActionPerformed
+
     private void btnListaInventarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnListaInventarioMouseClicked
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_btnListaInventarioMouseClicked
+
+    private void btnRegistroInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroInventarioActionPerformed
+        inventario inv = new inventario();
+        //int iddepto = cmbDeptoInventario.getSelectedItem.toString();
+        int iddepto = cmbDeptoInventario.getItemAt(cmbDeptoInventario.getSelectedIndex()).getId_depto();
+
+        boolean pasa = false;
+
+        if(txtArticulo.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Por favor escriba nombre del articulo");
+        }else if(txtTipoArticulo.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Por favor escriba tipo articulo");
+        }else if (Integer.parseInt(txtPrecioArticulo.getValue().toString()) <= 0) {
+            JOptionPane.showMessageDialog(null, "Ingrese valor del articulo");
+            //        }else if(cmbDeptoInventario.getSelectedIndex() == 0) {
+            //            JOptionPane.showMessageDialog(null, "Seleccione el numero del Depto.");
+        }else{
+
+            try{
+
+                inv.setNombre_articulo(txtArticulo.getText());
+                inv.setTipo_articulo(txtTipoArticulo.getText());
+                inv.setValor_articulo(Integer.parseInt(txtPrecioArticulo.getValue().toString()));
+                inv.setDepto(iddepto);
+                //inv.setDepto(Integer.parseInt(cmbTipoServicio.getSelectedItem().toString()));
+                inv.setEstado_inventario("DISPONIBLE");
+
+                pasa = inDTO.ingresarInventario(inv);
+
+            }catch(Exception  e){
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+
+        if (pasa == true) {
+            JOptionPane.showMessageDialog(null, "Ingresado con exito");
+
+            txtArticulo.setText("");
+            txtTipoArticulo.setText("");
+            txtPrecioArticulo.setValue(0);
+            cmbDeptoInventario.setSelectedIndex(0);
+
+            limpiaTabla(tablaInventario);
+            listarInventario();
+        }else{
+            JOptionPane.showMessageDialog(null, "Error al ingresar");
+        }
+    }//GEN-LAST:event_btnRegistroInventarioActionPerformed
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        limpiarInventario();
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void btnEliminInveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminInveActionPerformed
+       if (tomaidInv2.getText().equals("") ) {
+            JOptionPane.showMessageDialog(null, "Por favor Seleccione un articulo.");
+        }else{
+            int input = JOptionPane.showConfirmDialog(null, "¿Desea Inhabilitar el articulo ID: " + tomaidInv2.getText() + "?", "Inhabilitar articulo", 0);
+
+            if (input == 0) {
+                inDTO.inhabilitarInv(Integer.parseInt(tomaidInv2.getText()));
+                listarDepto();
+                JOptionPane.showMessageDialog(null, "articulo Inhabilitado");
+            }
+        }
+    }//GEN-LAST:event_btnEliminInveActionPerformed
 
 //    listado para tablas
     
@@ -2766,26 +2851,62 @@ public class vistaAdministrador extends javax.swing.JFrame {
         deptoDTO.listarDepto(tablaDepto);
     }
     
+    public void listarInventario() {
+        inDTO.listarInventario(tablaInventario);
+        inDTO.listarInventario(tablaInventario2);
+    }
+    
     //limpia tablas
      public void limpiaTabla(JTable tabla) {
         DefaultTableModel dm = (DefaultTableModel) tabla.getModel();
         dm.setRowCount(0);
     }
      
+     public void limpiarInventario() {
+        tomaidInv2.setText("");
+        txtArticulo.setText("");
+        txtTipoArticulo.setText("");
+        txtPrecioArticulo.setValue(0);
+        cmbDeptoInventario.setSelectedIndex(0);
+        
+    }
      //carga de array en combobox
      
 //      public void comboDeptoInventario() {
 //        cargarArray();
 //        cmbDeptoInventario.removeAllItems();
-//        cmbDeptoInventario.addItem("Seleccione");
+//        cmbDeptoInventario.addItem("SELECCIONE");
 //        for (int i = 0; i < AInv.size(); i++) {
-//            cmbDeptoInventario.addItem(Integer.parseInt(AInv.get(i).getId_depto()));
+//            
+//            cmbDeptoInventario.addItem(AInv.get(i).getNum_depto());
 //        }
 //    }
-     
-       public void cargarArray() {
+//     
+//     
+//       public void cargarArray() {
+//
+//        AInv = inDTO.listDepto();
+//    }
+       
+        public void cargarCombo() {
+        cmbDeptoInventario.removeAllItems();
 
-        AInv = inDTO.listDepto();
+        try {
+            conexion con = new conexion();
+            con.ConectarBasedeDatos();
+            String SQL = "select id_dpto, num_depto from dpto";
+            con.resultado = con.sentencia.executeQuery(SQL);
+            while (con.resultado.next()) {
+
+                cmbDeptoInventario.addItem(
+                        new cbDepto(Integer.parseInt(con.resultado.getString("id_dpto")),
+                                (con.resultado.getString("num_depto"))));
+
+            }
+
+        } catch (Exception e) {
+            System.out.println("error carga jcombobox para carga de dpto en inventario");
+        }
     }
      
     /**
@@ -2827,14 +2948,13 @@ public class vistaAdministrador extends javax.swing.JFrame {
     private javax.swing.JTable TablaClientes;
     private javax.swing.JButton btnDesabilitarClie;
     private javax.swing.JButton btnDeshabilitarServ;
-    private javax.swing.JButton btnEliminarCli;
-    private javax.swing.JButton btnEliminarInventario;
+    private javax.swing.JButton btnEliminInve;
+    private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnListServicioRegistro;
     private javax.swing.JButton btnListaCliente;
     private javax.swing.JButton btnListaClienteMOD;
     private javax.swing.JButton btnListaDepto;
     private javax.swing.JButton btnListaInventario;
-    private javax.swing.JButton btnListaInventarioMod;
     private javax.swing.JButton btnListaUserModificacion;
     private javax.swing.JButton btnListaUsuarios1;
     private javax.swing.JButton btnListadoModDepto;
@@ -2842,18 +2962,16 @@ public class vistaAdministrador extends javax.swing.JFrame {
     private javax.swing.JButton btnMODCliente;
     private javax.swing.JButton btnModClienteTabla;
     private javax.swing.JButton btnModDepto;
-    private javax.swing.JButton btnModInventario;
+    private javax.swing.JButton btnModInventario1;
     private javax.swing.JButton btnModServicio;
     private javax.swing.JButton btnModUsuario;
-    private javax.swing.JButton btnModiInventario;
     private javax.swing.JButton btnModificarServicioList;
     private javax.swing.JButton btnRegistarCliente;
     private javax.swing.JButton btnRegistarUsuario1;
     private javax.swing.JButton btnRegistraServicio;
     private javax.swing.JButton btnRegistroDepto;
     private javax.swing.JButton btnRegistroInventario;
-    private javax.swing.JComboBox<String> cmbDeptoInventario;
-    private javax.swing.JComboBox<String> cmbDeptoInventarioMOD;
+    private javax.swing.JComboBox<cbDepto> cmbDeptoInventario;
     private javax.swing.JComboBox<String> cmbEstadoCliente;
     private javax.swing.JComboBox<String> cmbEstadoClienteMod;
     private javax.swing.JComboBox<String> cmbEstadoMOD;
@@ -2930,12 +3048,6 @@ public class vistaAdministrador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
-    private javax.swing.JLabel jLabel63;
-    private javax.swing.JLabel jLabel64;
-    private javax.swing.JLabel jLabel65;
-    private javax.swing.JLabel jLabel66;
-    private javax.swing.JLabel jLabel67;
-    private javax.swing.JLabel jLabel68;
     private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel70;
@@ -2964,6 +3076,8 @@ public class vistaAdministrador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel91;
     private javax.swing.JLabel jLabel92;
     private javax.swing.JLabel jLabel93;
+    private javax.swing.JLabel jLabel94;
+    private javax.swing.JLabel jLabel95;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -2972,7 +3086,6 @@ public class vistaAdministrador extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
-    private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel23;
@@ -2993,6 +3106,7 @@ public class vistaAdministrador extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JRadioButton rbNoClienteFrecu;
     private javax.swing.JRadioButton rbNoClienteFrecuMOD;
@@ -3006,6 +3120,7 @@ public class vistaAdministrador extends javax.swing.JFrame {
     private javax.swing.JPanel tabUsuario;
     private javax.swing.JTable tablaDepto;
     private javax.swing.JTable tablaInventario;
+    private javax.swing.JTable tablaInventario2;
     private javax.swing.JTable tablaServicios;
     private javax.swing.JTable tablaUsuario;
     private javax.swing.JTabbedPane tabuser;
@@ -3014,6 +3129,7 @@ public class vistaAdministrador extends javax.swing.JFrame {
     private javax.swing.JLabel tomaNombreDepto;
     private javax.swing.JLabel tomaidCliente;
     private javax.swing.JLabel tomaidDepto;
+    private javax.swing.JLabel tomaidInv2;
     private javax.swing.JLabel tomarut;
     private javax.swing.JTextField txtApmaterno1;
     private javax.swing.JTextField txtApmaternoCliente;
@@ -3024,9 +3140,12 @@ public class vistaAdministrador extends javax.swing.JFrame {
     private javax.swing.JTextField txtAppaternoClienteMOD;
     private javax.swing.JTextField txtAppaternoMod;
     private javax.swing.JTextField txtArticulo;
-    private javax.swing.JTextField txtArticuloMOD;
     private javax.swing.JTextField txtCelularCliente;
     private javax.swing.JTextField txtCelularClienteMOD;
+    private javax.swing.JTextField txtConductor;
+    private javax.swing.JTextField txtConductorMOD;
+    private javax.swing.JSpinner txtCupos;
+    private javax.swing.JSpinner txtCuposMOD;
     private javax.swing.JTextArea txtDescrip;
     private javax.swing.JTextArea txtDescripMOD;
     private javax.swing.JTextField txtDireccionDpto;
@@ -3054,7 +3173,6 @@ public class vistaAdministrador extends javax.swing.JFrame {
     private javax.swing.JTextField txtPass1;
     private javax.swing.JTextField txtPassCliente;
     private javax.swing.JSpinner txtPrecioArticulo;
-    private javax.swing.JSpinner txtPrecioArticuloMOD;
     private javax.swing.JTextField txtPuntoReunion;
     private javax.swing.JTextField txtPuntoReunionMOD;
     private javax.swing.JTextField txtRecorrido;
@@ -3064,14 +3182,11 @@ public class vistaAdministrador extends javax.swing.JFrame {
     private javax.swing.JTextField txtRutClienteMOD;
     private javax.swing.JTextField txtRutmod;
     private javax.swing.JTextField txtTipoArticulo;
-    private javax.swing.JTextField txtTipoArticuloMOD;
     private javax.swing.JSpinner txtValor;
     private javax.swing.JSpinner txtValorDiario;
     private javax.swing.JSpinner txtValorDiarioMOD;
     private javax.swing.JSpinner txtValorMOD;
     private javax.swing.JTextField txtVehiculo;
     private javax.swing.JTextField txtVehiculoMOD;
-    private javax.swing.JTextField txtxConductor;
-    private javax.swing.JTextField txtxConductorMOD;
     // End of variables declaration//GEN-END:variables
 }

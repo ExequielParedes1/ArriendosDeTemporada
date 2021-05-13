@@ -44,6 +44,46 @@ public class InventarioDTO {
         return paso;
     }
     
+    public boolean modificarInv(inventario in) {
+        paso = false;
+        Connection conn = conexion.getConnection();
+        try {
+            paso = invendao.modificarInv(conn, in);
+            //conn.rollback();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }finally{
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, e.getMessage());
+            }
+        }
+        return paso;
+    }
+    
+    public boolean inhabilitarInv(int id) {
+        paso = false;
+        Connection conn = conexion.getConnection();
+        try {
+            paso = invendao.inhabilitarInv(conn, id);
+            //conn.rollback();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }finally{
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, e.getMessage());
+            }
+        }
+        return paso;
+    }
+    
     
     public void listarInventario(JTable tabla) {
         Connection conn = conexion.getConnection();

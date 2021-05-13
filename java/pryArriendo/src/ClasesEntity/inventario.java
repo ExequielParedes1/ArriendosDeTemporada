@@ -15,16 +15,18 @@ public class inventario {
     private String tipo_articulo;
     private int valor_articulo;
     private int depto;
+    private String estado_inventario;
 
     public inventario() {
     }
 
-    public inventario(int id_inventario, String nombre_articulo, String tipo_articulo, int valor_articulo, int depto) {
+    public inventario(int id_inventario, String nombre_articulo, String tipo_articulo, int valor_articulo, int depto, String estado_inventario) {
         this.id_inventario = id_inventario;
         this.nombre_articulo = nombre_articulo;
         this.tipo_articulo = tipo_articulo;
         this.valor_articulo = valor_articulo;
         this.depto = depto;
+        this.estado_inventario = estado_inventario;
     }
 
     public int getId_inventario() {
@@ -67,10 +69,22 @@ public class inventario {
         this.depto = depto;
     }
 
+    public String getEstado_inventario() {
+        return estado_inventario;
+    }
+
+    public void setEstado_inventario(String estado_inventario) {
+        this.estado_inventario = estado_inventario;
+    }
+
     @Override
     public String toString() {
-        return "inventario{" + "id_inventario=" + id_inventario + ", nombre_articulo=" + nombre_articulo + ", tipo_articulo=" + tipo_articulo + ", valor_articulo=" + valor_articulo + ", depto=" + depto + '}';
+        return "inventario{" + "id_inventario=" + id_inventario + ", nombre_articulo=" + nombre_articulo + ", tipo_articulo=" + tipo_articulo + ", valor_articulo=" + valor_articulo + ", depto=" + depto + ", estado_inventario=" + estado_inventario + '}';
     }
+
+    
+
+    
     
     
     

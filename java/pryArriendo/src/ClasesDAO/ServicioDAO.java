@@ -23,7 +23,7 @@ public class ServicioDAO {
     
     public boolean ingresarServicio(Connection con, servicio serv) {
         boolean pasoInsert = false;
-        String sql = "{call insert_servicio(?,?,?,?,?,?,?,?,?,?)}";
+        String sql = "{call insert_servicio(?,?,?,?,?,?,?,?,?,?,?)}";
         
         try {
             CallableStatement pst = con.prepareCall(sql);
@@ -37,6 +37,7 @@ public class ServicioDAO {
             pst.setString(8, serv.getVehiculo());
             pst.setString(9, serv.getChofer());
             pst.setString(10,serv.getEstado_servicio());
+            pst.setInt(11, serv.getCupos());
             pst.execute();
             pst.close();
             pasoInsert = true;
@@ -57,7 +58,7 @@ public class ServicioDAO {
     
     public boolean modificarServicio(Connection con, servicio serv) {
         boolean pasoModi = false;
-        String sql = "{call update_servicio(?,?,?,?,?,?,?,?,?,?,?)}";
+        String sql = "{call update_servicio(?,?,?,?,?,?,?,?,?,?,?,?)}";
         
         try {
             CallableStatement pst = con.prepareCall(sql);
@@ -72,6 +73,7 @@ public class ServicioDAO {
             pst.setString(9, serv.getVehiculo());
             pst.setString(10, serv.getChofer());
             pst.setString(11, serv.getEstado_servicio());
+            pst.setInt(12, serv.getCupos());
             
             
             pst.execute();
@@ -119,18 +121,18 @@ public class ServicioDAO {
     
     public void listarServicio(Connection con, JTable tabla) {
         DefaultTableModel model;
-        String [] columnas = {"ID Serv.", "Nombre", "Tipo", "Inicio", "Fin", "Punto Reunion","Valor","Recorrido","Vehiculo","Chofer","Estado"};
+        String [] columnas = {"ID Serv.", "Nombre", "Tipo", "Inicio", "Fin", "Punto Reunion","Valor","Recorrido","Vehiculo","Chofer","Estado","Cupos"};
         model = new DefaultTableModel(null, columnas);
         
         String sql = "Select * from servicio";
         
-        String[] filas = new String[11];
+        String[] filas = new String[12];
         
         try {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
-                for(int i = 0; i < 11; i++) {
+                for(int i = 0; i < 12; i++) {
                     filas[i] = rs.getString(i+1);
                 }
                 model.addRow(filas);

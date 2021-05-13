@@ -61,25 +61,25 @@ public class ClienteDTO {
         return validado;
     }
     
-    public boolean eliminarCliente(int id) {
-        validado = false;
-        Connection conn = conexion.getConnection();
-        try {
-            validado = cdao.eliminarCliente(conn, id);
-            //conn.rollback();
-        } catch (Exception e) {
-            mensaje = mensaje + " " + e.getMessage();
-        }finally{
-            try {
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (Exception e) {
-                mensaje = mensaje + " " + e.getMessage();
-            }
-        }
-        return validado;
-    }
+//    public boolean eliminarCliente(int id) {
+//        validado = false;
+//        Connection conn = conexion.getConnection();
+//        try {
+//            validado = cdao.eliminarCliente(conn, id);
+//            //conn.rollback();
+//        } catch (Exception e) {
+//            mensaje = mensaje + " " + e.getMessage();
+//        }finally{
+//            try {
+//                if (conn != null) {
+//                    conn.close();
+//                }
+//            } catch (Exception e) {
+//                mensaje = mensaje + " " + e.getMessage();
+//            }
+//        }
+//        return validado;
+//    }
     
     public boolean DesabilitarCliente(int id) {
         validado = false;
