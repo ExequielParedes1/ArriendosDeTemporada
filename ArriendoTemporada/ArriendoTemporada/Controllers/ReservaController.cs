@@ -39,12 +39,14 @@ namespace ArriendoTemporada.Controllers
         [HttpPost]
         public ActionResult Create([Bind(Include = "Id, Fecha_Inicio, Fecha_Fin, Estado, Cliente_Id")]Reserva reserva)
         {
+            var Cliente_Id = Session["cliente_id"];
             try
             {
                 // TODO: Add insert logic here
+                
                 reserva.Save();
                 TempData["mensaje"] = "Guardado correctamente";
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { Cliente_Id });
             }
             catch
             {

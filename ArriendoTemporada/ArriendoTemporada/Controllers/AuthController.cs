@@ -10,6 +10,7 @@ namespace ArriendoTemporada.Controllers
 {
     public class AuthController : Controller
     {
+
         public ActionResult Login()
         {
             return View();

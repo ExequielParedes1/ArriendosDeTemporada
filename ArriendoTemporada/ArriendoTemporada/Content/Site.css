@@ -1,6 +1,7 @@
 ﻿* {
     margin: 0;
     padding: 0;
+    font-family: sans-serif;
 }
 
 
@@ -21,13 +22,14 @@ select,
 textarea {
     max-width: 280px;
 }
-/* LOGIN */
+/*LOGIN */
 /*.usuario-img{
     width: 30%;
     margin: 0 auto;
     display: block;
 }
 */
+
 
 /*login*/
 
@@ -42,7 +44,7 @@ textarea {
 .login {
     width: 320px;
     height: 380px;
-    background: #CCC;
+    background: #CCC9;
     color: #000;
     top: 50%;
     left: 50%;
@@ -50,75 +52,90 @@ textarea {
     transform: translate(-50%, -50%);
     box-sizing: border-box;
     padding: 70px 30px;
+    border-radius: 15px;
 }
 
-    .login .usuario {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        position: absolute;
-        top: -50px;
-        left: calc(50% - 50px);
+.login .usuario {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+}
+
+.login h1 {
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.login label {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    display: block;
+}
+
+.login input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+    .login input[type="text"], .login input[type="password"] {
+        border: none;
+        border-bottom: 1px solid #fff;
+        background: transparent;
+        outline: none;
+        height: 40px;
+        color: #000;
+        font-size: 16px;
     }
 
-    .login h1 {
-        margin: 0;
-        padding: 0 0 20px;
-        text-align: center;
-        font-size: 22px;
+    .login input[type="submit"] {
+        border: none;
+        outline: none;
+        height: 40px;
+        background: #b80f22;
+        color: #000;
+        font-size: 18px;
+        border-radius: 20px;
     }
 
-    .login label {
-        margin: 0;
-        padding: 0;
-        font-weight: bold;
-        display: block;
-    }
-
-    .login input {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-
-        .login input[type="text"], .login input[type="password"] {
-            border: none;
-            border-bottom: 1px solid #fff;
-            background: transparent;
-            outline: none;
-            height: 40px;
+        .login input[type="submit"]:hover {
+            cursor: pointer;
+            background: #ffc107;
             color: #000;
-            font-size: 16px;
         }
+/*
+.login button {
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 20px;
+    color: darkgrey;
+}
 
-        .login input[type="submit"] {
-            border: none;
-            outline: none;
-            height: 40px;
-            background: #b80f22;
-            color: #000;
-            font-size: 18px;
-            border-radius: 20px;
-        }
+    .login button:hover {
+        color: #fff;
+    }*/
 
-            .login input[type="submit"]:hover {
-                cursor: pointer;
-                background: #ffc107;
-                color: #000;
-            }
+#btn-login {
+    padding: 5px;
+    margin: 0 auto;
+    display: block;
+    color: black;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-top: 10px;
+}
 
-    .login a {
-        text-decoration: none;
-        font-size: 12px;
-        line-height: 20px;
-        color: darkgrey;
-    }
-
-        .login a:hover {
-            color: #fff;
-        }
+#btn-login:hover{
+    background-color: #fff;
+}
 
 
-
+/*dpto */
 .container {
     width: 90%;
     max-width: 500px;
@@ -181,20 +198,58 @@ textarea {
     display: block;
 }
 
-#navbar{
-    display: contents;
-}
-#navbar-collapse{
+#navbar {
     display: contents;
 }
 
-footer{
+#navbar-collapse {
+    display: contents;
+}
+
+footer {
     bottom: 0;
     width: 100%;
-    background-color: grey;
+    background-color: #CCC9;
     position: fixed;
     padding-left: 0px;
     padding-right: 0px;
     text-align: center;
 }
 
+
+/* table */
+
+
+tabla {
+    margin: 150px auto;
+    width: 600px;
+}
+
+
+
+
+table {
+    background-color: white;
+    text-align: left;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 20px;
+}
+
+thead {
+    background-color: #246355;
+    border-bottom: solid 5px #0F362D;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #ddd;
+}
+
+tr:hover td {
+    background-color: #369681;
+    color: white;
+}
