@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Arriendos</h2>
+
+<div class="listado-acciones">
+    
+        @Html.ActionLink("Ver Departamentos", "Index", "Departamento")
+        @Html.ActionLink("Ver mis Reservas", "Details", "Reserva", new { cliente_id = Session["cliente_id"] }, null)
+    
+        
+</div>

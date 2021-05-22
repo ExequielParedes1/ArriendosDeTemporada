@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9ecd1e56984343228d1218586b124c2d" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.ACOMPANANTE" Width="1.5" PointX="3.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.CHECKEO" Width="1.5" PointX="8.25" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.CLIENTE" Width="1.5" PointX="3.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DPTO" Width="1.5" PointX="0.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.INVENTARIO" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.MANTENCION" Width="1.5" PointX="3" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.MULTA" Width="1.5" PointX="8.25" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PAGO" Width="1.5" PointX="11.25" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.RESERVA" Width="1.5" PointX="6" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.REVISION_INV" Width="1.5" PointX="3" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.SERVICIO" Width="1.5" PointX="6" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TRANSBANK" Width="1.5" PointX="9" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.USUARIO" Width="1.5" PointX="6" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.GASTOS" Width="1.5" PointX="3" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.RESERVA_SERVICIO" Width="1.5" PointX="8.25" PointY="9.5" IsExpanded="true" />
+        <AssociationConnector Association="Model.CHECKEO_RESERVA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.CHECKEO_USUARIO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.RESERVA_CLIENTE_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.GASTOS_DPTO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.INVENTARIO_DPTO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.MANTENCION_DPTO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.REVISION_INV_DPTO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.MULTA_RESERVA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.PAGO_RESERVA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.PAGO_TRANSBANK_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.RESERVA_SERVICIO_RESERVA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.REVISION_INV_USUARIO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.RESERVA_SERVICIO_SERVICIO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.RESERVA_AC" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.RESERVA_DEPTO" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

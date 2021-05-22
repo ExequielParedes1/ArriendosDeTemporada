@@ -1,0 +1,34 @@
+﻿@using ArriendoTemporada.Negocio
+
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Reservas</h2>
+
+
+@{ List<Reserva> reservas = (List<Reserva>)ViewBag.reserva; }
+@Session["cliente_id"]
+
+<table>
+    <tr>
+        <th>Cliente</th>
+        <th>Fecha Inicio</th>
+        <th>Fecha Termino</th>
+        <th>Opciones</th>
+    </tr>
+
+    @foreach (var reserva in reservas)
+    {
+        <tr>
+            <td>@reserva.Cliente.Nombre</td>
+            <td>@reserva.Fecha_Inicio.ToString("dd/MM/yyyy")</td>
+            <td>@reserva.Fecha_Fin.ToString("dd/MM/yyyy")</td>
+            <td>
+                @Html.ActionLink("Eliminar", "Delete", new { id = reserva.Id })
+                @Html.ActionLink("Editar", "Edit", new { id = reserva.Id })
+            </td>
+        </tr>
+    }
+</table>

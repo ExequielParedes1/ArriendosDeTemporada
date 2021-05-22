@@ -1,0 +1,26 @@
+﻿@model ArriendoTemporada.Negocio.Reserva
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Crear Reserva</h2>
+
+<p>@Session["cliente_id"]</p>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(r => r.Cliente_Id, new { @Value = Session["cliente_id"] })
+
+    @Html.LabelFor(r => r.Fecha_Inicio, "Fecha Inicial")
+    @Html.TextBoxFor(r => r.Fecha_Inicio, new { type = "date" })
+    <br />
+    @Html.LabelFor(r => r.Fecha_Fin, "Fecha Termino")
+    @Html.TextBoxFor(r => r.Fecha_Fin, new { type = "date" })
+    <br />
+    //@Html.DropDownList("servicios", ViewData["servicios"] as SelectList, new { @id = "ID_SERVICIO" })
+
+
+
+    <button>Guardar</button>
+}

@@ -1,0 +1,648 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="18.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ACOMPANANTE">
+    <Key>
+      <PropertyRef Name="ID_ACOMPANANTE" />
+    </Key>
+    <Property Name="ID_ACOMPANANTE" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="RUT_ACOMPANANTE" Type="varchar2" MaxLength="11" />
+    <Property Name="PASAPORTE" Type="varchar2" MaxLength="11" />
+    <Property Name="NOMBRE" Type="varchar2" MaxLength="50" Nullable="false" />
+    <Property Name="APELLIDO_P" Type="varchar2" MaxLength="50" Nullable="false" />
+    <Property Name="APELLIDO_M" Type="varchar2" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CHECKEO">
+    <Key>
+      <PropertyRef Name="ID_CHECKEO" />
+    </Key>
+    <Property Name="ID_CHECKEO" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="TIPO_CHECKEO" Type="varchar2" MaxLength="100" Nullable="false" />
+    <Property Name="FECHA" Type="date" Nullable="false" />
+    <Property Name="USUARIO_RUT_USUARIO" Type="varchar2" MaxLength="12" Nullable="false" />
+    <Property Name="RESERVA_ID_RESERVA" Type="number" Precision="10" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CLIENTE">
+    <Key>
+      <PropertyRef Name="ID_CLIENTE" />
+    </Key>
+    <Property Name="ID_CLIENTE" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="RUT_CLIENTE" Type="varchar2" MaxLength="12" />
+    <Property Name="PASAPORTE" Type="varchar2" MaxLength="12" />
+    <Property Name="PASSWRD" Type="varchar2" MaxLength="200" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" MaxLength="100" Nullable="false" />
+    <Property Name="APELLIDO_P" Type="varchar2" MaxLength="100" Nullable="false" />
+    <Property Name="APELLIDO_M" Type="varchar2" MaxLength="100" Nullable="false" />
+    <Property Name="NUM_CELULAR" Type="number" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="CORREO" Type="varchar2" MaxLength="200" Nullable="false" />
+    <Property Name="NACIONALIDAD" Type="varchar2" MaxLength="100" Nullable="false" />
+    <Property Name="CLIENTE_FRECUENTE" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="ESTADO_CLIENTE" Type="varchar2" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DPTO">
+    <Key>
+      <PropertyRef Name="ID_DPTO" />
+    </Key>
+    <Property Name="ID_DPTO" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="NUM_DEPTO" Type="varchar2" MaxLength="50" Nullable="false" />
+    <Property Name="DIRECCION" Type="varchar2" MaxLength="200" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="varchar2" MaxLength="1000" Nullable="false" />
+    <Property Name="REGION" Type="varchar2" MaxLength="200" Nullable="false" />
+    <Property Name="ESTADO" Type="varchar2" MaxLength="100" Nullable="false" />
+    <Property Name="VALOR_DIARIO" Type="number" Precision="10" Scale="0" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DUOC.GASTOS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="GASTOS">
+    <Key>
+      <PropertyRef Name="TIPO_GASTO" />
+      <PropertyRef Name="VALOR" />
+      <PropertyRef Name="FECHA" />
+      <PropertyRef Name="DPTO_ID_DPTO" />
+    </Key>
+    <Property Name="TIPO_GASTO" Type="varchar2" MaxLength="200" Nullable="false" />
+    <Property Name="VALOR" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="FECHA" Type="date" Nullable="false" />
+    <Property Name="DPTO_ID_DPTO" Type="number" Precision="10" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="INVENTARIO">
+    <Key>
+      <PropertyRef Name="ID_INV" />
+    </Key>
+    <Property Name="ID_INV" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE_ARTI" Type="varchar2" MaxLength="150" Nullable="false" />
+    <Property Name="TIPO_ARTI" Type="varchar2" MaxLength="150" Nullable="false" />
+    <Property Name="VALOR_ARTI" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="DPTO_ID_DPTO" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="ESTADO_INVENTARIO" Type="varchar2" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MANTENCION">
+    <Key>
+      <PropertyRef Name="ID_MANTECION" />
+    </Key>
+    <Property Name="ID_MANTECION" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="varchar2" MaxLength="50" Nullable="false" />
+    <Property Name="VALOR" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="FECHA_INI" Type="date" Nullable="false" />
+    <Property Name="FECHA_TERM" Type="date" Nullable="false" />
+    <Property Name="DPTO_ID_DPTO" Type="number" Precision="10" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MULTA">
+    <Key>
+      <PropertyRef Name="ID_MULTA" />
+    </Key>
+    <Property Name="ID_MULTA" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="varchar2" MaxLength="30" Nullable="false" />
+    <Property Name="MONTO" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="RESERVA_ID_RESERVA" Type="number" Precision="10" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PAGO">
+    <Key>
+      <PropertyRef Name="ID_PAGO" />
+    </Key>
+    <Property Name="ID_PAGO" Type="number" Precision="30" Scale="0" Nullable="false" />
+    <Property Name="MONTO" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="FECHA_PAGO" Type="date" Nullable="false" />
+    <Property Name="TIPO_PAGO" Type="varchar2" MaxLength="200" />
+    <Property Name="TRANSBANK_ID_TRANSBANK" Type="number" Precision="30" Scale="0" Nullable="false" />
+    <Property Name="RESERVA_ID_RESERVA" Type="number" Precision="10" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RESERVA">
+    <Key>
+      <PropertyRef Name="ID_RESERVA" />
+    </Key>
+    <Property Name="ID_RESERVA" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="FECHA_INICIO" Type="date" Nullable="false" />
+    <Property Name="FECHA_FIN" Type="date" Nullable="false" />
+    <Property Name="ESTADO" Type="varchar2" MaxLength="100" Nullable="false" />
+    <Property Name="CLIENTE_ID_CLIENTE" Type="number" Precision="20" Scale="0" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DUOC.RESERVA_AC' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="RESERVA_AC">
+    <Key>
+      <PropertyRef Name="ACOMPANANTE_ID_ACOMPANANTE" />
+      <PropertyRef Name="RESERVA_ID_RESERVA" />
+    </Key>
+    <Property Name="ACOMPANANTE_ID_ACOMPANANTE" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="RESERVA_ID_RESERVA" Type="number" Precision="10" Scale="0" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DUOC.RESERVA_DEPTO' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="RESERVA_DEPTO">
+    <Key>
+      <PropertyRef Name="RESERVA_ID_RESERVA" />
+      <PropertyRef Name="DPTO_ID_DPTO" />
+    </Key>
+    <Property Name="RESERVA_ID_RESERVA" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="DPTO_ID_DPTO" Type="number" Precision="10" Scale="0" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DUOC.RESERVA_SERVICIO' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="RESERVA_SERVICIO">
+    <Key>
+      <PropertyRef Name="RESERVA_ID_RESERVA" />
+      <PropertyRef Name="SERVICIO_ID_SERVICIO" />
+      <PropertyRef Name="CANTIDAD_CUPO" />
+    </Key>
+    <Property Name="RESERVA_ID_RESERVA" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="SERVICIO_ID_SERVICIO" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="CANTIDAD_CUPO" Type="number" Precision="6" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="REVISION_INV">
+    <Key>
+      <PropertyRef Name="ID_REVISION" />
+    </Key>
+    <Property Name="USUARIO_RUT_USUARIO" Type="varchar2" MaxLength="12" Nullable="false" />
+    <Property Name="ID_REVISION" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="FECHA_REVISION" Type="date" Nullable="false" />
+    <Property Name="DPTO_ID_DPTO" Type="number" Precision="10" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SERVICIO">
+    <Key>
+      <PropertyRef Name="ID_SERVICIO" />
+    </Key>
+    <Property Name="ID_SERVICIO" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" MaxLength="200" Nullable="false" />
+    <Property Name="TIPO" Type="varchar2" MaxLength="200" Nullable="false" />
+    <Property Name="HORARIO_INICIO" Type="date" Nullable="false" />
+    <Property Name="HORARIO_FIN" Type="date" Nullable="false" />
+    <Property Name="PUNTO_REUNION" Type="varchar2" MaxLength="200" Nullable="false" />
+    <Property Name="VALOR" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="RECORRIDO" Type="varchar2" MaxLength="200" />
+    <Property Name="VEHICULO" Type="varchar2" MaxLength="200" />
+    <Property Name="CHOFER" Type="varchar2" MaxLength="200" />
+    <Property Name="ESTADO_SERVICIO" Type="varchar2" MaxLength="100" Nullable="false" />
+    <Property Name="CUPO" Type="number" Precision="6" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TRANSBANK">
+    <Key>
+      <PropertyRef Name="ID_TRANSBANK" />
+    </Key>
+    <Property Name="ID_TRANSBANK" Type="number" Precision="30" Scale="0" Nullable="false" />
+    <Property Name="TOTAL_TBK" Type="number" Precision="30" Scale="0" Nullable="false" />
+    <Property Name="ESTADO_TBK" Type="varchar2" MaxLength="200" />
+    <Property Name="FECHA_TBK" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USUARIO">
+    <Key>
+      <PropertyRef Name="RUT_USUARIO" />
+    </Key>
+    <Property Name="RUT_USUARIO" Type="varchar2" MaxLength="12" Nullable="false" />
+    <Property Name="CONTRASENIA" Type="varchar2" MaxLength="200" Nullable="false" />
+    <Property Name="ROL" Type="varchar2" MaxLength="50" Nullable="false" />
+    <Property Name="NOMBRE_USUARIO" Type="varchar2" MaxLength="100" Nullable="false" />
+    <Property Name="APELLIDO_P" Type="varchar2" MaxLength="100" Nullable="false" />
+    <Property Name="APELLIDO_M" Type="varchar2" MaxLength="100" Nullable="false" />
+    <Property Name="ESTADO_USUARIO" Type="varchar2" MaxLength="50" Nullable="false" />
+    <Property Name="EMAIL" Type="varchar2" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <Association Name="CHECKEO_RESERVA_FK">
+    <End Role="RESERVA" Type="Self.RESERVA" Multiplicity="1" />
+    <End Role="CHECKEO" Type="Self.CHECKEO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RESERVA">
+        <PropertyRef Name="ID_RESERVA" />
+      </Principal>
+      <Dependent Role="CHECKEO">
+        <PropertyRef Name="RESERVA_ID_RESERVA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CHECKEO_USUARIO_FK">
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+    <End Role="CHECKEO" Type="Self.CHECKEO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="RUT_USUARIO" />
+      </Principal>
+      <Dependent Role="CHECKEO">
+        <PropertyRef Name="USUARIO_RUT_USUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="GASTOS_DPTO_FK">
+    <End Role="DPTO" Type="Self.DPTO" Multiplicity="1" />
+    <End Role="GASTOS" Type="Self.GASTOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DPTO">
+        <PropertyRef Name="ID_DPTO" />
+      </Principal>
+      <Dependent Role="GASTOS">
+        <PropertyRef Name="DPTO_ID_DPTO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="INVENTARIO_DPTO_FK">
+    <End Role="DPTO" Type="Self.DPTO" Multiplicity="1" />
+    <End Role="INVENTARIO" Type="Self.INVENTARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DPTO">
+        <PropertyRef Name="ID_DPTO" />
+      </Principal>
+      <Dependent Role="INVENTARIO">
+        <PropertyRef Name="DPTO_ID_DPTO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MANTENCION_DPTO_FK">
+    <End Role="DPTO" Type="Self.DPTO" Multiplicity="1" />
+    <End Role="MANTENCION" Type="Self.MANTENCION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DPTO">
+        <PropertyRef Name="ID_DPTO" />
+      </Principal>
+      <Dependent Role="MANTENCION">
+        <PropertyRef Name="DPTO_ID_DPTO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MULTA_RESERVA_FK">
+    <End Role="RESERVA" Type="Self.RESERVA" Multiplicity="1" />
+    <End Role="MULTA" Type="Self.MULTA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RESERVA">
+        <PropertyRef Name="ID_RESERVA" />
+      </Principal>
+      <Dependent Role="MULTA">
+        <PropertyRef Name="RESERVA_ID_RESERVA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PAGO_RESERVA_FK">
+    <End Role="RESERVA" Type="Self.RESERVA" Multiplicity="1" />
+    <End Role="PAGO" Type="Self.PAGO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RESERVA">
+        <PropertyRef Name="ID_RESERVA" />
+      </Principal>
+      <Dependent Role="PAGO">
+        <PropertyRef Name="RESERVA_ID_RESERVA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PAGO_TRANSBANK_FK">
+    <End Role="TRANSBANK" Type="Self.TRANSBANK" Multiplicity="1" />
+    <End Role="PAGO" Type="Self.PAGO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TRANSBANK">
+        <PropertyRef Name="ID_TRANSBANK" />
+      </Principal>
+      <Dependent Role="PAGO">
+        <PropertyRef Name="TRANSBANK_ID_TRANSBANK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RESERVA_AC_ACOMPANANTE_FK">
+    <End Role="ACOMPANANTE" Type="Self.ACOMPANANTE" Multiplicity="1" />
+    <End Role="RESERVA_AC" Type="Self.RESERVA_AC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACOMPANANTE">
+        <PropertyRef Name="ID_ACOMPANANTE" />
+      </Principal>
+      <Dependent Role="RESERVA_AC">
+        <PropertyRef Name="ACOMPANANTE_ID_ACOMPANANTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RESERVA_AC_RESERVA_FK">
+    <End Role="RESERVA" Type="Self.RESERVA" Multiplicity="1" />
+    <End Role="RESERVA_AC" Type="Self.RESERVA_AC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RESERVA">
+        <PropertyRef Name="ID_RESERVA" />
+      </Principal>
+      <Dependent Role="RESERVA_AC">
+        <PropertyRef Name="RESERVA_ID_RESERVA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RESERVA_CLIENTE_FK">
+    <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+    <End Role="RESERVA" Type="Self.RESERVA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTE">
+        <PropertyRef Name="ID_CLIENTE" />
+      </Principal>
+      <Dependent Role="RESERVA">
+        <PropertyRef Name="CLIENTE_ID_CLIENTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RESERVA_DEPTO_DPTO_FK">
+    <End Role="DPTO" Type="Self.DPTO" Multiplicity="1" />
+    <End Role="RESERVA_DEPTO" Type="Self.RESERVA_DEPTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DPTO">
+        <PropertyRef Name="ID_DPTO" />
+      </Principal>
+      <Dependent Role="RESERVA_DEPTO">
+        <PropertyRef Name="DPTO_ID_DPTO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RESERVA_DEPTO_RESERVA_FK">
+    <End Role="RESERVA" Type="Self.RESERVA" Multiplicity="1" />
+    <End Role="RESERVA_DEPTO" Type="Self.RESERVA_DEPTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RESERVA">
+        <PropertyRef Name="ID_RESERVA" />
+      </Principal>
+      <Dependent Role="RESERVA_DEPTO">
+        <PropertyRef Name="RESERVA_ID_RESERVA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RESERVA_SERVICIO_RESERVA_FK">
+    <End Role="RESERVA" Type="Self.RESERVA" Multiplicity="1" />
+    <End Role="RESERVA_SERVICIO" Type="Self.RESERVA_SERVICIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RESERVA">
+        <PropertyRef Name="ID_RESERVA" />
+      </Principal>
+      <Dependent Role="RESERVA_SERVICIO">
+        <PropertyRef Name="RESERVA_ID_RESERVA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RESERVA_SERVICIO_SERVICIO_FK">
+    <End Role="SERVICIO" Type="Self.SERVICIO" Multiplicity="1" />
+    <End Role="RESERVA_SERVICIO" Type="Self.RESERVA_SERVICIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SERVICIO">
+        <PropertyRef Name="ID_SERVICIO" />
+      </Principal>
+      <Dependent Role="RESERVA_SERVICIO">
+        <PropertyRef Name="SERVICIO_ID_SERVICIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="REVISION_INV_DPTO_FK">
+    <End Role="DPTO" Type="Self.DPTO" Multiplicity="1" />
+    <End Role="REVISION_INV" Type="Self.REVISION_INV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DPTO">
+        <PropertyRef Name="ID_DPTO" />
+      </Principal>
+      <Dependent Role="REVISION_INV">
+        <PropertyRef Name="DPTO_ID_DPTO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="REVISION_INV_USUARIO_FK">
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+    <End Role="REVISION_INV" Type="Self.REVISION_INV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="RUT_USUARIO" />
+      </Principal>
+      <Dependent Role="REVISION_INV">
+        <PropertyRef Name="USUARIO_RUT_USUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="DELETE_RESERVA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC">
+    <Parameter Name="ID_RESERVA" Type="number" Mode="In" />
+  </Function>
+  <Function Name="INHABILITAR_CLIENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC">
+    <Parameter Name="ID_CLIENTE" Type="number" Mode="In" />
+  </Function>
+  <Function Name="INHABILITAR_DPTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC">
+    <Parameter Name="ID_DPTO" Type="number" Mode="In" />
+  </Function>
+  <Function Name="INHABILITAR_INVENTARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC">
+    <Parameter Name="ID_INV" Type="number" Mode="In" />
+  </Function>
+  <Function Name="INHABILITAR_SERVICIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC">
+    <Parameter Name="ID_SERVICIO" Type="number" Mode="In" />
+  </Function>
+  <Function Name="INHABILITAR_USUARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC">
+    <Parameter Name="RUT_USUARIO" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="INSERT_CLIENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC">
+    <Parameter Name="RUT_CLIENTE" Type="varchar2" Mode="In" />
+    <Parameter Name="PASAPORTE" Type="varchar2" Mode="In" />
+    <Parameter Name="PASSWRD" Type="varchar2" Mode="In" />
+    <Parameter Name="NOMBRE" Type="varchar2" Mode="In" />
+    <Parameter Name="APELLIDO_P" Type="varchar2" Mode="In" />
+    <Parameter Name="APELLIDO_M" Type="varchar2" Mode="In" />
+    <Parameter Name="NUM_CELULAR" Type="number" Mode="In" />
+    <Parameter Name="CORREO" Type="varchar2" Mode="In" />
+    <Parameter Name="NACIONALIDAD" Type="varchar2" Mode="In" />
+    <Parameter Name="CLIENTE_FRECUENTE" Type="char" Mode="In" />
+    <Parameter Name="ESTADO_CLIENTE" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="INSERT_DPTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC">
+    <Parameter Name="NUM_DEPTO" Type="varchar2" Mode="In" />
+    <Parameter Name="DIRECCION" Type="varchar2" Mode="In" />
+    <Parameter Name="DESCRIPCION" Type="varchar2" Mode="In" />
+    <Parameter Name="REGION" Type="varchar2" Mode="In" />
+    <Parameter Name="ESTADO" Type="varchar2" Mode="In" />
+    <Parameter Name="VALOR_DIARIO" Type="number" Mode="In" />
+  </Function>
+  <Function Name="INSERT_INVENTARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC">
+    <Parameter Name="NOMBRE_ARTI" Type="varchar2" Mode="In" />
+    <Parameter Name="TIPO_ARTI" Type="varchar2" Mode="In" />
+    <Parameter Name="VALOR_ARTI" Type="number" Mode="In" />
+    <Parameter Name="DPTO_ID_DPTO" Type="number" Mode="In" />
+    <Parameter Name="ESTADO_INVENTARIO" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="INSERT_RESERVA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC">
+    <Parameter Name="FECHA_INICIO" Type="date" Mode="In" />
+    <Parameter Name="FECHA_FIN" Type="date" Mode="In" />
+    <Parameter Name="ESTADO" Type="varchar2" Mode="In" />
+    <Parameter Name="CLIENTE_ID_CLIENTE" Type="number" Mode="In" />
+  </Function>
+  <Function Name="INSERT_SERVICIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC">
+    <Parameter Name="NOMBRE" Type="varchar2" Mode="In" />
+    <Parameter Name="TIPO" Type="varchar2" Mode="In" />
+    <Parameter Name="HORARIO_INICIO" Type="date" Mode="In" />
+    <Parameter Name="HORARIO_FIN" Type="date" Mode="In" />
+    <Parameter Name="PUNTO_REUNION" Type="varchar2" Mode="In" />
+    <Parameter Name="VALOR" Type="number" Mode="In" />
+    <Parameter Name="RECORRIDO" Type="varchar2" Mode="In" />
+    <Parameter Name="VEHICULO" Type="varchar2" Mode="In" />
+    <Parameter Name="CHOFER" Type="varchar2" Mode="In" />
+    <Parameter Name="ESTADO_SERVICIO" Type="varchar2" Mode="In" />
+    <Parameter Name="CUPO" Type="number" Mode="In" />
+  </Function>
+  <Function Name="INSERT_USUARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC">
+    <Parameter Name="RUT_USUARIO" Type="varchar2" Mode="In" />
+    <Parameter Name="CONTRASENIA" Type="varchar2" Mode="In" />
+    <Parameter Name="ROL" Type="varchar2" Mode="In" />
+    <Parameter Name="NOMBRE_USUARIO" Type="varchar2" Mode="In" />
+    <Parameter Name="APELLIDO_P" Type="varchar2" Mode="In" />
+    <Parameter Name="APELLIDO_M" Type="varchar2" Mode="In" />
+    <Parameter Name="ESTADO_USUARIO" Type="varchar2" Mode="In" />
+    <Parameter Name="EMAIL" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="UPDATE_CLIENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC">
+    <Parameter Name="ID_CLIENTEC" Type="number" Mode="In" />
+    <Parameter Name="RUT_CLIENTEC" Type="varchar2" Mode="In" />
+    <Parameter Name="PASAPORTEC" Type="varchar2" Mode="In" />
+    <Parameter Name="NOMBREC" Type="varchar2" Mode="In" />
+    <Parameter Name="APELLIDO_PC" Type="varchar2" Mode="In" />
+    <Parameter Name="APELLIDO_MC" Type="varchar2" Mode="In" />
+    <Parameter Name="NUM_CELULARC" Type="number" Mode="In" />
+    <Parameter Name="CORREOC" Type="varchar2" Mode="In" />
+    <Parameter Name="NACIONALIDADC" Type="varchar2" Mode="In" />
+    <Parameter Name="CLIENTE_FRECUENTEC" Type="char" Mode="In" />
+    <Parameter Name="ESTADO_CLIENTEC" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="UPDATE_DPTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC">
+    <Parameter Name="ID_DPTOD" Type="number" Mode="In" />
+    <Parameter Name="NUM_DEPTOD" Type="varchar2" Mode="In" />
+    <Parameter Name="DIRECCIOND" Type="varchar2" Mode="In" />
+    <Parameter Name="DESCRIPCIOND" Type="varchar2" Mode="In" />
+    <Parameter Name="REGIOND" Type="varchar2" Mode="In" />
+    <Parameter Name="ESTADOD" Type="varchar2" Mode="In" />
+    <Parameter Name="VALOR_DIARIOD" Type="number" Mode="In" />
+  </Function>
+  <Function Name="UPDATE_INVENTARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC">
+    <Parameter Name="ID_INVI" Type="number" Mode="In" />
+    <Parameter Name="NOMBRE_ARTII" Type="varchar2" Mode="In" />
+    <Parameter Name="TIPO_ARTII" Type="varchar2" Mode="In" />
+    <Parameter Name="VALOR_ARTII" Type="number" Mode="In" />
+    <Parameter Name="DPTO_ID_DPTOI" Type="number" Mode="In" />
+    <Parameter Name="ESTADO_INVENTARIOI" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="UPDATE_RESERVA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC">
+    <Parameter Name="ID_RESERVA" Type="number" Mode="In" />
+    <Parameter Name="FECHA_INICIO" Type="date" Mode="In" />
+    <Parameter Name="FECHA_FIN" Type="date" Mode="In" />
+    <Parameter Name="ESTADO" Type="varchar2" Mode="In" />
+    <Parameter Name="CLIENTE_ID_CLIENTE" Type="number" Mode="In" />
+  </Function>
+  <Function Name="UPDATE_SERVICIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC">
+    <Parameter Name="ID_SERVICIOS" Type="number" Mode="In" />
+    <Parameter Name="NOMBRES" Type="varchar2" Mode="In" />
+    <Parameter Name="TIPOS" Type="varchar2" Mode="In" />
+    <Parameter Name="HORARIO_INICIOS" Type="date" Mode="In" />
+    <Parameter Name="HORARIO_FINS" Type="date" Mode="In" />
+    <Parameter Name="PUNTO_REUNIONS" Type="varchar2" Mode="In" />
+    <Parameter Name="VALORS" Type="number" Mode="In" />
+    <Parameter Name="RECORRIDOS" Type="varchar2" Mode="In" />
+    <Parameter Name="VEHICULOS" Type="varchar2" Mode="In" />
+    <Parameter Name="CHOFERS" Type="varchar2" Mode="In" />
+    <Parameter Name="ESTADO_SERVICIOS" Type="varchar2" Mode="In" />
+    <Parameter Name="CUPOS" Type="number" Mode="In" />
+  </Function>
+  <Function Name="UPDATE_USUARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC">
+    <Parameter Name="RUT_USUARIOU" Type="varchar2" Mode="In" />
+    <Parameter Name="ROLU" Type="varchar2" Mode="In" />
+    <Parameter Name="NOMBRE_USUARIOU" Type="varchar2" Mode="In" />
+    <Parameter Name="APELLIDO_PU" Type="varchar2" Mode="In" />
+    <Parameter Name="APELLIDO_MU" Type="varchar2" Mode="In" />
+    <Parameter Name="ESTADO_USUARIOU" Type="varchar2" Mode="In" />
+    <Parameter Name="EMAILU" Type="varchar2" Mode="In" />
+  </Function>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="ACOMPANANTE" EntityType="Self.ACOMPANANTE" Schema="DUOC" store:Type="Tables" />
+    <EntitySet Name="CHECKEO" EntityType="Self.CHECKEO" Schema="DUOC" store:Type="Tables" />
+    <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" Schema="DUOC" store:Type="Tables" />
+    <EntitySet Name="DPTO" EntityType="Self.DPTO" Schema="DUOC" store:Type="Tables" />
+    <EntitySet Name="INVENTARIO" EntityType="Self.INVENTARIO" Schema="DUOC" store:Type="Tables" />
+    <EntitySet Name="MANTENCION" EntityType="Self.MANTENCION" Schema="DUOC" store:Type="Tables" />
+    <EntitySet Name="MULTA" EntityType="Self.MULTA" Schema="DUOC" store:Type="Tables" />
+    <EntitySet Name="PAGO" EntityType="Self.PAGO" Schema="DUOC" store:Type="Tables" />
+    <EntitySet Name="RESERVA" EntityType="Self.RESERVA" Schema="DUOC" store:Type="Tables" />
+    <EntitySet Name="REVISION_INV" EntityType="Self.REVISION_INV" Schema="DUOC" store:Type="Tables" />
+    <EntitySet Name="SERVICIO" EntityType="Self.SERVICIO" Schema="DUOC" store:Type="Tables" />
+    <EntitySet Name="TRANSBANK" EntityType="Self.TRANSBANK" Schema="DUOC" store:Type="Tables" />
+    <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="DUOC" store:Type="Tables" />
+    <EntitySet Name="GASTOS" EntityType="Self.GASTOS" store:Type="Tables" store:Schema="DUOC">
+      <DefiningQuery>SELECT 
+"GASTOS"."TIPO_GASTO" AS "TIPO_GASTO", 
+"GASTOS"."VALOR" AS "VALOR", 
+"GASTOS"."FECHA" AS "FECHA", 
+"GASTOS"."DPTO_ID_DPTO" AS "DPTO_ID_DPTO"
+FROM "DUOC"."GASTOS" "GASTOS"</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="RESERVA_AC" EntityType="Self.RESERVA_AC" store:Type="Tables" store:Schema="DUOC">
+      <DefiningQuery>SELECT 
+"RESERVA_AC"."ACOMPANANTE_ID_ACOMPANANTE" AS "ACOMPANANTE_ID_ACOMPANANTE", 
+"RESERVA_AC"."RESERVA_ID_RESERVA" AS "RESERVA_ID_RESERVA"
+FROM "DUOC"."RESERVA_AC" "RESERVA_AC"</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="RESERVA_DEPTO" EntityType="Self.RESERVA_DEPTO" store:Type="Tables" store:Schema="DUOC">
+      <DefiningQuery>SELECT 
+"RESERVA_DEPTO"."RESERVA_ID_RESERVA" AS "RESERVA_ID_RESERVA", 
+"RESERVA_DEPTO"."DPTO_ID_DPTO" AS "DPTO_ID_DPTO"
+FROM "DUOC"."RESERVA_DEPTO" "RESERVA_DEPTO"</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="RESERVA_SERVICIO" EntityType="Self.RESERVA_SERVICIO" store:Type="Tables" store:Schema="DUOC">
+      <DefiningQuery>SELECT 
+"RESERVA_SERVICIO"."RESERVA_ID_RESERVA" AS "RESERVA_ID_RESERVA", 
+"RESERVA_SERVICIO"."SERVICIO_ID_SERVICIO" AS "SERVICIO_ID_SERVICIO", 
+"RESERVA_SERVICIO"."CANTIDAD_CUPO" AS "CANTIDAD_CUPO"
+FROM "DUOC"."RESERVA_SERVICIO" "RESERVA_SERVICIO"</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="CHECKEO_RESERVA_FK" Association="Self.CHECKEO_RESERVA_FK">
+      <End Role="RESERVA" EntitySet="RESERVA" />
+      <End Role="CHECKEO" EntitySet="CHECKEO" />
+    </AssociationSet>
+    <AssociationSet Name="CHECKEO_USUARIO_FK" Association="Self.CHECKEO_USUARIO_FK">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="CHECKEO" EntitySet="CHECKEO" />
+    </AssociationSet>
+    <AssociationSet Name="GASTOS_DPTO_FK" Association="Self.GASTOS_DPTO_FK">
+      <End Role="DPTO" EntitySet="DPTO" />
+      <End Role="GASTOS" EntitySet="GASTOS" />
+    </AssociationSet>
+    <AssociationSet Name="INVENTARIO_DPTO_FK" Association="Self.INVENTARIO_DPTO_FK">
+      <End Role="DPTO" EntitySet="DPTO" />
+      <End Role="INVENTARIO" EntitySet="INVENTARIO" />
+    </AssociationSet>
+    <AssociationSet Name="MANTENCION_DPTO_FK" Association="Self.MANTENCION_DPTO_FK">
+      <End Role="DPTO" EntitySet="DPTO" />
+      <End Role="MANTENCION" EntitySet="MANTENCION" />
+    </AssociationSet>
+    <AssociationSet Name="MULTA_RESERVA_FK" Association="Self.MULTA_RESERVA_FK">
+      <End Role="RESERVA" EntitySet="RESERVA" />
+      <End Role="MULTA" EntitySet="MULTA" />
+    </AssociationSet>
+    <AssociationSet Name="PAGO_RESERVA_FK" Association="Self.PAGO_RESERVA_FK">
+      <End Role="RESERVA" EntitySet="RESERVA" />
+      <End Role="PAGO" EntitySet="PAGO" />
+    </AssociationSet>
+    <AssociationSet Name="PAGO_TRANSBANK_FK" Association="Self.PAGO_TRANSBANK_FK">
+      <End Role="TRANSBANK" EntitySet="TRANSBANK" />
+      <End Role="PAGO" EntitySet="PAGO" />
+    </AssociationSet>
+    <AssociationSet Name="RESERVA_AC_ACOMPANANTE_FK" Association="Self.RESERVA_AC_ACOMPANANTE_FK">
+      <End Role="ACOMPANANTE" EntitySet="ACOMPANANTE" />
+      <End Role="RESERVA_AC" EntitySet="RESERVA_AC" />
+    </AssociationSet>
+    <AssociationSet Name="RESERVA_AC_RESERVA_FK" Association="Self.RESERVA_AC_RESERVA_FK">
+      <End Role="RESERVA" EntitySet="RESERVA" />
+      <End Role="RESERVA_AC" EntitySet="RESERVA_AC" />
+    </AssociationSet>
+    <AssociationSet Name="RESERVA_CLIENTE_FK" Association="Self.RESERVA_CLIENTE_FK">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="RESERVA" EntitySet="RESERVA" />
+    </AssociationSet>
+    <AssociationSet Name="RESERVA_DEPTO_DPTO_FK" Association="Self.RESERVA_DEPTO_DPTO_FK">
+      <End Role="DPTO" EntitySet="DPTO" />
+      <End Role="RESERVA_DEPTO" EntitySet="RESERVA_DEPTO" />
+    </AssociationSet>
+    <AssociationSet Name="RESERVA_DEPTO_RESERVA_FK" Association="Self.RESERVA_DEPTO_RESERVA_FK">
+      <End Role="RESERVA" EntitySet="RESERVA" />
+      <End Role="RESERVA_DEPTO" EntitySet="RESERVA_DEPTO" />
+    </AssociationSet>
+    <AssociationSet Name="RESERVA_SERVICIO_RESERVA_FK" Association="Self.RESERVA_SERVICIO_RESERVA_FK">
+      <End Role="RESERVA" EntitySet="RESERVA" />
+      <End Role="RESERVA_SERVICIO" EntitySet="RESERVA_SERVICIO" />
+    </AssociationSet>
+    <AssociationSet Name="RESERVA_SERVICIO_SERVICIO_FK" Association="Self.RESERVA_SERVICIO_SERVICIO_FK">
+      <End Role="SERVICIO" EntitySet="SERVICIO" />
+      <End Role="RESERVA_SERVICIO" EntitySet="RESERVA_SERVICIO" />
+    </AssociationSet>
+    <AssociationSet Name="REVISION_INV_DPTO_FK" Association="Self.REVISION_INV_DPTO_FK">
+      <End Role="DPTO" EntitySet="DPTO" />
+      <End Role="REVISION_INV" EntitySet="REVISION_INV" />
+    </AssociationSet>
+    <AssociationSet Name="REVISION_INV_USUARIO_FK" Association="Self.REVISION_INV_USUARIO_FK">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="REVISION_INV" EntitySet="REVISION_INV" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,35 @@
+﻿@using ArriendoTemporada.Negocio
+
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Inicio</h2>
+@{ List<Departamento> departamento = (List<Departamento>)ViewBag.departamento; }
+
+<table>
+    <tr>
+        <th>Direccion</th>
+        <th>Número</th>
+        <th>Descripcion</th>
+        <th>Region</th>
+        <th>Estado</th>
+        <th>Valor</th>
+        <th>Opciones</th>
+    </tr>
+
+    @foreach (var dpto in departamento)
+    {
+        <tr>
+            <td>@dpto.Direccion</td>
+            <td>@dpto.Numero_dpto</td>
+            <td>@dpto.Descripcion</td>
+            <td>@dpto.Region</td>
+            <td>@dpto.Estado</td>
+            <td>@dpto.Valor</td>
+
+            <td>
+                @Html.ActionLink("Reservar", "Create", "Reserva")
+            </td>
+        </tr>
+    }
+</table>
