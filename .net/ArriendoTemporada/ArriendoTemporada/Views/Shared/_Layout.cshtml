@@ -12,10 +12,10 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Arriendo Temporada", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse" id="navbar-collapse">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav" id="navbar">
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li>
@@ -42,7 +42,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Arriendo de Temporada</p>
         </footer>
     </div>
 

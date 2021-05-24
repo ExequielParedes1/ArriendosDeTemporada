@@ -10,42 +10,42 @@ namespace ArriendoTemporada.Controllers
 {
     public class AuthController : Controller
     {
-        // GET: Auth
-            public ActionResult Login()
-            {
-                return View();
-            }
 
-            [HttpPost]
-            public ActionResult Login(Cliente cliente, string ReturnUrl)
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(Cliente cliente, string ReturnUrl)
+        {
+            if (IsValid(cliente))
             {
-                if (IsValid(cliente))
+                FormsAuthentication.SetAuthCookie(cliente.Rut_Cliente, false);
+                if (ReturnUrl != null)
                 {
-                    FormsAuthentication.SetAuthCookie(cliente.Rut_Cliente, false);
-                    if (ReturnUrl != null)
-                    {
-                        return Redirect(ReturnUrl);
-                    }
-                    Session["username"] = cliente.Rut_Cliente;
-                    Cliente cl = new Cliente().ReadAll().Find(x => x.Rut_Cliente == (string)Session["username"]);
-                    Session["username"] = cl.Rut_Cliente;
-                    Session["cliente_id"] = cl.Id;
-                    return RedirectToAction("Index", "Home", new { cl.Rut_Cliente, cl.Id });
+                    return Redirect(ReturnUrl);
                 }
-                TempData["mensaje"] = "Nombre o usuario Incorrectos";
-                return View(cliente);
-
+                Session["username"] = cliente.Rut_Cliente;
+                Cliente cl = new Cliente().ReadAll().Find(x => x.Rut_Cliente == (string)Session["username"]);
+                Session["username"] = cl.Rut_Cliente;
+                Session["cliente_id"] = cl.Id;
+                return RedirectToAction("Index", "Home", new { cl.Rut_Cliente, cl.Id });
             }
+            TempData["mensaje"] = "Nombre o usuario Incorrectos";
+            return View(cliente);
 
-            private bool IsValid(Cliente cliente)
-            {
-                return cliente.Autenticar();
-            }
+        }
 
-            public ActionResult LogOut()
-            {
-                FormsAuthentication.SignOut();
-                return RedirectToAction("Index", "Home");
-            }
+        private bool IsValid(Cliente cliente)
+        {
+            return cliente.Autenticar();
+        }
+
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

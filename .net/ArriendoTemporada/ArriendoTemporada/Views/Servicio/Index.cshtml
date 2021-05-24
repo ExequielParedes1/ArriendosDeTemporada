@@ -4,9 +4,14 @@
 }
 
 @{ List<Servicio> servicio = (List<Servicio>)ViewBag.servicio; }
+@{ List<Reserva> rs = (List<Reserva>)ViewBag.reserva;}
+
+
 
 <table>
     <tr>
+        <th>ID reserva</th>
+        <th>ID servicio</th>
         <th>Nombre</th>
         <th>Tipo</th>
         <th>Hora Inicio</th>
@@ -23,22 +28,25 @@
 
     @foreach (var s in servicio)
     {
-<tr>
-    <td>@s.NombreServ</td>
-    <td>@s.TipoServ</td>
-    <td>@s.HorarioInicioServ.ToString("HH:MM")</td>
-    <td>@s.HorarioFinServ.ToString("HH:MM")</td>
-    <td>@s.PuntoReunionServ</td>
-    <td>@s.ValorServ</td>
-    <td>@s.RecorridoServ</td>
-    <td>@s.VehiculoServ</td>
-    <td>@s.ChoferServ</td>
-    <td>@s.CupoServ</td>
+        <tr>
+            <td>@Session["reserva_id"]</td>
+            <td>@s.Id_Servicio</td>
+            <td>@s.NombreServ</td>
+            <td>@s.TipoServ</td>
+            <td>@s.HorarioInicioServ.ToString("HH:MM")</td>
+            <td>@s.HorarioFinServ.ToString("HH:MM")</td>
+            <td>@s.PuntoReunionServ</td>
+            <td>@s.ValorServ</td>
+            <td>@s.RecorridoServ</td>
+            <td>@s.VehiculoServ</td>
+            <td>@s.ChoferServ</td>
+            <td>@s.CupoServ</td>
 
-    <td>
-        @Html.ActionLink("Reservar", "Create", "Reserva")
-    </td>
-</tr>
+            <td>
+                Falta enviar el ID del servicio
+                @Html.ActionLink("Solicitar", "Reserva_Servicio", "Reserva", new { reserva_id = @Session["reserva_id"], servicio_id = s.Id_Servicio }, null)
+            </td>
+        </tr>
     }
 </table>
 

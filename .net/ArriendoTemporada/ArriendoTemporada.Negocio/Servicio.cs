@@ -48,7 +48,29 @@ namespace ArriendoTemporada.Negocio
                 ChoferServ = s.CHOFER,
                 EstadoServ = s.ESTADO_SERVICIO,
                 CupoServ = s.CUPO
-            }).ToList();
+
+            }).OrderBy(r => r.Id_Servicio).ToList();
+        }
+
+        public List<Servicio> ReadId(decimal servicio_id)
+        {
+            return db.SERVICIO.Select(s => new Servicio()
+            {
+                Id_Servicio = s.ID_SERVICIO,
+                NombreServ = s.NOMBRE,
+                TipoServ = s.TIPO,
+                HorarioInicioServ = s.HORARIO_INICIO,
+                HorarioFinServ = s.HORARIO_FIN,
+                PuntoReunionServ = s.PUNTO_REUNION,
+                ValorServ = s.VALOR,
+                RecorridoServ = s.RECORRIDO,
+                VehiculoServ = s.VEHICULO,
+                ChoferServ = s.CHOFER,
+                EstadoServ = s.ESTADO_SERVICIO,
+                CupoServ = s.CUPO
+
+            }).Where(s => s.Id_Servicio == servicio_id).ToList();
+
         }
 
 

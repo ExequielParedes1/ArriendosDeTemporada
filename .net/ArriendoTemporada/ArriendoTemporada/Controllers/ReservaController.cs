@@ -7,7 +7,7 @@ using ArriendoTemporada.Negocio;
 
 namespace ArriendoTemporada.Controllers
 {
-    [Authorize]
+    
     public class ReservaController : Controller
     {
         // GET: Reserva
@@ -32,14 +32,26 @@ namespace ArriendoTemporada.Controllers
             return View();
         }
 
-        public ActionResult ReservaServicio(decimal cliente_id)
+        /* PRUEBA */
+
+        public ActionResult Reserva_Servicio(decimal reserva_id, decimal servicio_id)
         {
-            Session["cliente_id"] = cliente_id;
-            decimal id = (decimal)Session["cliente_id"];
+            Session["reserva_id"] = reserva_id;
+            decimal id = (decimal)Session["reserva_id"];
             ViewBag.reserva = new Reserva().ReadId(id);
+
+            Session["servicio_id"] = servicio_id;
+            decimal s_id = (decimal)Session["servicio_id"];
+            ViewBag.servicio = new Servicio().ReadId(s_id);
+
+            
+
+            /* FALTA AGREGAR EL DESCUENTO DE 1 CUPO */
 
             return View();
         }
+
+        /* END PRUEBA */
 
         // GET: Reserva/Create
         public ActionResult Create()

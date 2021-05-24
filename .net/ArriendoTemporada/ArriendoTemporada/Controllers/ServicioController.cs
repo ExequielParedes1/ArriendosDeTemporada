@@ -10,8 +10,12 @@ namespace ArriendoTemporada.Controllers
     public class ServicioController : Controller
     {
         // GET: Servicio
-        public ActionResult Index()
+        public ActionResult Index(decimal reserva_id)
         {
+            Session["reserva_id"] = reserva_id;
+            decimal id = (decimal)Session["reserva_id"];
+            ViewBag.reserva = new Reserva().ReadId(id);
+
             ViewBag.servicio = new Servicio().ReadAll();
             return View();
         }
