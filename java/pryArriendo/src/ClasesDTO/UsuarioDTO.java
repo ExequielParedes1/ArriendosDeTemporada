@@ -90,12 +90,13 @@ public class UsuarioDTO {
     private String nombre;
     private String appaterno ;
     private String apmaterno;
+    private String estado;
     private String email;
 
     public UsuarioDTO() {
     }
 
-    public UsuarioDTO(boolean paso, String Rut, String pass, String rol, String nombre, String appaterno, String apmaterno, String email) {
+    public UsuarioDTO(boolean paso, String Rut, String pass, String rol, String nombre, String appaterno, String apmaterno, String email,String estado ) {
         this.paso = paso;
         this.Rut = Rut;
         this.pass = pass;
@@ -103,6 +104,7 @@ public class UsuarioDTO {
         this.nombre = nombre;
         this.appaterno = appaterno;
         this.apmaterno = apmaterno;
+        this.estado=estado;
         this.email = email;
     }
 
@@ -186,10 +188,22 @@ public class UsuarioDTO {
         this.email = email;
     }
 
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
     @Override
     public String toString() {
-        return "UsuarioDTO{" + "mensaje=" + mensaje + ", userdao=" + userdao + ", paso=" + paso + ", Rut=" + Rut + ", pass=" + pass + ", rol=" + rol + ", nombre=" + nombre + ", appaterno=" + appaterno + ", apmaterno=" + apmaterno + ", email=" + email + '}';
+        return "UsuarioDTO{" + "mensaje=" + mensaje + ", userdao=" + userdao + ", paso=" + paso + ", Rut=" + Rut + ", pass=" + pass + ", rol=" + rol + ", nombre=" + nombre + ", appaterno=" + appaterno + ", apmaterno=" + apmaterno + ", estado=" + estado + ", email=" + email + '}';
     }
+    
+    
+
+   
 
     
    

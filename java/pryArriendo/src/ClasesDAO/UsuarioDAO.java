@@ -136,7 +136,8 @@ public class UsuarioDAO {
                 usuario.setNombre(rst.getString(4));
                 usuario.setAppaterno(rst.getString(5));
                 usuario.setApmaterno(rst.getString(6));
-                usuario.setEmail(rst.getString(7));
+                usuario.setEstado(rst.getString(7));
+                usuario.setEmail(rst.getString(8));
                 usuarios.add(usuario);
             }
             
