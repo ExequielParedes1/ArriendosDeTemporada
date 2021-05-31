@@ -217,5 +217,6 @@
     <FunctionImportMapping FunctionImportName="UPDATE_RESERVA" FunctionName="Model.Store.UPDATE_RESERVA" />
     <FunctionImportMapping FunctionImportName="UPDATE_SERVICIO" FunctionName="Model.Store.UPDATE_SERVICIO" />
     <FunctionImportMapping FunctionImportName="UPDATE_USUARIO" FunctionName="Model.Store.UPDATE_USUARIO" />
+    <FunctionImportMapping FunctionImportName="INSERT_RESERVA_SERVICIO" FunctionName="Model.Store.INSERT_RESERVA_SERVICIO" />
   </EntityContainerMapping>
 </Mapping>

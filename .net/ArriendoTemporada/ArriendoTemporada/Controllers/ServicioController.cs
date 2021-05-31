@@ -9,6 +9,7 @@ namespace ArriendoTemporada.Controllers
 {
     public class ServicioController : Controller
     {
+        [Authorize]
         // GET: Servicio
         public ActionResult Index(decimal reserva_id)
         {
@@ -17,7 +18,9 @@ namespace ArriendoTemporada.Controllers
             ViewBag.reserva = new Reserva().ReadId(id);
 
             ViewBag.servicio = new Servicio().ReadAll();
+
             return View();
+            
         }
 
         // GET: Servicio/Details/5

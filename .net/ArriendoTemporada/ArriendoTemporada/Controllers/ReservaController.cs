@@ -7,7 +7,7 @@ using ArriendoTemporada.Negocio;
 
 namespace ArriendoTemporada.Controllers
 {
-    
+    [Authorize]
     public class ReservaController : Controller
     {
         // GET: Reserva
@@ -24,16 +24,13 @@ namespace ArriendoTemporada.Controllers
             decimal id = (decimal)Session["cliente_id"];
             ViewBag.reserva = new Reserva().ReadId(id);
 
-            //ArriendoTemporadaEntities ctx = new ArriendoTemporadaEntities();
+            //Session["id_depto"] = id_depto;
+            //decimal depto_id = (decimal)Session["id_depto"];
 
-            //var servicio = ctx.SERVICIO.ToList();
-            //var lista = new SelectList(servicio, "ID", "NOMBRE");
-            //ViewData["servicio"] = lista;
             return View();
         }
 
         /* PRUEBA */
-
         public ActionResult Reserva_Servicio(decimal reserva_id, decimal servicio_id)
         {
             Session["reserva_id"] = reserva_id;
@@ -44,11 +41,40 @@ namespace ArriendoTemporada.Controllers
             decimal s_id = (decimal)Session["servicio_id"];
             ViewBag.servicio = new Servicio().ReadId(s_id);
 
-            
 
-            /* FALTA AGREGAR EL DESCUENTO DE 1 CUPO */
+            //return View("Reserva_Servicio", new { reserva_id, servicio_id });
 
             return View();
+
+            
+            
+                        
+        }
+        public ActionResult Guardar_Servicio()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Guardar_Servicio(Reserva_Servicio rs, decimal reserva_id, decimal servicio_id)
+        {
+            Session["reserva_id"] = reserva_id;
+            decimal id = (decimal)Session["reserva_id"];
+            ViewBag.reserva = new Reserva().ReadId(id);
+
+            Session["servicio_id"] = servicio_id;
+            decimal s_id = (decimal)Session["servicio_id"];
+            ViewBag.servicio = new Servicio().ReadId(s_id);
+
+            try
+            {
+                rs.Save();
+                TempData["mensaje"] = "Guardado correctamente";
+                return RedirectToAction("Index", new { reserva_id, servicio_id });
+            }
+            catch (Exception)
+            {
+                return View();
+            }
         }
 
         /* END PRUEBA */
@@ -70,11 +96,12 @@ namespace ArriendoTemporada.Controllers
         {
             var Cliente_Id = Session["cliente_id"];
             Session["cliente_id"] = reserva.Cliente_Id;
+
             try
             {
                 // TODO: Add insert logic here
-
                 reserva.Save();
+               /* r_depto.Save();*/
                 TempData["mensaje"] = "Guardado correctamente";
                 return RedirectToAction("Details", new { Cliente_Id });
             }
@@ -87,12 +114,14 @@ namespace ArriendoTemporada.Controllers
         // GET: Reserva/Edit/5
         public ActionResult Edit(int id)
         {
+            var Cliente_Id = Session["cliente_id"];
+
             Reserva r = new Reserva().Find(id);
 
             if (r == null)
             {
                 TempData["mensaje"] = "La reserva no existe";
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", new { Cliente_Id });
             }
             EnviarCliente();
             return View(r);
@@ -102,12 +131,14 @@ namespace ArriendoTemporada.Controllers
         [HttpPost]
         public ActionResult Edit(Reserva reserva)
         {
+            var Cliente_Id = Session["cliente_id"];
+            //Session["cliente_id"] = reserva.Cliente_Id;
             try
             {
                 // TODO: Add update logic here
                 reserva.Update();
                 TempData["mensaje"] = "Modificado correctamente";
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", new { Cliente_Id});
             }
             catch
             {
@@ -118,18 +149,20 @@ namespace ArriendoTemporada.Controllers
         // GET: Reserva/Delete/5
         public ActionResult Delete(int id)
         {
-            if (new Reserva().Find(id) == null)
-            {
-                TempData["mensaje"] = "No existe la reserva";
-                return RedirectToAction("Index");
-            }
+            //if (new Reserva().Find(id) == null)
+            //{
+            //    TempData["mensaje"] = "No existe la reserva";
+            //    return RedirectToAction("Details");
+            //}
+            var Cliente_Id = Session["cliente_id"];
+
             if (new Reserva().Delete(id))
             {
                 TempData["mensaje"] = "Eliminado correctamente";
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", new { Cliente_Id });
             }
             TempData["mensaje"] = "No se ha podido eliminar";
-            return RedirectToAction("Index");
+            return RedirectToAction("Details", new { Cliente_Id });
         }
 
         // POST: Reserva/Delete/5

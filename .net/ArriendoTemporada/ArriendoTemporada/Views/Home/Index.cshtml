@@ -1,14 +1,26 @@
-﻿
+﻿@using ArriendoTemporada.Negocio
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Arriendos</h2>
+<h2>Inicio Arriendo</h2>
 
-<div class="listado-acciones">
-    
-        @Html.ActionLink("Ver Departamentos", "Index", "Departamento")
-        @Html.ActionLink("Ver mis Reservas", "Details", "Reserva", new { cliente_id = Session["cliente_id"] }, null)
-    
-        
-</div>
+
+    <div class="row">
+        <div class="col-6">
+            <h5>
+                La empresa “Turismo Real”, es una empresa familiar que se dedica al arriendo de departamentos propiedad
+                de la empresa, y otros servicios en zonas turísticas del país. Tiene 10 años en el mercado y de a poco se ha
+                hecho conocida por la calidad de sus departamentos, ubicación y trato gentil hacia los clientes. Actualmente la
+                empresa cuenta con 10 departamentos ubicados en zonas de alto interés turístico para los clientes (Viña del
+                Mar, La Serena, Pucón, Puerto Varas, etc.), todos ellos acondicionados con un alto estándar de calidad.
+
+            </h5>
+        </div>
+        <div class="col-6">
+
+
+            <img src="~/Src/Img/3.jpg" width="350" height="350" />
+        </div>
+    </div>
+

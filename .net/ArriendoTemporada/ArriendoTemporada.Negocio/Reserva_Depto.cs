@@ -7,20 +7,17 @@ using ArriendoTemporada.DALC;
 
 namespace ArriendoTemporada.Negocio
 {
-    public class Reserva_Servicio
+    public class Reserva_Depto
     {
-        public decimal Cupos { get; set; }
-        public Reserva Reserva { get; set; }
-        public Servicio Servicio { get; set; }
+        public Reserva reserva { get; set; }
+        public Departamento depto { get; set; }
 
         ArriendoTemporadaEntities db = new ArriendoTemporadaEntities();
 
-
-        public List<Reserva_Servicio> ReadAll()
+        /*public List<Reserva_Depto> ReadAll()
         {
-            return db.RESERVA_SERVICIO.Select(rs => new Reserva_Servicio()
+            return db.RESERVA_DEPTO.Select(rs => new Reserva_Depto()
             {
-                Cupos = rs.CANTIDAD_CUPO,
                 Reserva = new Reserva()
                 {
                     Id = rs.RESERVA.ID_RESERVA,
@@ -46,19 +43,23 @@ namespace ArriendoTemporada.Negocio
                     CupoServ = rs.SERVICIO.CUPO
                 }
             }).ToList();
-        }
+        }*/
+
 
         public bool Save()
         {
             try
             {
-                db.INSERT_RESERVA_SERVICIO(this.Reserva.Id, this.Servicio.Id_Servicio, this.Cupos);
+                /* falta crear el procedimiento almacenado */
+                //db.INSERT_RESERVA_DEPTO(this.reserva.Id, this.depto.Id);
                 return true;
             }
-            catch
+            catch (Exception)
             {
+
                 return false;
             }
         }
+
     }
 }

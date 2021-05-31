@@ -443,7 +443,7 @@
       <End Role="RESERVA" EntitySet="RESERVA" />
     </AssociationSet>
     <FunctionImport Name="DELETE_RESERVA">
-      <Parameter Name="ID_RESERVA" Mode="In" Type="Decimal" />
+      <Parameter Name="ID_R" Mode="In" Type="Decimal" />
     </FunctionImport>
     <FunctionImport Name="INHABILITAR_CLIENTE">
       <Parameter Name="ID_CLIENTE" Mode="In" Type="Decimal" />
@@ -548,11 +548,11 @@
       <Parameter Name="ESTADO_INVENTARIOI" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="UPDATE_RESERVA">
-      <Parameter Name="ID_RESERVA" Mode="In" Type="Decimal" />
-      <Parameter Name="FECHA_INICIO" Mode="In" Type="DateTime" />
-      <Parameter Name="FECHA_FIN" Mode="In" Type="DateTime" />
-      <Parameter Name="ESTADO" Mode="In" Type="String" />
-      <Parameter Name="CLIENTE_ID_CLIENTE" Mode="In" Type="Decimal" />
+      <Parameter Name="ID_RESERVAU" Mode="In" Type="Decimal" />
+      <Parameter Name="FECHA_INICIOU" Mode="In" Type="DateTime" />
+      <Parameter Name="FECHA_FINU" Mode="In" Type="DateTime" />
+      <Parameter Name="ESTADOU" Mode="In" Type="String" />
+      <Parameter Name="CLIENTE_ID_CLIENTEU" Mode="In" Type="Decimal" />
     </FunctionImport>
     <FunctionImport Name="UPDATE_SERVICIO">
       <Parameter Name="ID_SERVICIOS" Mode="In" Type="Decimal" />
@@ -576,6 +576,11 @@
       <Parameter Name="APELLIDO_MU" Mode="In" Type="String" />
       <Parameter Name="ESTADO_USUARIOU" Mode="In" Type="String" />
       <Parameter Name="EMAILU" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="INSERT_RESERVA_SERVICIO">
+      <Parameter Name="RESERVA_ID_RESERVA" Mode="In" Type="Decimal" />
+      <Parameter Name="SERVICIO_ID_SERVICIO" Mode="In" Type="Decimal" />
+      <Parameter Name="CANTIDAD_CUPO" Mode="In" Type="Decimal" />
     </FunctionImport>
   </EntityContainer>
 </Schema>

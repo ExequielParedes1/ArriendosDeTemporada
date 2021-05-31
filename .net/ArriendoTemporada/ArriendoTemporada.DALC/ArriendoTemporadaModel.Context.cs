@@ -44,13 +44,13 @@ namespace ArriendoTemporada.DALC
         public DbSet<GASTOS> GASTOS { get; set; }
         public DbSet<RESERVA_SERVICIO> RESERVA_SERVICIO { get; set; }
     
-        public virtual int DELETE_RESERVA(Nullable<decimal> iD_RESERVA)
+        public virtual int DELETE_RESERVA(Nullable<decimal> iD_R)
         {
-            var iD_RESERVAParameter = iD_RESERVA.HasValue ?
-                new ObjectParameter("ID_RESERVA", iD_RESERVA) :
-                new ObjectParameter("ID_RESERVA", typeof(decimal));
+            var iD_RParameter = iD_R.HasValue ?
+                new ObjectParameter("ID_R", iD_R) :
+                new ObjectParameter("ID_R", typeof(decimal));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DELETE_RESERVA", iD_RESERVAParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DELETE_RESERVA", iD_RParameter);
         }
     
         public virtual int INHABILITAR_CLIENTE(Nullable<decimal> iD_CLIENTE)
@@ -419,29 +419,29 @@ namespace ArriendoTemporada.DALC
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UPDATE_INVENTARIO", iD_INVIParameter, nOMBRE_ARTIIParameter, tIPO_ARTIIParameter, vALOR_ARTIIParameter, dPTO_ID_DPTOIParameter, eSTADO_INVENTARIOIParameter);
         }
     
-        public virtual int UPDATE_RESERVA(Nullable<decimal> iD_RESERVA, Nullable<System.DateTime> fECHA_INICIO, Nullable<System.DateTime> fECHA_FIN, string eSTADO, Nullable<decimal> cLIENTE_ID_CLIENTE)
+        public virtual int UPDATE_RESERVA(Nullable<decimal> iD_RESERVAU, Nullable<System.DateTime> fECHA_INICIOU, Nullable<System.DateTime> fECHA_FINU, string eSTADOU, Nullable<decimal> cLIENTE_ID_CLIENTEU)
         {
-            var iD_RESERVAParameter = iD_RESERVA.HasValue ?
-                new ObjectParameter("ID_RESERVA", iD_RESERVA) :
-                new ObjectParameter("ID_RESERVA", typeof(decimal));
+            var iD_RESERVAUParameter = iD_RESERVAU.HasValue ?
+                new ObjectParameter("ID_RESERVAU", iD_RESERVAU) :
+                new ObjectParameter("ID_RESERVAU", typeof(decimal));
     
-            var fECHA_INICIOParameter = fECHA_INICIO.HasValue ?
-                new ObjectParameter("FECHA_INICIO", fECHA_INICIO) :
-                new ObjectParameter("FECHA_INICIO", typeof(System.DateTime));
+            var fECHA_INICIOUParameter = fECHA_INICIOU.HasValue ?
+                new ObjectParameter("FECHA_INICIOU", fECHA_INICIOU) :
+                new ObjectParameter("FECHA_INICIOU", typeof(System.DateTime));
     
-            var fECHA_FINParameter = fECHA_FIN.HasValue ?
-                new ObjectParameter("FECHA_FIN", fECHA_FIN) :
-                new ObjectParameter("FECHA_FIN", typeof(System.DateTime));
+            var fECHA_FINUParameter = fECHA_FINU.HasValue ?
+                new ObjectParameter("FECHA_FINU", fECHA_FINU) :
+                new ObjectParameter("FECHA_FINU", typeof(System.DateTime));
     
-            var eSTADOParameter = eSTADO != null ?
-                new ObjectParameter("ESTADO", eSTADO) :
-                new ObjectParameter("ESTADO", typeof(string));
+            var eSTADOUParameter = eSTADOU != null ?
+                new ObjectParameter("ESTADOU", eSTADOU) :
+                new ObjectParameter("ESTADOU", typeof(string));
     
-            var cLIENTE_ID_CLIENTEParameter = cLIENTE_ID_CLIENTE.HasValue ?
-                new ObjectParameter("CLIENTE_ID_CLIENTE", cLIENTE_ID_CLIENTE) :
-                new ObjectParameter("CLIENTE_ID_CLIENTE", typeof(decimal));
+            var cLIENTE_ID_CLIENTEUParameter = cLIENTE_ID_CLIENTEU.HasValue ?
+                new ObjectParameter("CLIENTE_ID_CLIENTEU", cLIENTE_ID_CLIENTEU) :
+                new ObjectParameter("CLIENTE_ID_CLIENTEU", typeof(decimal));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UPDATE_RESERVA", iD_RESERVAParameter, fECHA_INICIOParameter, fECHA_FINParameter, eSTADOParameter, cLIENTE_ID_CLIENTEParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UPDATE_RESERVA", iD_RESERVAUParameter, fECHA_INICIOUParameter, fECHA_FINUParameter, eSTADOUParameter, cLIENTE_ID_CLIENTEUParameter);
         }
     
         public virtual int UPDATE_SERVICIO(Nullable<decimal> iD_SERVICIOS, string nOMBRES, string tIPOS, Nullable<System.DateTime> hORARIO_INICIOS, Nullable<System.DateTime> hORARIO_FINS, string pUNTO_REUNIONS, Nullable<decimal> vALORS, string rECORRIDOS, string vEHICULOS, string cHOFERS, string eSTADO_SERVICIOS, Nullable<decimal> cUPOS)
@@ -528,6 +528,23 @@ namespace ArriendoTemporada.DALC
                 new ObjectParameter("EMAILU", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UPDATE_USUARIO", rUT_USUARIOUParameter, rOLUParameter, nOMBRE_USUARIOUParameter, aPELLIDO_PUParameter, aPELLIDO_MUParameter, eSTADO_USUARIOUParameter, eMAILUParameter);
+        }
+    
+        public virtual int INSERT_RESERVA_SERVICIO(Nullable<decimal> rESERVA_ID_RESERVA, Nullable<decimal> sERVICIO_ID_SERVICIO, Nullable<decimal> cANTIDAD_CUPO)
+        {
+            var rESERVA_ID_RESERVAParameter = rESERVA_ID_RESERVA.HasValue ?
+                new ObjectParameter("RESERVA_ID_RESERVA", rESERVA_ID_RESERVA) :
+                new ObjectParameter("RESERVA_ID_RESERVA", typeof(decimal));
+    
+            var sERVICIO_ID_SERVICIOParameter = sERVICIO_ID_SERVICIO.HasValue ?
+                new ObjectParameter("SERVICIO_ID_SERVICIO", sERVICIO_ID_SERVICIO) :
+                new ObjectParameter("SERVICIO_ID_SERVICIO", typeof(decimal));
+    
+            var cANTIDAD_CUPOParameter = cANTIDAD_CUPO.HasValue ?
+                new ObjectParameter("CANTIDAD_CUPO", cANTIDAD_CUPO) :
+                new ObjectParameter("CANTIDAD_CUPO", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("INSERT_RESERVA_SERVICIO", rESERVA_ID_RESERVAParameter, sERVICIO_ID_SERVICIOParameter, cANTIDAD_CUPOParameter);
         }
     }
 }

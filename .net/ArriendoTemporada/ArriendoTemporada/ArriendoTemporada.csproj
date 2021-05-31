@@ -120,6 +120,7 @@
     <Content Include="Views\Reserva\Index.cshtml" />
     <Content Include="Views\Servicio\Index.cshtml" />
     <Content Include="Views\Reserva\Reserva_Servicio.cshtml" />
+    <Content Include="Views\Reserva\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

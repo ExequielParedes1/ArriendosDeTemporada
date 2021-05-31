@@ -8,6 +8,7 @@
 
 <table>
     <tr>
+        <th>ID</th>
         <th>Direccion</th>
         <th>Número</th>
         <th>Descripcion</th>
@@ -19,17 +20,19 @@
 
     @foreach (var dpto in departamento)
     {
-        <tr>
-            <td>@dpto.Direccion</td>
-            <td>@dpto.Numero_dpto</td>
-            <td>@dpto.Descripcion</td>
-            <td>@dpto.Region</td>
-            <td>@dpto.Estado</td>
-            <td>@dpto.Valor</td>
+<tr>
+    <td>@(Session["id_depto"] = dpto.Id)</td>
+    <td>@dpto.Direccion</td>
+    <td>@dpto.Numero_dpto</td>
+    <td>@dpto.Descripcion</td>
+    <td>@dpto.Region</td>
+    <td>@dpto.Estado</td>
+    <td>@dpto.Valor</td>
 
-            <td>
-                @Html.ActionLink("Reservar", "Create", "Reserva")
-            </td>
-        </tr>
+
+    <td>
+        @Html.ActionLink("Reservar", "Create", "Reserva", new { id_dpto = @Session["id_depto"]}, null )
+    </td>
+</tr>
     }
 </table>

@@ -10,7 +10,7 @@ namespace ArriendoTemporada.Controllers
     public class DepartamentoController : Controller
     {
         // GET: Departamento
-        public ActionResult Index()
+        public ActionResult Index(Departamento dpto)
         {
             ViewBag.departamento = new Departamento().ReadAll();
             return View();

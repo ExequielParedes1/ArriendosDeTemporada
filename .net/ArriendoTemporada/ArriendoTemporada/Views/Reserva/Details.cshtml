@@ -9,7 +9,7 @@
 
 
 @{ List<Reserva> reservas = (List<Reserva>)ViewBag.reserva; }
-@Session["cliente_id"]
+@*@Session["cliente_id"]*@
 
 <table>
     <tr>
@@ -28,9 +28,11 @@
     <td>@reserva.Fecha_Inicio.ToString("dd/MM/yyyy")</td>
     <td>@reserva.Fecha_Fin.ToString("dd/MM/yyyy")</td>
     <td>
-        @Html.ActionLink("Servicio Extra", "Index", "Servicio", new { reserva_id = reserva.Id } , null)
+        @Html.ActionLink("Servicio Extra", "Index", "Servicio", new { reserva_id = reserva.Id }, null)
+        @Html.ActionLink("Eliminar", "Delete", new { id = reserva.Id }, new { @onclick = "return confirm('¿Desea eliminar?');" })
+        @Html.ActionLink("Editar", "Edit", new { id = reserva.Id })
         @*@Html.ActionLink("Eliminar", "Delete", new { id = reserva.Id })
-            @Html.ActionLink("Editar", "Edit", new { id = reserva.Id })*@
+        @Html.ActionLink("Editar", "Edit", new { id = reserva.Id })*@
     </td>
 </tr>
     }

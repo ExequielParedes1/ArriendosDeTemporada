@@ -4,18 +4,16 @@
 }
 
 @{ List<Servicio> servicio = (List<Servicio>)ViewBag.servicio; }
-@{ List<Reserva> rs = (List<Reserva>)ViewBag.reserva;}
-
-
+@{ List<Reserva> r = (List<Reserva>)ViewBag.reserva; }
 
 <table>
     <tr>
-        <th>ID reserva</th>
-        <th>ID servicio</th>
+        <th>id reserva</th>
+        <th>id servicio</th>
         <th>Nombre</th>
         <th>Tipo</th>
-        <th>Hora Inicio</th>
-        <th>Hora Termino</th>
+        <th>Fecha Inicio</th>
+        <th>Fecha Termino</th>
         <th>Punto Reunión</th>
         <th>Valor</th>
         <th>Recorrido</th>
@@ -30,11 +28,11 @@
     {
         <tr>
             <td>@Session["reserva_id"]</td>
-            <td>@s.Id_Servicio</td>
+            <td>@(Session["servicio_id"] = s.Id_Servicio)</td>
             <td>@s.NombreServ</td>
             <td>@s.TipoServ</td>
-            <td>@s.HorarioInicioServ.ToString("HH:MM")</td>
-            <td>@s.HorarioFinServ.ToString("HH:MM")</td>
+            <td>@s.HorarioInicioServ.ToString("dd/MM")</td>
+            <td>@s.HorarioFinServ.ToString("dd/MM")</td>
             <td>@s.PuntoReunionServ</td>
             <td>@s.ValorServ</td>
             <td>@s.RecorridoServ</td>
@@ -43,8 +41,7 @@
             <td>@s.CupoServ</td>
 
             <td>
-                Falta enviar el ID del servicio
-                @Html.ActionLink("Solicitar", "Reserva_Servicio", "Reserva", new { reserva_id = @Session["reserva_id"], servicio_id = s.Id_Servicio }, null)
+                @Html.ActionLink("Solicitar", "Reserva_Servicio", "Reserva", new { reserva_id = @Session["reserva_id"], servicio_id = @Session["servicio_id"] }, null)
             </td>
         </tr>
     }

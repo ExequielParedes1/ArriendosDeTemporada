@@ -1,22 +1,22 @@
 ﻿@using ArriendoTemporada.Negocio;
+
 @{
     ViewBag.Title = "Reserva_Servicio";
 }
+
 
 <h2>Reserva_Servicio</h2>
 
 
 <table>
     <tr>
-        <td>ID Reserva</td>
-        <td>ID Servicio</td>
-        <td>Cupos</td>
+        <th>ID Reserva</th>
+        <th>ID Servicio</th>
+        <th>Cupos</th>
     </tr>
     <tr>
-        <th>@Session["reserva_id"]</th>
-        <th>@Session["servicio_id"]</th>
-        <th>Falta arreglar</th>
+        <td>@Session["reserva_id"]</td>
+        <td>@Session["servicio_id"]</td>
+        <td>Cupos</td>
     </tr>
 </table>
-
-

@@ -13,13 +13,7 @@ namespace ArriendoTemporada.Negocio
         public DateTime Fecha_Inicio { get; set; }
         public DateTime Fecha_Fin { get; set; }
         public string Estado { get; set; }
-        public Reserva_Estado EstadoR { get; set; }
         public decimal Cliente_Id { get; set; }
-
-        public enum Reserva_Estado
-        {
-            RESERVADO
-        }
 
         public Cliente Cliente { get; set; }
 
@@ -82,10 +76,6 @@ namespace ArriendoTemporada.Negocio
             }).Where(r => r.Cliente_Id == cliente_id).ToList();
 
         }
-
-
-
-
 
         public bool Save()
         {
@@ -157,11 +147,6 @@ namespace ArriendoTemporada.Negocio
                 return false;
             }
         }
-
-
-
-
-
 
     }
 }
