@@ -63,4 +63,20 @@ public class RevisionDAO {
             System.out.println(e.getMessage());
         }
     }
+    
+    public boolean EliminarRevision(Connection con, int id) {
+        boolean pasoDesabilitar = false;
+        String sql = "{call inhabilitar_multa (?)}";
+        
+        try {
+            CallableStatement pst = con.prepareCall(sql);
+            pst.setInt(1, id);
+            pst.execute();
+            pst.close();
+            pasoDesabilitar = true;
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return pasoDesabilitar;
+    }
 }

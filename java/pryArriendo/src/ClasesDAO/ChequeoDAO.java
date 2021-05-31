@@ -61,7 +61,7 @@ public class ChequeoDAO {
         String [] columnas = {"ID Chequeo", "Tipo chequeo", "Fecha", "RUT Funcionario", "ID Reserva"};
         model = new DefaultTableModel(null, columnas);
         
-        String sql = "Select * from checkeo where tipo_checkeo='CHECK IN'";
+        String sql = "Select * from checkeo";
         
         String[] filas = new String[5];
         
@@ -85,7 +85,7 @@ public class ChequeoDAO {
         String [] columnas = {"ID Chequeo", "Tipo chequeo", "Fecha", "RUT Funcionario", "ID Reserva"};
         model = new DefaultTableModel(null, columnas);
         
-        String sql = "Select * from checkeo where tipo_checkeo='CHECK OUT'";
+        String sql = "Select * from checkeo";
         
         String[] filas = new String[5];
         

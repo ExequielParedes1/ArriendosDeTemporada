@@ -6,6 +6,8 @@
 package vistaLogin;
 
 import ClasesDAO.UsuarioDAO;
+import java.awt.Font;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import otros.encryptPass;
 import otros.mostrarVista;
@@ -41,8 +43,10 @@ public class login extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         btnLogin = new javax.swing.JToggleButton();
+        mo_lb_olvidocontrasena1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Login Turismo Real");
         setMinimumSize(new java.awt.Dimension(830, 565));
         setPreferredSize(new java.awt.Dimension(1032, 742));
 
@@ -67,14 +71,19 @@ public class login extends javax.swing.JFrame {
             }
         });
 
+        mo_lb_olvidocontrasena1.setForeground(new java.awt.Color(51, 51, 255));
+        mo_lb_olvidocontrasena1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        mo_lb_olvidocontrasena1.setText("¿Olvidó su contraseña?");
+        mo_lb_olvidocontrasena1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mo_lb_olvidocontrasena1MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(437, Short.MAX_VALUE)
-                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(487, 487, 487))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -85,11 +94,16 @@ public class login extends javax.swing.JFrame {
                         .addGap(42, 42, 42)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                            .addComponent(txtPassword)))
+                            .addComponent(txtPassword)
+                            .addComponent(mo_lb_olvidocontrasena1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(398, 398, 398)
                         .addComponent(jLabel3)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(386, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(436, 436, 436))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,9 +118,11 @@ public class login extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addGap(75, 75, 75)
+                .addGap(28, 28, 28)
+                .addComponent(mo_lb_olvidocontrasena1)
+                .addGap(32, 32, 32)
                 .addComponent(btnLogin)
-                .addContainerGap(229, Short.MAX_VALUE))
+                .addContainerGap(228, Short.MAX_VALUE))
         );
 
         pack();
@@ -143,6 +159,52 @@ public class login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 
+    private void mo_lb_olvidocontrasena1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mo_lb_olvidocontrasena1MouseClicked
+
+        ventanaMensaje(1,
+            "<html><center> <br>"
+            + "Para recuperar su contraseña, debe comunicarse con los <br>"
+            + "administradores de la base de dato del sistema. <br><br> Correo: contacto@turismoreal.cl <br> </center> </html>",
+            "¿Olvidó su contraseña?");
+    }//GEN-LAST:event_mo_lb_olvidocontrasena1MouseClicked
+
+    private void ventanaMensaje(int tipo, String msj, String titulo) {
+
+        JLabel mensaje = new JLabel(msj);
+        mensaje.setFont(new Font("Tahoma", Font.PLAIN, 14));
+
+        switch (tipo) {
+            //lanzamiento de mensaje simple
+            case 0:
+                JOptionPane.showMessageDialog(null,
+                        mensaje,
+                        titulo,
+                        JOptionPane.PLAIN_MESSAGE);
+                break;
+            case 1:
+                JOptionPane.showMessageDialog(null,
+                        mensaje, titulo, JOptionPane.INFORMATION_MESSAGE);
+                break;
+            case 2:
+                JOptionPane.showMessageDialog(null,
+                        mensaje,
+                        titulo,
+                        JOptionPane.WARNING_MESSAGE);
+                break;
+            case 3:
+                JOptionPane.showMessageDialog(null,
+                        mensaje,
+                        titulo,
+                        JOptionPane.ERROR_MESSAGE);
+                break;
+            default:
+                JOptionPane.showMessageDialog(null,
+                        "Ventana de mensaje no controlada",
+                        "Mensaje no controlado",
+                        JOptionPane.ERROR_MESSAGE);
+                break;
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -183,6 +245,7 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel mo_lb_olvidocontrasena1;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables

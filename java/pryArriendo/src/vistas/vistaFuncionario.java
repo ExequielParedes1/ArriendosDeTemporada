@@ -5,13 +5,19 @@
  */
 package vistas;
 
+import ClasesDAO.MultaDAO;
 import ClasesDTO.ChequeoDTO;
+import ClasesDTO.MultaDTO;
+import ClasesDTO.ReservaDTO;
 import ClasesEntity.chequeo;
+import ClasesEntity.multa;
 import conexionBD.conectar;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.logging.Level;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -28,18 +34,32 @@ public class vistaFuncionario extends javax.swing.JFrame {
         conectar cc = new conectar();
         Connection cn = cc.conexion();
         private ChequeoDTO checkDTO = new ChequeoDTO();
+        private MultaDTO multaDTO = new MultaDTO();
+        private ReservaDTO reDTO = new ReservaDTO();
     /**
      * Creates new form vistaFuncionario
      */
     public vistaFuncionario() {
         initComponents();
         Cargarlistaclientes();
+        CargarMultaCliente();
+        listarReservaTerminada();
         listarChequeos();
+        listarMultas();
         listarChequeosOUT();
+        
         tabCheck.setEnabledAt(1,false);
         tabCheck.setEnabledAt(2,false);
         this.setResizable(false);
         this.setLocationRelativeTo(null);
+        Timer tiempo4 = new Timer();
+        TimerTask tarea4 = new TimerTask() {
+            @Override
+            public void run() {
+                listarReservaTerminada();
+            }
+        };
+        tiempo4.schedule(tarea4, 1000);
     }
 
     /**
@@ -71,6 +91,8 @@ public class vistaFuncionario extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         tomaiddepto = new javax.swing.JLabel();
+        btnRecargaTabla = new javax.swing.JButton();
+        jLabel26 = new javax.swing.JLabel();
         jpanelCheck = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -91,6 +113,9 @@ public class vistaFuncionario extends javax.swing.JFrame {
         tomaidreserva = new javax.swing.JLabel();
         btnEstadoInventario = new javax.swing.JButton();
         tomarutFuncionario = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        btnMulta = new javax.swing.JButton();
+        btnActualiChIn = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
@@ -103,6 +128,43 @@ public class vistaFuncionario extends javax.swing.JFrame {
         btnRealizarCheOut = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         tablacheckout = new javax.swing.JTable();
+        jLabel19 = new javax.swing.JLabel();
+        btnActualiChOut = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        jTabbedPane2 = new javax.swing.JTabbedPane();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        txtDescripMulta = new javax.swing.JTextArea();
+        txtReservaMulta = new javax.swing.JTextField();
+        jLabel25 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tablamultas = new javax.swing.JTable();
+        txtmontomulta = new javax.swing.JSpinner();
+        btnActualizarMulta = new javax.swing.JButton();
+        jPanel9 = new javax.swing.JPanel();
+        btnBuscaCliMulta2 = new javax.swing.JButton();
+        txtPasaportClientemulta = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
+        btnRecargaTablaMulta = new javax.swing.JButton();
+        btnBuscaCliMulta1 = new javax.swing.JButton();
+        txtRutClientemulta = new javax.swing.JTextField();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        tablamultacliente = new javax.swing.JTable();
+        jPanel10 = new javax.swing.JPanel();
+        jLabel32 = new javax.swing.JLabel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        tablareservaTerminada = new javax.swing.JTable();
+        btnRecargaReseTermina = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
 
@@ -147,7 +209,7 @@ public class vistaFuncionario extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tablaReservas);
 
-        btnIrCheckIn.setText("REALIZAR CHEQUEO");
+        btnIrCheckIn.setText("IR AREA CHEQUEO");
         btnIrCheckIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIrCheckInActionPerformed(evt);
@@ -170,16 +232,25 @@ public class vistaFuncionario extends javax.swing.JFrame {
 
         jLabel14.setText("Seleccione reserva para realizar chequeo");
 
+        btnRecargaTabla.setText("Recargar tabla");
+        btnRecargaTabla.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRecargaTablaActionPerformed(evt);
+            }
+        });
+
+        jLabel26.setText("Seleccione reserva  para revisar inventario");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(285, 285, 285)
+                .addGap(115, 115, 115)
                 .addComponent(btnIrCheckIn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addGap(202, 202, 202))
+                .addGap(119, 119, 119))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(99, 99, 99)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,7 +260,9 @@ public class vistaFuncionario extends javax.swing.JFrame {
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(txtRutClienteCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnBuscaCliente1)))
+                                .addComponent(btnBuscaCliente1)
+                                .addGap(84, 84, 84)
+                                .addComponent(btnRecargaTabla)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
@@ -200,23 +273,29 @@ public class vistaFuncionario extends javax.swing.JFrame {
                             .addComponent(jLabel6))
                         .addGap(262, 262, 262))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel14)
-                        .addGap(94, 94, 94)
-                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(tomaiddepto, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(116, 116, 116))))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1021, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(62, Short.MAX_VALUE))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(tomaiddepto, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(436, 436, 436))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(430, 430, 430)
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addGap(81, 81, 81)
+                            .addComponent(jLabel14)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel26))
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addGap(37, 37, 37)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1021, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -238,23 +317,25 @@ public class vistaFuncionario extends javax.swing.JFrame {
                         .addComponent(txtPasaportClienteCheck, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtRutClienteCheck, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnBuscaCliente1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(tomaiddepto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel14))
-                    .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addComponent(btnBuscaCliente1)
+                        .addComponent(btnRecargaTabla)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addComponent(jLabel12)
+                .addGap(15, 15, 15)
+                .addComponent(tomaiddepto, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel26))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnIrCheckIn)
-                    .addComponent(jButton1))
-                .addGap(73, 73, 73))
+                    .addComponent(jButton1)))
         );
 
-        tabCheck.addTab("Area Reservas", jPanel3);
+        tabCheck.addTab("Area Reservas Activas", jPanel3);
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel2.setText("REGISTRO CHECK IN");
@@ -295,7 +376,7 @@ public class vistaFuncionario extends javax.swing.JFrame {
         jScrollPane2.setViewportView(tablaChequeos);
 
         jLabel13.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel13.setText("Listado de reservas Check In");
+        jLabel13.setText("LISTADO Y ESTADO DE CHEQUEOS");
 
         btnEliminarCheck.setText("ELIMINAR CHEQUEO");
         btnEliminarCheck.addActionListener(new java.awt.event.ActionListener() {
@@ -318,16 +399,26 @@ public class vistaFuncionario extends javax.swing.JFrame {
             }
         });
 
+        jLabel21.setText("Seleccione chequeo para revisar estado o para realizar check out");
+
+        btnMulta.setText("REALIZAR MULTA");
+        btnMulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMultaActionPerformed(evt);
+            }
+        });
+
+        btnActualiChIn.setText("ACTUALIZAR");
+        btnActualiChIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualiChInActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(tomaidreserva)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(460, 460, 460))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
@@ -346,46 +437,67 @@ public class vistaFuncionario extends javax.swing.JFrame {
                                         .addComponent(txtReservaCheck, javax.swing.GroupLayout.Alignment.LEADING))))
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addGap(32, 32, 32)
-                                .addComponent(jLabel11))))
+                                .addComponent(jLabel11))
+                            .addComponent(jLabel2)))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(201, 201, 201)
                         .addComponent(btnInsertarCheck)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                        .addComponent(btnEstadoInventario)
-                        .addGap(124, 124, 124)
-                        .addComponent(jButton3))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                                .addComponent(btnEstadoInventario)
+                                .addGap(129, 129, 129))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                                .addComponent(btnMulta)
+                                .addGap(180, 180, 180)))
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnEliminarCheck)
+                            .addComponent(jButton3)))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29))
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addComponent(tomaidreserva))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(tomarutFuncionario)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(84, 84, 84))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                        .addComponent(btnActualiChIn)
+                        .addGap(38, 38, 38)
                         .addComponent(jLabel13)
                         .addGap(76, 76, 76)
                         .addComponent(tomaidcheckin)
-                        .addGap(60, 60, 60))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                        .addComponent(btnEliminarCheck)
-                        .addGap(177, 177, 177))))
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(tomarutFuncionario)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(60, 60, 60))))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(63, 63, 63)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(tomaidreserva))
-                .addGap(26, 26, 26)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(tomaidcheckin))
-                .addGap(18, 18, 18)
+                .addComponent(tomaidreserva)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel13)
+                            .addComponent(tomaidcheckin))
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 42, Short.MAX_VALUE)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnActualiChIn)
+                            .addComponent(jLabel2))
+                        .addGap(9, 9, 9)))
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jLabel11)
@@ -404,15 +516,19 @@ public class vistaFuncionario extends javax.swing.JFrame {
                         .addGap(87, 87, 87)
                         .addComponent(btnInsertarCheck))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(35, 35, 35)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel21)
+                .addGap(7, 7, 7)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
                     .addComponent(btnEstadoInventario))
-                .addGap(46, 46, 46)
-                .addComponent(btnEliminarCheck)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(38, 38, 38)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEliminarCheck)
+                    .addComponent(btnMulta))
+                .addGap(20, 20, 20)
                 .addComponent(tomarutFuncionario)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jpanelCheckLayout = new javax.swing.GroupLayout(jpanelCheck);
@@ -430,7 +546,7 @@ public class vistaFuncionario extends javax.swing.JFrame {
                 .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        tabCheck.addTab("Check in", jpanelCheck);
+        tabCheck.addTab("Area Chequeo", jpanelCheck);
 
         jLabel15.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel15.setText("REGISTRO CHECK OUT");
@@ -467,6 +583,16 @@ public class vistaFuncionario extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(tablacheckout);
 
+        jLabel19.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel19.setText("LISTADO Y ESTADO DE CHEQUEOS");
+
+        btnActualiChOut.setText("ACTUALIZAR");
+        btnActualiChOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualiChOutActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -499,7 +625,16 @@ public class vistaFuncionario extends javax.swing.JFrame {
                         .addComponent(btnRealizarCheOut)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 482, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabel19)
+                        .addGap(150, 150, 150))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addComponent(btnActualiChOut)
+                        .addGap(176, 176, 176))))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -527,11 +662,317 @@ public class vistaFuncionario extends javax.swing.JFrame {
                         .addContainerGap(200, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(89, 89, 89))))
+                        .addComponent(jLabel19)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(btnActualiChOut)
+                        .addGap(165, 165, 165))))
         );
 
         tabCheck.addTab("Check out", jPanel5);
+
+        jLabel7.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jLabel7.setText("REGISTRO DE MULTA");
+
+        jLabel22.setText("DESCRIPCION");
+
+        jLabel23.setText("MONTO");
+
+        jLabel24.setText("ID. RESERVA");
+
+        txtDescripMulta.setColumns(20);
+        txtDescripMulta.setRows(5);
+        jScrollPane4.setViewportView(txtDescripMulta);
+
+        txtReservaMulta.setEditable(false);
+
+        jLabel25.setText("$");
+
+        jButton4.setText("INGRESAR MULTA");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        tablamultas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane5.setViewportView(tablamultas);
+
+        btnActualizarMulta.setText("ACTUALIZAR");
+        btnActualizarMulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarMultaActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(493, 493, 493)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(118, 118, 118)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel22)
+                            .addComponent(jLabel24))
+                        .addGap(35, 35, 35))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addComponent(jLabel23)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtReservaMulta, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4)
+                    .addComponent(txtmontomulta, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnActualizarMulta)
+                .addGap(204, 204, 204))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(69, 69, 69)
+                .addComponent(jLabel7)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(62, 62, 62)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel24)
+                            .addComponent(txtReservaMulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel22)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(24, 24, 24)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel23)
+                            .addComponent(jLabel25)
+                            .addComponent(txtmontomulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(50, 50, 50)
+                        .addComponent(jButton4))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnActualizarMulta)
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+
+        jTabbedPane2.addTab("Ingresar Multa", jPanel8);
+
+        btnBuscaCliMulta2.setText("Buscar");
+        btnBuscaCliMulta2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscaCliMulta2ActionPerformed(evt);
+            }
+        });
+
+        jLabel27.setText("Busqueda por pasaporte cliente");
+
+        btnRecargaTablaMulta.setText("Recargar tabla");
+        btnRecargaTablaMulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRecargaTablaMultaActionPerformed(evt);
+            }
+        });
+
+        btnBuscaCliMulta1.setText("Buscar");
+        btnBuscaCliMulta1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscaCliMulta1ActionPerformed(evt);
+            }
+        });
+
+        jLabel28.setText("Busqueda por Rut cliente");
+
+        jLabel29.setText("Ingrese puntos y guion");
+
+        jLabel30.setText("Ingrese puntos");
+
+        jLabel31.setText("REVISION DE MULTAS POR CLIENTE");
+
+        tablamultacliente.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane6.setViewportView(tablamultacliente);
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(149, 149, 149)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel29)
+                            .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addGap(295, 295, 295)
+                                .addComponent(jLabel31)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane6)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel9Layout.createSequentialGroup()
+                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel28)
+                                    .addGroup(jPanel9Layout.createSequentialGroup()
+                                        .addComponent(txtRutClientemulta, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btnBuscaCliMulta1)
+                                        .addGap(84, 84, 84)
+                                        .addComponent(btnRecargaTablaMulta)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
+                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel27)
+                                    .addGroup(jPanel9Layout.createSequentialGroup()
+                                        .addComponent(txtPasaportClientemulta, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btnBuscaCliMulta2))
+                                    .addComponent(jLabel30))))
+                        .addGap(204, 204, 204))))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(jLabel31)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel29)
+                    .addComponent(jLabel30))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel27)
+                    .addComponent(jLabel28))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnBuscaCliMulta2)
+                        .addComponent(txtPasaportClientemulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtRutClientemulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnBuscaCliMulta1)
+                        .addComponent(btnRecargaTablaMulta)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17))
+        );
+
+        jTabbedPane2.addTab("Lista Multas Cliente", jPanel9);
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane2)
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane2)
+        );
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        tabCheck.addTab("Area Multas", jPanel4);
+
+        jLabel32.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jLabel32.setText("LISTADO DE RESERVAS FINALIZADAS");
+
+        tablareservaTerminada.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane7.setViewportView(tablareservaTerminada);
+
+        btnRecargaReseTermina.setText("RECARGAR TABLA");
+        btnRecargaReseTermina.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRecargaReseTerminaActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGap(456, 456, 456)
+                .addComponent(jLabel32)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                .addContainerGap(107, Short.MAX_VALUE)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 891, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(122, 122, 122))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                        .addComponent(btnRecargaReseTermina)
+                        .addGap(492, 492, 492))))
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addComponent(jLabel32)
+                .addGap(47, 47, 47)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnRecargaReseTermina)
+                .addContainerGap(61, Short.MAX_VALUE))
+        );
+
+        tabCheck.addTab("Reservas Finalizadas", jPanel10);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -760,6 +1201,7 @@ public class vistaFuncionario extends javax.swing.JFrame {
         tomarutFuncionario.setText(tablaChequeos.getValueAt(selecciona_check, 3)+"");
         txtReservaCheck2.setText(tablaChequeos.getValueAt(selecciona_check, 4)+"");
         tomaidreserva.setText(tablaChequeos.getValueAt(selecciona_check, 4)+"");
+        txtReservaMulta.setText(tablaChequeos.getValueAt(selecciona_check, 4)+"");
         
     }//GEN-LAST:event_tablaChequeosMouseClicked
 
@@ -793,8 +1235,13 @@ public class vistaFuncionario extends javax.swing.JFrame {
         
         if (modckout==true) {
             JOptionPane.showMessageDialog(null, "Modificado con éxito");
+            reDTO.cambiarEstadoReserva(Integer.parseInt(txtReservaCheck2.getText()));
             limpiaTabla(tablacheckout);
             listarChequeosOUT();
+            limpiaTabla(tablaChequeos);
+            listarChequeos();
+            limpiaTabla(tablareservaTerminada);
+            listarReservaTerminada();
         }
         
     }//GEN-LAST:event_btnRealizarCheOutActionPerformed
@@ -820,6 +1267,143 @@ public class vistaFuncionario extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnEliminarCheckActionPerformed
+
+    private void btnRecargaTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecargaTablaActionPerformed
+        Cargarlistaclientes();
+    }//GEN-LAST:event_btnRecargaTablaActionPerformed
+
+    private void btnBuscaCliMulta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaCliMulta2ActionPerformed
+        DefaultTableModel modelo = new DefaultTableModel();
+        String[] Titulos = {"ID RESERVA", "F.INICIO", "F.TERMINO.", "ID CLIENTE","RUT CLIENTE","PASAPORTE","ID DEPTO.","DEPTO" ,"DESCRIPCION","MULTA"};
+        modelo.setColumnIdentifiers(Titulos);
+        this.tablamultacliente.setModel(modelo);
+
+        try {
+
+            String pasa2= txtPasaportClientemulta.getText();
+            String ConsultaSQL = "SELECT r.id_reserva,r.fecha_inicio, r.fecha_fin, r.cliente_id_cliente,c.rut_cliente,c.pasaporte,rd.dpto_id_dpto,d.num_depto,m.descripcion,m.monto FROM dpto d join reserva_depto rd on d.id_dpto=rd.dpto_id_dpto join reserva r on r.id_reserva=rd.reserva_id_reserva join multa m on r.id_reserva=m.reserva_id_reserva join cliente c on r.cliente_id_cliente=c.id_cliente where c.rut_cliente='" + pasa2 + "'";
+
+            String[] registros = new String[10];
+
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(ConsultaSQL);
+            
+            while (rs.next()) {
+		registros[0] = rs.getString("id_reserva");
+                registros[1] = rs.getString("fecha_inicio");
+                registros[2] = rs.getString("fecha_fin");
+                registros[3] = rs.getString("cliente_id_cliente");
+                registros[4] = rs.getString("rut_cliente");
+                registros[5] = rs.getString("pasaporte");
+                registros[6] = rs.getString("dpto_id_dpto");
+                registros[7] = rs.getString("num_depto");
+                registros[8] = rs.getString("descripcion");
+                registros[9] = rs.getString("monto");
+                modelo.addRow(registros);
+
+            }
+            tablamultacliente.setModel(modelo);
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+            System.out.println("problema carga multas por cliente pasaporte");
+        }
+    }//GEN-LAST:event_btnBuscaCliMulta2ActionPerformed
+
+    private void btnRecargaTablaMultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecargaTablaMultaActionPerformed
+       CargarMultaCliente();
+    }//GEN-LAST:event_btnRecargaTablaMultaActionPerformed
+
+    private void btnBuscaCliMulta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaCliMulta1ActionPerformed
+        DefaultTableModel modelo = new DefaultTableModel();
+        String[] Titulos = {"ID RESERVA", "F.INICIO", "F.TERMINO.", "ID CLIENTE","RUT CLIENTE","PASAPORTE","ID DEPTO.","DEPTO" ,"DESCRIPCION","MULTA"};
+        modelo.setColumnIdentifiers(Titulos);
+        this.tablamultacliente.setModel(modelo);
+
+        try {
+
+            String rut2= txtRutClientemulta.getText();
+            String ConsultaSQL = "SELECT r.id_reserva,r.fecha_inicio, r.fecha_fin, r.cliente_id_cliente,c.rut_cliente,c.pasaporte,rd.dpto_id_dpto,d.num_depto,m.descripcion,m.monto FROM dpto d join reserva_depto rd on d.id_dpto=rd.dpto_id_dpto join reserva r on r.id_reserva=rd.reserva_id_reserva join multa m on r.id_reserva=m.reserva_id_reserva join cliente c on r.cliente_id_cliente=c.id_cliente where c.rut_cliente='" + rut2 + "'";
+
+            String[] registros = new String[10];
+
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(ConsultaSQL);
+            
+            while (rs.next()) {
+		registros[0] = rs.getString("id_reserva");
+                registros[1] = rs.getString("fecha_inicio");
+                registros[2] = rs.getString("fecha_fin");
+                registros[3] = rs.getString("cliente_id_cliente");
+                registros[4] = rs.getString("rut_cliente");
+                registros[5] = rs.getString("pasaporte");
+                registros[6] = rs.getString("dpto_id_dpto");
+                registros[7] = rs.getString("num_depto");
+                registros[8] = rs.getString("descripcion");
+                registros[9] = rs.getString("monto");
+                modelo.addRow(registros);
+
+            }
+            tablamultacliente.setModel(modelo);
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+            System.out.println("problema carga multas por cliente rut");
+        }
+    }//GEN-LAST:event_btnBuscaCliMulta1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+       multa mu = new multa();
+        boolean ingremul = false;
+        
+        if (txtDescripMulta.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Ingrese una descripcion a la multa");  
+        }else if (Integer.parseInt(txtmontomulta.getValue().toString()) <= 0) {
+            JOptionPane.showMessageDialog(null, "Ingrese monto valido");
+        }else{
+            try{
+                 
+                 mu.setDescripcion(txtDescripMulta.getText());
+                 mu.setMonto(Integer.parseInt(txtmontomulta.getValue().toString()));
+                 mu.setId_reserva(Integer.parseInt(txtReservaMulta.getText()));
+                 
+                 ingremul = multaDTO.ingresarMulta(mu);
+                 
+            }catch(Exception  e){
+                JOptionPane.showMessageDialog(null, "Por favor realice registro de multa");
+                System.out.println(e);
+                
+            }     
+        }
+        
+        if (ingremul==true) {
+            JOptionPane.showMessageDialog(null, "multa ingresada con éxito");
+            limpiaTabla(tablamultas);
+            listarMultas();
+            CargarMultaCliente();
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void btnMultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMultaActionPerformed
+        tabCheck.setEnabledAt(3, true);
+        tabCheck.setSelectedIndex(3);
+    }//GEN-LAST:event_btnMultaActionPerformed
+
+    private void btnRecargaReseTerminaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecargaReseTerminaActionPerformed
+        listarReservaTerminada();
+    }//GEN-LAST:event_btnRecargaReseTerminaActionPerformed
+
+    private void btnActualizarMultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarMultaActionPerformed
+        listarMultas();
+    }//GEN-LAST:event_btnActualizarMultaActionPerformed
+
+    private void btnActualiChOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualiChOutActionPerformed
+        listarChequeosOUT();
+    }//GEN-LAST:event_btnActualiChOutActionPerformed
+
+    private void btnActualiChInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualiChInActionPerformed
+        listarChequeos();
+    }//GEN-LAST:event_btnActualiChInActionPerformed
 
     void Cargarlistaclientes() {
         DefaultTableModel modelo = new DefaultTableModel();
@@ -856,6 +1440,43 @@ public class vistaFuncionario extends javax.swing.JFrame {
 
     }
     
+    void CargarMultaCliente() {
+        DefaultTableModel modelo = new DefaultTableModel();
+        String[] Titulos = {"ID RESERVA", "F.INICIO", "F.TERMINO.", "ID CLIENTE","RUT CLIENTE","PASAPORTE","ID DEPTO.","DEPTO" ,"DESCRIPCION","MULTA"};
+        modelo.setColumnIdentifiers(Titulos);
+        this.tablamultacliente.setModel(modelo);
+
+        try {
+
+            String ConsultaSQL = "SELECT r.id_reserva,r.fecha_inicio, r.fecha_fin, r.cliente_id_cliente,c.rut_cliente,c.pasaporte,rd.dpto_id_dpto,d.num_depto,m.descripcion,m.monto FROM dpto d join reserva_depto rd on d.id_dpto=rd.dpto_id_dpto join reserva r on r.id_reserva=rd.reserva_id_reserva join multa m on r.id_reserva=m.reserva_id_reserva join cliente c on r.cliente_id_cliente=c.id_cliente";
+
+            String[] registros = new String[10];
+                
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(ConsultaSQL);
+            while (rs.next()) {
+                registros[0] = rs.getString("id_reserva");
+                registros[1] = rs.getString("fecha_inicio");
+                registros[2] = rs.getString("fecha_fin");
+                registros[3] = rs.getString("cliente_id_cliente");
+                registros[4] = rs.getString("rut_cliente");
+                registros[5] = rs.getString("pasaporte");
+                registros[6] = rs.getString("dpto_id_dpto");
+                registros[7] = rs.getString("num_depto");
+                registros[8] = rs.getString("descripcion");
+                registros[9] = rs.getString("monto");
+                modelo.addRow(registros);
+
+            }
+            tablamultacliente.setModel(modelo);
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+            System.out.println("problema carga multa cliente");
+        }
+
+    }
+    
         //limpia tablas
      public void limpiaTabla(JTable tabla) {
         DefaultTableModel dm = (DefaultTableModel) tabla.getModel();
@@ -865,6 +1486,13 @@ public class vistaFuncionario extends javax.swing.JFrame {
      //listar en tablas de la vista
      public void listarChequeos() {
         checkDTO.listarChequeo(tablaChequeos);
+    }
+     
+     public void listarReservaTerminada() {
+        reDTO.listarReserva(tablareservaTerminada);
+    }
+     public void listarMultas() {
+        multaDTO.listarMulta(tablamultas);
     }
      
      public void listarChequeosOUT() {
@@ -907,16 +1535,26 @@ public class vistaFuncionario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActualiChIn;
+    private javax.swing.JButton btnActualiChOut;
+    private javax.swing.JButton btnActualizarMulta;
+    private javax.swing.JButton btnBuscaCliMulta1;
+    private javax.swing.JButton btnBuscaCliMulta2;
     private javax.swing.JButton btnBuscaCliente1;
     private javax.swing.JButton btnBuscaCliente2;
     private javax.swing.JButton btnEliminarCheck;
     private javax.swing.JButton btnEstadoInventario;
     private javax.swing.JButton btnInsertarCheck;
     private javax.swing.JButton btnIrCheckIn;
+    private javax.swing.JButton btnMulta;
     private javax.swing.JButton btnRealizarCheOut;
+    private javax.swing.JButton btnRecargaReseTermina;
+    private javax.swing.JButton btnRecargaTabla;
+    private javax.swing.JButton btnRecargaTablaMulta;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -927,38 +1565,70 @@ public class vistaFuncionario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JPanel jpanelCheck;
     private javax.swing.JTabbedPane tabCheck;
     private javax.swing.JTable tablaChequeos;
     private javax.swing.JTable tablaReservas;
     private javax.swing.JTable tablacheckout;
+    private javax.swing.JTable tablamultacliente;
+    private javax.swing.JTable tablamultas;
+    private javax.swing.JTable tablareservaTerminada;
     private javax.swing.JLabel tomaidcheckin;
     private javax.swing.JLabel tomaiddepto;
     private javax.swing.JLabel tomaidreserva;
     private javax.swing.JLabel tomarutFuncionario;
+    private javax.swing.JTextArea txtDescripMulta;
     private javax.swing.JTextField txtFuncionarioCheck;
     private javax.swing.JTextField txtFuncionarioCheck2;
     private javax.swing.JTextField txtPasaportClienteCheck;
+    private javax.swing.JTextField txtPasaportClientemulta;
     private javax.swing.JTextField txtReservaCheck;
     private javax.swing.JTextField txtReservaCheck2;
+    private javax.swing.JTextField txtReservaMulta;
     private javax.swing.JTextField txtRutClienteCheck;
+    private javax.swing.JTextField txtRutClientemulta;
+    private javax.swing.JSpinner txtmontomulta;
     private com.toedter.calendar.JDateChooser txtxdateChequeo;
     private com.toedter.calendar.JDateChooser txtxdateChequeo2;
     // End of variables declaration//GEN-END:variables

@@ -39,6 +39,7 @@ public class vistaReviDeptoOut extends javax.swing.JFrame {
         listarRevisiones();
         //String  rutfunci =txtRutFuncionarioRevisi.getText();
         tomareserva.setVisible(false);
+        recuperaidcheckin.setVisible(false);
         //checkEstado();
         Timer tiempo = new Timer();
         TimerTask tarea = new TimerTask() {
@@ -59,6 +60,7 @@ public class vistaReviDeptoOut extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        GrupoRadios = new javax.swing.ButtonGroup();
         tomareserva = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
@@ -68,6 +70,14 @@ public class vistaReviDeptoOut extends javax.swing.JFrame {
         btnCierraVentana = new javax.swing.JButton();
         btnIngresaProblemas = new javax.swing.JButton();
         btnRealizaRevision = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        lblValorTotalOrden = new javax.swing.JLabel();
+        radio25 = new javax.swing.JRadioButton();
+        radio50 = new javax.swing.JRadioButton();
+        radio75 = new javax.swing.JRadioButton();
+        radio100 = new javax.swing.JRadioButton();
+        jLabel8 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         btnCierraVentana2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -81,9 +91,12 @@ public class vistaReviDeptoOut extends javax.swing.JFrame {
         tablaRevisiones = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
         recuperaidcheckin = new javax.swing.JLabel();
+        btnEliminarRevision = new javax.swing.JButton();
+        tomaidRevision = new javax.swing.JLabel();
+        btnActualizRevision = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1148, 718));
+        setPreferredSize(new java.awt.Dimension(1148, 716));
 
         jTabbedPane1.setPreferredSize(new java.awt.Dimension(1148, 718));
 
@@ -116,6 +129,11 @@ public class vistaReviDeptoOut extends javax.swing.JFrame {
         });
 
         btnIngresaProblemas.setText("INGRESAR DAÑOS");
+        btnIngresaProblemas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIngresaProblemasActionPerformed(evt);
+            }
+        });
 
         btnRealizaRevision.setText("REALIZAR REVISION");
         btnRealizaRevision.addActionListener(new java.awt.event.ActionListener() {
@@ -123,6 +141,24 @@ public class vistaReviDeptoOut extends javax.swing.JFrame {
                 btnRealizaRevisionActionPerformed(evt);
             }
         });
+
+        jLabel6.setText("TOTAL MULTA");
+
+        jLabel7.setText("$");
+
+        GrupoRadios.add(radio25);
+        radio25.setText("25%");
+
+        GrupoRadios.add(radio50);
+        radio50.setText("50%");
+
+        GrupoRadios.add(radio75);
+        radio75.setText("75%");
+
+        GrupoRadios.add(radio100);
+        radio100.setText("100%");
+
+        jLabel8.setText("Seleccione porcentaje de daño para ingresar daño/s");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -142,17 +178,49 @@ public class vistaReviDeptoOut extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 998, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(468, 468, 468)
-                        .addComponent(jLabel1)))
-                .addContainerGap(736, Short.MAX_VALUE))
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(785, 785, 785)
+                        .addComponent(jLabel6)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel7)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblValorTotalOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(77, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel8)
+                    .addComponent(radio25))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(radio50)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(radio75)
+                .addGap(18, 18, 18)
+                .addComponent(radio100)
+                .addGap(185, 185, 185))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(99, Short.MAX_VALUE)
+                .addContainerGap(57, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(44, 44, 44)
+                .addGap(10, 10, 10)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7)
+                    .addComponent(lblValorTotalOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(radio25)
+                    .addComponent(radio50)
+                    .addComponent(radio75)
+                    .addComponent(radio100))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCierraVentana)
                     .addComponent(btnIngresaProblemas)
@@ -197,10 +265,29 @@ public class vistaReviDeptoOut extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tablaRevisiones.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaRevisionesMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tablaRevisiones);
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel5.setText("REGISTRO DE REVISION DE DEPARTAMENTO");
+
+        btnEliminarRevision.setText("ELIMINAR REVISION");
+        btnEliminarRevision.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarRevisionActionPerformed(evt);
+            }
+        });
+
+        btnActualizRevision.setText("ACTUALIZAR");
+        btnActualizRevision.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizRevisionActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -237,14 +324,27 @@ public class vistaReviDeptoOut extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(101, 101, 101)
                         .addComponent(recuperaidcheckin)))
-                .addContainerGap(745, Short.MAX_VALUE))
+                .addContainerGap(86, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(tomaidRevision)
+                        .addGap(194, 194, 194))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnEliminarRevision)
+                        .addGap(97, 97, 97)
+                        .addComponent(btnActualizRevision)
+                        .addGap(196, 196, 196))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(63, 63, 63)
                 .addComponent(recuperaidcheckin)
-                .addGap(53, 53, 53)
+                .addGap(19, 19, 19)
+                .addComponent(tomaidRevision)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel5)
@@ -263,7 +363,11 @@ public class vistaReviDeptoOut extends javax.swing.JFrame {
                         .addGap(52, 52, 52)
                         .addComponent(btnIngresaRevi))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 128, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnEliminarRevision)
+                    .addComponent(btnActualizRevision))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
                 .addComponent(btnCierraVentana2)
                 .addGap(49, 49, 49))
         );
@@ -275,8 +379,8 @@ public class vistaReviDeptoOut extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1792, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(484, 484, 484)
                 .addComponent(tomareserva)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -326,6 +430,11 @@ public class vistaReviDeptoOut extends javax.swing.JFrame {
                  
                  ingreRevi = reviDTO.ingresarRevision(revi);
                  
+//                 System.out.println(txtRutFuncionarioRevisi.getText());
+//                System.out.println(fecharevision);
+//                System.out.println(txtiddeptoRevisi.getText());
+
+                 
             }catch(Exception  e){
                 JOptionPane.showMessageDialog(null, "Por favor realize registro de revision de depto");
                 System.out.println(e);
@@ -340,6 +449,111 @@ public class vistaReviDeptoOut extends javax.swing.JFrame {
             listarRevisiones();
         }
     }//GEN-LAST:event_btnIngresaReviActionPerformed
+
+    private void btnIngresaProblemasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresaProblemasActionPerformed
+        int valorprocudcto =0;
+        int almacena=0;
+        int valor_total=0;
+        
+       
+        
+       
+       if (radio25.isSelected()) {
+            int input = JOptionPane.showConfirmDialog(null, "¿inventario/s dañado?", "Confirmación de daño", JOptionPane.YES_NO_OPTION);
+            if (input==0) {
+                for (int i = 0; i < tablarevisionOUT.getRowCount(); i++) {
+                if (isSelected(i, 7, tablarevisionOUT)) {
+                    valorprocudcto=Integer.parseInt(tablarevisionOUT.getValueAt(i, 3).toString());
+                    almacena=almacena+valorprocudcto;  
+                    
+                   valor_total=almacena*25/100;
+                        
+                    //System.out.println(valor_total);
+                    lblValorTotalOrden.setText(String.valueOf(valor_total));
+                }
+            
+                }
+            }
+       }else if (radio50.isSelected()) {
+            int input = JOptionPane.showConfirmDialog(null, "¿inventario/s dañado?", "Confirmación de daño", JOptionPane.YES_NO_OPTION);
+            if (input==0) {
+                for (int i = 0; i < tablarevisionOUT.getRowCount(); i++) {
+                if (isSelected(i, 7, tablarevisionOUT)) {
+                    valorprocudcto=Integer.parseInt(tablarevisionOUT.getValueAt(i, 3).toString());
+                    almacena=almacena+valorprocudcto;  
+                    
+                   valor_total=almacena*50/100;
+                        
+                    //System.out.println(valor_total);
+                    lblValorTotalOrden.setText(String.valueOf(valor_total));
+                }
+            
+                }
+            }
+        }else if (radio75.isSelected()) {
+             int input = JOptionPane.showConfirmDialog(null, "¿inventario/s dañado?", "Confirmación de daño", JOptionPane.YES_NO_OPTION);
+            if (input==0) {
+                for (int i = 0; i < tablarevisionOUT.getRowCount(); i++) {
+                if (isSelected(i, 7, tablarevisionOUT)) {
+                    valorprocudcto=Integer.parseInt(tablarevisionOUT.getValueAt(i, 3).toString());
+                    almacena=almacena+valorprocudcto;  
+                    
+                   valor_total=almacena*75/100;
+                        
+                    //System.out.println(valor_total);
+                    lblValorTotalOrden.setText(String.valueOf(valor_total));
+                }
+            
+                }
+            }
+        }else if (radio100.isSelected()) {
+             int input = JOptionPane.showConfirmDialog(null, "¿inventario/s dañado?", "Confirmación de daño", JOptionPane.YES_NO_OPTION);
+            if (input==0) {
+                for (int i = 0; i < tablarevisionOUT.getRowCount(); i++) {
+                if (isSelected(i, 7, tablarevisionOUT)) {
+                    valorprocudcto=Integer.parseInt(tablarevisionOUT.getValueAt(i, 3).toString());
+                    almacena=almacena+valorprocudcto;  
+                    
+                   valor_total=almacena*100/100;
+                        
+                    //System.out.println(valor_total);
+                    lblValorTotalOrden.setText(String.valueOf(valor_total));
+                }
+            
+                }
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Seleccione un radio de daño");
+        }
+       
+    }//GEN-LAST:event_btnIngresaProblemasActionPerformed
+
+    private void btnEliminarRevisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarRevisionActionPerformed
+        if (tomaidRevision.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Por favor Seleccione un chequeo");
+        }else{
+            int input = JOptionPane.showConfirmDialog(null, "¿Desea Eliminar la revision ID: " + tomaidRevision.getText() + "?", "Eliminacion de revision", 0);
+
+            if (input == 0) {
+                checkDTO.EliminarChequeo(Integer.parseInt(tomaidRevision.getText()));
+                listarRevisiones();
+                JOptionPane.showMessageDialog(null, "Revision eliminado");
+            }
+        }
+    }//GEN-LAST:event_btnEliminarRevisionActionPerformed
+
+    private void tablaRevisionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaRevisionesMouseClicked
+        
+        int selecciona_rev = tablaRevisiones.rowAtPoint(evt.getPoint());
+        tomaidRevision.setVisible(false);
+
+        tomaidRevision.setText(tablaRevisiones.getValueAt(selecciona_rev, 0)+"");
+        
+    }//GEN-LAST:event_tablaRevisionesMouseClicked
+
+    private void btnActualizRevisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizRevisionActionPerformed
+        listarRevisiones();
+    }//GEN-LAST:event_btnActualizRevisionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -407,8 +621,8 @@ public class vistaReviDeptoOut extends javax.swing.JFrame {
 //        }
 //    }
     
-    public String isSelected(int row, int column, JTable tabla) {
-        return tabla.getValueAt(row, column).toString();
+    public boolean isSelected(int row, int column, JTable tabla) {
+        return tabla.getValueAt(row, column)!=null;
     }
     
     public static void main(String args[]) {
@@ -444,8 +658,11 @@ public class vistaReviDeptoOut extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup GrupoRadios;
+    private javax.swing.JButton btnActualizRevision;
     private javax.swing.JButton btnCierraVentana;
     private javax.swing.JButton btnCierraVentana2;
+    private javax.swing.JButton btnEliminarRevision;
     private javax.swing.JButton btnIngresaProblemas;
     private javax.swing.JButton btnIngresaRevi;
     private javax.swing.JButton btnRealizaRevision;
@@ -454,14 +671,23 @@ public class vistaReviDeptoOut extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JLabel lblValorTotalOrden;
+    private javax.swing.JRadioButton radio100;
+    private javax.swing.JRadioButton radio25;
+    private javax.swing.JRadioButton radio50;
+    private javax.swing.JRadioButton radio75;
     public static javax.swing.JLabel recuperaidcheckin;
     private javax.swing.JTable tablaRevisiones;
     private javax.swing.JTable tablarevisionOUT;
+    private javax.swing.JLabel tomaidRevision;
     public static javax.swing.JLabel tomareserva;
     private com.toedter.calendar.JDateChooser txtFechaRevision;
     public static javax.swing.JTextField txtRutFuncionarioRevisi;

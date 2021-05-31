@@ -21,6 +21,7 @@ public class RevisionDTO {
     
     private RevisionDAO rDAO = new RevisionDAO();
     private boolean valida;
+    private String mensaje = "";
     
     
      public boolean ingresarRevision(revision rev) {
@@ -51,5 +52,25 @@ public class RevisionDTO {
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
+    }
+    
+    public boolean EliminarRevision(int id) {
+        valida = false;
+        Connection conn = conexion.getConnection();
+        try {
+            valida = rDAO.EliminarRevision(conn, id);
+            //conn.rollback();
+        } catch (Exception e) {
+            mensaje = mensaje + " " + e.getMessage();
+        }finally{
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (Exception e) {
+                mensaje = mensaje + " " + e.getMessage();
+            }
+        }
+        return valida;
     }
 }
