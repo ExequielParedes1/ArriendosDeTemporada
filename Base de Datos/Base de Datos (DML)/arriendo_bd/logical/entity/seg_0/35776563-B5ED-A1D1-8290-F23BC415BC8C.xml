@@ -1,0 +1,190 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="35776563-B5ED-A1D1-8290-F23BC415BC8C" name="servicio">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-19 20:59:58 UTC</createdTime>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<engineerTo>
+<item key="8F6FB6C3-4066-9A55-1C29-EB9708699E77" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_servicio" id="E73BC8B9-44FB-CB60-5F03-151FEA85CCDF">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-19 21:00:08 UTC</createdTime>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<engineerTo>
+<item key="8F6FB6C3-4066-9A55-1C29-EB9708699E77" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nombre" id="40B0EEF0-FD4F-6850-9DEB-771C2880C9DB">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-19 21:00:20 UTC</createdTime>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<engineerTo>
+<item key="8F6FB6C3-4066-9A55-1C29-EB9708699E77" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="tipo" id="9459BAAA-4389-B5E8-1E1C-A362287A8E99">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-19 21:00:42 UTC</createdTime>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<engineerTo>
+<item key="8F6FB6C3-4066-9A55-1C29-EB9708699E77" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="horario_inicio" id="5E9F629C-7421-8227-F6FE-F5EB3EEA3A6D">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-19 21:11:21 UTC</createdTime>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<engineerTo>
+<item key="8F6FB6C3-4066-9A55-1C29-EB9708699E77" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="horario_fin" id="B295EEA4-F492-F0C8-6E8D-BFE984B92DA4">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-19 21:11:41 UTC</createdTime>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<engineerTo>
+<item key="8F6FB6C3-4066-9A55-1C29-EB9708699E77" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="punto_reunion" id="073D4BA2-8E2D-C509-6554-C03E074BFE4A">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-19 21:12:23 UTC</createdTime>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<engineerTo>
+<item key="8F6FB6C3-4066-9A55-1C29-EB9708699E77" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="valor" id="BFDE1150-63D4-F75A-B85E-804B55D8A6D8">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-19 21:12:42 UTC</createdTime>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<engineerTo>
+<item key="8F6FB6C3-4066-9A55-1C29-EB9708699E77" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="recorrido" id="455096CA-0B78-5CF9-706B-7779E86A12C2">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-19 21:13:20 UTC</createdTime>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<engineerTo>
+<item key="8F6FB6C3-4066-9A55-1C29-EB9708699E77" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="vehiculo" id="A2C0C4D8-1422-6BB7-3956-76A71389987E">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-19 21:13:45 UTC</createdTime>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<engineerTo>
+<item key="8F6FB6C3-4066-9A55-1C29-EB9708699E77" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="chofer" id="D07FFA9D-2E43-006E-9E43-475B95C45002">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-19 21:14:08 UTC</createdTime>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<engineerTo>
+<item key="8F6FB6C3-4066-9A55-1C29-EB9708699E77" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="estado_servicio" id="D28F4AAA-E03C-9C90-A0A4-05C1290B27DF">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-24 02:50:44 UTC</createdTime>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<engineerTo>
+<item key="8F6FB6C3-4066-9A55-1C29-EB9708699E77" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="cupo" id="FA54F1EF-855E-FE12-1976-D718C6F7760F">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-30 01:18:27 UTC</createdTime>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<engineerTo>
+<item key="8F6FB6C3-4066-9A55-1C29-EB9708699E77" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="EAE036CB-A63B-37D9-62FF-2DA39D115207" name="servicio PK">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-19 21:00:16 UTC</createdTime>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<engineerTo>
+<item key="8F6FB6C3-4066-9A55-1C29-EB9708699E77" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>E73BC8B9-44FB-CB60-5F03-151FEA85CCDF</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,72 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="FEDB8996-C30D-DAB9-AF9B-BF764CD72667" name="Transbank">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-24 02:56:39 UTC</createdTime>
+<generatorID>DC4F0E7E-CC14-34B1-B0CB-D1E39DB2CBAB</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_transbank" id="14D72F73-A6B6-67F0-1D99-CBF34E0A1FD6">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-24 02:56:39 UTC</createdTime>
+<generatorID>B145CC6F-82D3-6913-864B-3534666E8519</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="total_tbk" id="A7BA03D8-608B-3BF3-88BE-CD8D4F7631B6">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-24 02:56:39 UTC</createdTime>
+<generatorID>90C9F74C-5485-7F17-CAF9-D8D422AAA145</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="estado_tbk" id="D243ACBA-B118-7498-697F-EC3BDBCE1960">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-24 02:56:39 UTC</createdTime>
+<generatorID>38E582E0-F7CE-650E-D0EF-EBFE18AA5DFA</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha_tbk" id="067D01A6-1C77-C9B3-9BB0-F61D47F70AAA">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-24 02:56:39 UTC</createdTime>
+<generatorID>753865AF-8859-62AC-37E6-C0263EB477D1</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5FEF4388-273B-B0DA-B922-073BAE4ACB89" name="Transbank_PK">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-24 02:56:39 UTC</createdTime>
+<generatorID>4E3AF8C4-0C8E-6A03-5F16-B2ECCA481234</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="14D72F73-A6B6-67F0-1D99-CBF34E0A1FD6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

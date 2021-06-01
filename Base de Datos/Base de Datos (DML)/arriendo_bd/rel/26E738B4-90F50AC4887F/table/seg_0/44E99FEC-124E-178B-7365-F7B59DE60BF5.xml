@@ -1,0 +1,122 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="44E99FEC-124E-178B-7365-F7B59DE60BF5" name="usuario">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-19 23:08:15 UTC</createdTime>
+<generatorID>15A3223F-4CF5-B0D9-4E1E-31320F917C4C</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="rut_usuario" id="C2696681-694A-F11A-BDFC-5F847E401BA1">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-19 23:08:15 UTC</createdTime>
+<generatorID>99D3BEFE-F465-26B0-D457-3F4A1354C5A9</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>12</dataTypeSize>
+<ownDataTypeParameters>12,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="contrasenia" id="D2BDA67F-52A6-A28F-95B4-43EF9E98CB43">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-19 23:08:15 UTC</createdTime>
+<generatorID>96B8C537-A189-2924-CBDA-63DE4EB9221E</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="rol" id="CF33EF55-E031-93D9-DC36-BCF235A992B8">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-19 23:08:15 UTC</createdTime>
+<generatorID>E223AA4D-4930-2F0C-6700-76AED3016E0F</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombre_usuario" id="1EC0ED3E-D43B-1E4A-C24D-D79A590C3A47">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-19 23:08:15 UTC</createdTime>
+<generatorID>20E650A0-04D6-8CEE-9EE2-24B29911176D</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="apellido_p" id="4FC9D0E4-57C9-E94C-AD1A-E1A551F4FEFD">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-19 23:08:15 UTC</createdTime>
+<generatorID>5C994527-289B-2825-B22F-4702E8E0780A</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="apellido_m" id="F734E2FF-A175-6CCC-B514-3D827239C538">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-19 23:08:15 UTC</createdTime>
+<generatorID>A9930B2B-15E2-17F0-2FFD-4567006C6401</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="estado_usuario" id="23D23680-C631-D72F-7EEB-B037C5CD045E">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-19 23:08:15 UTC</createdTime>
+<generatorID>0632AE63-D1DF-7906-CEAD-0816242AD855</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="email" id="31276CC2-50F6-00C9-AD2F-922D2214F67A">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-19 23:08:15 UTC</createdTime>
+<generatorID>CF7DE4BB-401F-CA19-255F-6CE8EE2F8AB1</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="63EF18F8-8DD3-5F25-56A1-4D17660ED86E" name="usuario_PK">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-19 23:08:15 UTC</createdTime>
+<generatorID>986D5E00-7A6F-6A07-7189-AD8196E44649</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C2696681-694A-F11A-BDFC-5F847E401BA1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,89 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="24E86DA4-B2AB-8603-B073-E7459DDDE306" name="multa">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-19 23:08:15 UTC</createdTime>
+<generatorID>B64D9E9E-D8E0-8C8E-F8EC-4BBE8CB4D50E</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_multa" id="C2555842-9946-A49D-3617-AEDA0B9BF193">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-19 23:08:15 UTC</createdTime>
+<generatorID>1E076564-5E89-5B24-7750-7E97D66119FC</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="descripcion" id="D6595320-838D-B3FC-29F4-49BA110391AE">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-19 23:08:15 UTC</createdTime>
+<generatorID>613327A6-ABBA-A0EE-8FE9-97C8176A95B1</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="monto" id="DF190350-013D-0B56-F3E9-608435EAFB2B">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-19 23:08:15 UTC</createdTime>
+<generatorID>C8645621-F5C9-51E1-A182-428832CE9E51</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="reserva_id_reserva" id="36480814-FC88-55FE-954E-B7CD9137B959">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-19 23:08:15 UTC</createdTime>
+<generatorID>3F09C802-B761-D7FA-ECBF-77D6D1BECCC6</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="EB984D16-4D23-FE00-C8D3-A9C7BA13D8D7" referredColumn="DE17ACF2-84E0-BEB7-0386-D2E199B4206F"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E7CF4AB1-5427-61E4-48C0-BD43CCF12003" name="multa_PK">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-19 23:08:15 UTC</createdTime>
+<generatorID>CA2B45D7-BA10-12B2-DD82-B0CD5CB45B09</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C2555842-9946-A49D-3617-AEDA0B9BF193"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A45DCA7C-E0AF-FF30-3169-899DD5259E10" name="multa_reserva_FK">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-19 23:08:15 UTC</createdTime>
+<generatorID>D8695681-D12A-39BE-D2B1-77C44661B6B8</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="36480814-FC88-55FE-954E-B7CD9137B959"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

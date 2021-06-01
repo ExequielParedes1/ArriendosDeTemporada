@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="CD1B6C7F-352A-40C8-614B-EA5A0CE23B2F" containerWithKeyObject="6721D122-4147-D806-1F9B-A4DB5F769839" localFKIndex="3948DD3B-DD7A-C15B-5850-8A3CD82783DE" name="reserva_cliente_FK">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-24 01:21:19 UTC</createdTime>
+<generatorID>3D20536E-DA98-D0F9-2C3E-1BD8F68B33FC</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<referredTableLongName>cliente</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>35282BA8-82EA-32AB-1B3E-0F1A564A0F76</referredTableID>
+<keyObject>2EC6E61A-7A2C-57AC-B3BC-505438754556</keyObject>
+<referredKeyID>2EC6E61A-7A2C-57AC-B3BC-505438754556</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_cliente</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

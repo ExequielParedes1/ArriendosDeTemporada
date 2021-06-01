@@ -1,0 +1,110 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="55F964F2-9858-E431-C134-F94BC356487D" name="mantencion">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-20 03:33:00 UTC</createdTime>
+<generatorID>E7236BAE-FF9B-7BF5-B0BE-BDF0C350ED7A</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_mantecion" id="65FB3181-43E9-7193-23C2-3AA13EDA1CB9">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-20 03:33:00 UTC</createdTime>
+<generatorID>88F9BDDD-B8E0-EED4-E231-A037D1B57E2A</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="descripcion" id="DB9B126C-9C13-EF87-3AA6-148129ACD63E">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-20 03:33:00 UTC</createdTime>
+<generatorID>D0BB8E92-2F86-DC9D-D6F3-690F3B0087AA</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="valor" id="852276C0-0B88-28D5-68B8-7C77E629BDC4">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-20 03:33:00 UTC</createdTime>
+<generatorID>E128E100-1E5C-D332-BA4C-6731CA227CFD</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha_ini" id="C7341D4A-A4D6-4E90-1B6C-028B3609EE4B">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-20 03:33:00 UTC</createdTime>
+<generatorID>BAC6C74C-517D-3440-EC4A-8C04BC8231F6</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha_term" id="486B68F1-2C4E-F90A-51F1-5FE4E8348E19">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-20 03:33:00 UTC</createdTime>
+<generatorID>544539AD-8ED6-F633-6182-344D2950EE64</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dpto_id_dpto" id="9A5048CF-8150-DD59-9B4B-8C584AE6385E">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-20 03:33:00 UTC</createdTime>
+<generatorID>F483C6FF-78E6-CA08-A0D5-FD556ACAB120</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D87CB1C4-50FC-3BD7-FA37-B8A236CDC626" referredColumn="7DE143E5-C108-38F2-B6DC-2EA57891F50B"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="9BA5E567-3F36-7590-9607-C26BCD6B8CD9" name="mantencion_PK">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-20 03:33:00 UTC</createdTime>
+<generatorID>1456C1F4-96EB-73C8-8416-6C9580D8C825</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="65FB3181-43E9-7193-23C2-3AA13EDA1CB9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="76A6113D-C091-AE11-8A29-94DE1DE528FB" name="mantencion_dpto_FK">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-20 03:33:00 UTC</createdTime>
+<generatorID>7960ED66-ED7C-AD5D-518F-A7D4DFC26AA0</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9A5048CF-8150-DD59-9B4B-8C584AE6385E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="arriendo_bd" id="C2CA2495-FF40-0584-FD84-29813069E47C" version="3.5">
+<createdBy>javie</createdBy>
+<createdTime>2021-03-26 00:23:05 UTC</createdTime>
+<ownerDesignName>arriendo</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>C2CA2495-FF40-0584-FD84-29813069E47C</designId>
+</OSDM_Design>

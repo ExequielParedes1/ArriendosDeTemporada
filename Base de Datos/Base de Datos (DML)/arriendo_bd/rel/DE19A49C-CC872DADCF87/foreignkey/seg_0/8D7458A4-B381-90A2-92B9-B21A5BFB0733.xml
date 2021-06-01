@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="8D7458A4-B381-90A2-92B9-B21A5BFB0733" containerWithKeyObject="9F8E13D8-F47F-DE46-21BD-971586696804" localFKIndex="329F3842-6062-A5A7-98C3-045416C7E6AC" name="pago_Transbank_FK">
+<createdBy>Favio</createdBy>
+<createdTime>2021-05-31 03:14:49 UTC</createdTime>
+<generatorID>1E504BE2-BEBE-AF7D-FC9F-3F8EE059D580</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<referredTableLongName>Transbank</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>3A62CB41-3F48-BCA7-40C8-74E353BCA373</referredTableID>
+<keyObject>E56A34B5-6DD0-CAE4-3C91-8C981D85C634</keyObject>
+<referredKeyID>E56A34B5-6DD0-CAE4-3C91-8C981D85C634</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_transbank</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

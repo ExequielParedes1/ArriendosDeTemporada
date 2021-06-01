@@ -1,0 +1,85 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="DC4F0E7E-CC14-34B1-B0CB-D1E39DB2CBAB" name="Transbank">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-20 03:19:05 UTC</createdTime>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<engineerTo>
+<item key="8F6FB6C3-4066-9A55-1C29-EB9708699E77" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_transbank" id="B145CC6F-82D3-6913-864B-3534666E8519">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-20 03:19:59 UTC</createdTime>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<engineerTo>
+<item key="8F6FB6C3-4066-9A55-1C29-EB9708699E77" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>30</dataTypePrecision>
+<ownDataTypeParameters>,30,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="total_tbk" id="90C9F74C-5485-7F17-CAF9-D8D422AAA145">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-20 03:20:21 UTC</createdTime>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<engineerTo>
+<item key="8F6FB6C3-4066-9A55-1C29-EB9708699E77" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>30</dataTypePrecision>
+<ownDataTypeParameters>,30,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="estado_tbk" id="38E582E0-F7CE-650E-D0EF-EBFE18AA5DFA">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-20 03:20:53 UTC</createdTime>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<engineerTo>
+<item key="8F6FB6C3-4066-9A55-1C29-EB9708699E77" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="fecha_tbk" id="753865AF-8859-62AC-37E6-C0263EB477D1">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-20 03:21:09 UTC</createdTime>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<engineerTo>
+<item key="8F6FB6C3-4066-9A55-1C29-EB9708699E77" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="4E3AF8C4-0C8E-6A03-5F16-B2ECCA481234" name="Transbank PK">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-20 03:20:17 UTC</createdTime>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<engineerTo>
+<item key="8F6FB6C3-4066-9A55-1C29-EB9708699E77" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>B145CC6F-82D3-6913-864B-3534666E8519</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

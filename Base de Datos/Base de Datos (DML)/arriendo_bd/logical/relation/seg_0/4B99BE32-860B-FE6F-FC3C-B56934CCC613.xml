@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Relation_17" directorySegmentName="seg_0" id="4B99BE32-860B-FE6F-FC3C-B56934CCC613">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-30 01:06:32 UTC</createdTime>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<sourcePk>4CE82685-8D25-23EC-AF38-427A94B0BB45</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>6C046A15-4A31-2043-D4F9-D79FBD2ACE6F</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>A3E5472D-19E8-CBDF-18E9-A04CE3383A76</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

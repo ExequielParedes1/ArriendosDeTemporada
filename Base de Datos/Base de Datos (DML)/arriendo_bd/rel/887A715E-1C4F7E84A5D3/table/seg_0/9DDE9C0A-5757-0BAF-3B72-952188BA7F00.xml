@@ -1,0 +1,109 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9DDE9C0A-5757-0BAF-3B72-952188BA7F00" name="checkeo">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-24 02:56:39 UTC</createdTime>
+<generatorID>536265E6-18DE-493B-BC87-1FC932420C09</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="estado_in" id="0E3EA2E6-A1B9-F6A8-0F57-0059D70F25D3">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-24 02:56:39 UTC</createdTime>
+<generatorID>81E87F9E-F4A2-D3DD-9384-445B1EAA8A5E</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="estado_out" id="CF0BB2A0-4B57-E305-9EF8-9C4D0AACADD1">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-24 02:56:39 UTC</createdTime>
+<generatorID>B6E97BEA-47F6-2A59-B488-7EEE0EEB41C0</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha_in" id="76A1EC9C-751D-72B7-005B-8E653A099BD3">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-24 02:56:39 UTC</createdTime>
+<generatorID>D640F6FD-D5CB-DCFB-4AAA-49EF11C3EE07</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT014</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha_out" id="1099B994-E399-8CC3-66EA-CDF0917BA905">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-24 02:56:39 UTC</createdTime>
+<generatorID>E3BCD239-941C-15B8-3FEC-FC91804B9A17</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT014</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="reserva_id_reserva" id="A83A67AC-F264-1F2C-1040-55274CD33844">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-24 02:56:39 UTC</createdTime>
+<generatorID>E82899C7-ADF3-366D-AB35-0D0EE53AE6A3</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A6938A45-B47E-ECCB-4EA8-69D6E199FC0C" referredColumn="11C57774-C9C5-026A-0394-20AA4906AD1F"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="79E0FC76-6A3E-BADB-30EE-C0041131B93F" name="checkeo_PK">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-24 02:56:39 UTC</createdTime>
+<generatorID>482C72C5-A842-76B9-5235-340E33266561</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+</ind_PK_UK>
+<ind_PK_UK id="E58E654A-9F05-1479-27B8-D15EAB6A5C2C" name="checkeo__IDX">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-24 02:56:39 UTC</createdTime>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>0D3C24AD-B5FD-F3D3-8C7F-D34C734B477F</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="A83A67AC-F264-1F2C-1040-55274CD33844"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E8D31A82-BFD9-BA2F-373D-D42AB5A5BCCF" name="checkeo_reserva_FK">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-24 02:56:39 UTC</createdTime>
+<generatorID>0D3C24AD-B5FD-F3D3-8C7F-D34C734B477F</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A83A67AC-F264-1F2C-1040-55274CD33844"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

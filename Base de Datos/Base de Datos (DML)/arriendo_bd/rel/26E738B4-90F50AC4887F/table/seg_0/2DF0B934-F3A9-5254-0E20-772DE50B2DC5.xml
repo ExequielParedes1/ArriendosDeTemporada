@@ -1,0 +1,68 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2DF0B934-F3A9-5254-0E20-772DE50B2DC5" name="reserva_depto">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-19 23:08:15 UTC</createdTime>
+<generatorID>57B45CD1-C27E-0A05-00D6-0B0FA8931A06</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="reserva_id_reserva" id="FC4A5C92-3BC5-1535-986E-94728C667428">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-19 23:08:15 UTC</createdTime>
+<generatorID>FDF7825F-A91F-A182-87C9-A5CAB0EA494A</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="80B6A5BB-4CB4-3E93-F8CB-49813A2DAD40" referredColumn="DE17ACF2-84E0-BEB7-0386-D2E199B4206F"/>
+</associations>
+</Column>
+<Column name="dpto_id_dpto" id="1EF6F0E9-FFEC-E431-4258-83EA76A3C00C">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-19 23:08:15 UTC</createdTime>
+<generatorID>1310F744-1270-409F-94AF-A961CA3D3317</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="01248514-4B56-15FB-2F49-243846530A2A" referredColumn="7BDC124A-4846-0802-4B29-889B7C9C3A4D"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="42BB2500-6770-38A9-2607-F8E2BCC1BC6E" name="reserva_depto_reserva_FK">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-19 23:08:15 UTC</createdTime>
+<generatorID>557A64DF-2393-1EFF-635E-2C304776DC7F</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FC4A5C92-3BC5-1535-986E-94728C667428"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3B81AAE6-B9C4-EDD8-913C-8BA4381B5555" name="reserva_depto_dpto_FK">
+<createdBy>Favio</createdBy>
+<createdTime>2021-04-19 23:08:15 UTC</createdTime>
+<generatorID>6E2DF21D-11D8-780A-25F2-C62A49A3572C</generatorID>
+<ownerDesignName>arriendo_bd</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1EF6F0E9-FFEC-E431-4258-83EA76A3C00C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
