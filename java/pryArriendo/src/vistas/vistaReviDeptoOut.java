@@ -243,8 +243,6 @@ public class vistaReviDeptoOut extends javax.swing.JFrame {
 
         jLabel4.setText("RUT FUNCIONARIO");
 
-        txtRutFuncionarioRevisi.setEditable(false);
-
         txtiddeptoRevisi.setEditable(false);
 
         btnIngresaRevi.setText("INGRESAR REVISION");
