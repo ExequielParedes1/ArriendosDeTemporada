@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="85D972BF-742B-9F3A-6AE5-27AF7362B926" containerWithKeyObject="35BEC19D-4A87-125F-F1F5-AFDBC492F9E9" localFKIndex="AD1BA584-0931-A14C-E548-4100615AE860" name="INVOLUCRADOS_USUARIO_FK">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>C2535DC4-531E-054D-E6D6-291145558481</importedID>
+<referredTableLongName>USUARIO</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>C3281317-AEBC-254F-23D5-418331D170A9</referredTableID>
+<keyObject>0FEF70AD-71EF-7B3B-BD4A-789F61CCFA66</keyObject>
+<referredKeyID>0FEF70AD-71EF-7B3B-BD4A-789F61CCFA66</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>EMAIL</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

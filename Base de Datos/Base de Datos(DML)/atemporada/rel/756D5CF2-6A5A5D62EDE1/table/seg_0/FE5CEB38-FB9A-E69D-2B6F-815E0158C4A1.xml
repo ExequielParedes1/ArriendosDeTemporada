@@ -1,0 +1,88 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="FE5CEB38-FB9A-E69D-2B6F-815E0158C4A1" name="ACOMPANANTE">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>339FC5F2-2C62-84AD-1437-96F4FAE2E487</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="CEDULA" id="2862528F-A6C4-7479-1157-7E673F28AACB">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>CF201BC5-236E-FF92-B633-AEDC8D7F63A4</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>DDE3F804-77F0-F60B-6D1F-64501E4E002E</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NOMBRE" id="0084A099-794E-1F7E-82BF-7F0B0E1913FD">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>AE102DF5-016B-7FE3-2E86-9C353B82B733</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>6C160A45-E00E-B833-6CA1-EEB28759E294</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="APELLIDO" id="2EF57D7B-59EE-D6BC-17AF-651E54E3F0A2">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>8547C455-E97F-E192-329B-F6F304AFF35E</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>6C160A45-E00E-B833-6CA1-EEB28759E294</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TELEFONO" id="10DF4F8F-C930-EB21-E289-E731BAECC1D0">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>3A9A726A-8ABC-7013-4C78-78E41EDE76B8</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>7F5CE799-A5A3-96A8-7F8E-84BB4D8CEE65</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4D13BE67-C1D1-A113-2F1F-92F46A3EA229" name="ACOMPANANTE_PK">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>F1EF0DD3-D6B3-2C33-720A-4F0616F5DBB2</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2862528F-A6C4-7479-1157-7E673F28AACB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="41916D61-9DF2-C850-EA7C-956243CCE3DB" schemaObject="38F1DD73-9AC4-A528-5618-961DAFFDF4DF" name="ACOMPANANTE_PK">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>2EA381BE-6B53-DB56-EED7-F95572B4ED90</importedID>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2862528F-A6C4-7479-1157-7E673F28AACB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

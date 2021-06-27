@@ -1,0 +1,113 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="66903E0C-213D-33DE-39CC-BC2F615E68D6" name="CONDUCTOR">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 04:26:05 UTC</createdTime>
+<generatorID>7B629C88-B63A-719B-504E-6C27062A15CE</generatorID>
+<ownerDesignName>atemporada</ownerDesignName>
+<engineerTo>
+<item key="756D5CF2-A825-A39B-4B18-6A5A5D62EDE1" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="RUT" id="12962EB1-CF3D-C7B5-7DA0-F15EC6CC773D">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 04:26:05 UTC</createdTime>
+<generatorID>6F2EF0D7-745C-C995-1250-9AECB634D2E3</generatorID>
+<ownerDesignName>atemporada</ownerDesignName>
+<engineerTo>
+<item key="756D5CF2-A825-A39B-4B18-6A5A5D62EDE1" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>DDE3F804-77F0-F60B-6D1F-64501E4E002E</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NOMBRE" id="589E0F0A-C3EE-9B1F-BEC2-C22DC7887F6E">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 04:26:05 UTC</createdTime>
+<generatorID>6E1518D0-0FA3-9DF3-2F62-0E5DF5DD13A7</generatorID>
+<ownerDesignName>atemporada</ownerDesignName>
+<engineerTo>
+<item key="756D5CF2-A825-A39B-4B18-6A5A5D62EDE1" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>6C160A45-E00E-B833-6CA1-EEB28759E294</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="APELLIDO" id="7A224AF5-777F-B479-39C0-6780B2A42C31">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 04:26:05 UTC</createdTime>
+<generatorID>300FED1C-F99F-33CE-20AB-1447D903BD6D</generatorID>
+<ownerDesignName>atemporada</ownerDesignName>
+<engineerTo>
+<item key="756D5CF2-A825-A39B-4B18-6A5A5D62EDE1" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>6C160A45-E00E-B833-6CA1-EEB28759E294</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DISPONIBLE" id="E20FD006-6499-A9F0-8A77-13A64A1A5D33">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 04:26:05 UTC</createdTime>
+<generatorID>42C41D76-BCAD-0C0D-FB5E-939FE9304FD6</generatorID>
+<ownerDesignName>atemporada</ownerDesignName>
+<engineerTo>
+<item key="756D5CF2-A825-A39B-4B18-6A5A5D62EDE1" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>7F5CE799-A5A3-96A8-7F8E-84BB4D8CEE65</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="EMAIL" id="8E7125BB-B4DE-A738-0997-2C114B95E8B8">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 04:26:05 UTC</createdTime>
+<generatorID>634ECB2C-BA51-A868-225D-C46BDC71BF2B</generatorID>
+<ownerDesignName>atemporada</ownerDesignName>
+<engineerTo>
+<item key="756D5CF2-A825-A39B-4B18-6A5A5D62EDE1" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>764932CF-4DB0-A8F3-28FE-E707F0A1B91F</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NRO CONTACTO" id="DE313B4F-1BF9-0471-AAA9-1E98F7393D1F">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 04:26:05 UTC</createdTime>
+<generatorID>D6FE27D7-121F-7A0A-CC5A-7E1BBAC36E77</generatorID>
+<ownerDesignName>atemporada</ownerDesignName>
+<engineerTo>
+<item key="756D5CF2-A825-A39B-4B18-6A5A5D62EDE1" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>7F5CE799-A5A3-96A8-7F8E-84BB4D8CEE65</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="9C1177AA-39D0-6C59-2268-65DAF913A663" name="CONDUCTOR PK">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 04:26:05 UTC</createdTime>
+<generatorID>8591344A-3799-D7C3-183D-2349C204034E</generatorID>
+<ownerDesignName>atemporada</ownerDesignName>
+<engineerTo>
+<item key="756D5CF2-A825-A39B-4B18-6A5A5D62EDE1" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>12962EB1-CF3D-C7B5-7DA0-F15EC6CC773D</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

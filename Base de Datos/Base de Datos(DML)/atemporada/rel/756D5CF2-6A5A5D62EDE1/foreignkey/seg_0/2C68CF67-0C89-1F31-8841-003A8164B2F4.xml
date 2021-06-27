@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="2C68CF67-0C89-1F31-8841-003A8164B2F4" containerWithKeyObject="F2D613A7-A7AD-526B-D5F1-B5BCF163666B" localFKIndex="9863902E-D71D-E08C-3070-9DACAFD298EC" name="LISTACARACTERISTICAS_CARACT_FK">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>71529940-92E0-FBC9-DC8F-3A939F1AF38F</importedID>
+<referredTableLongName>CARACTERISTICAS</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>7445CF98-BFBF-B07F-C46B-BED8E72B37B1</referredTableID>
+<keyObject>FA835CDB-D0F0-2245-DB68-D4C24C482768</keyObject>
+<referredKeyID>FA835CDB-D0F0-2245-DB68-D4C24C482768</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ID_CARACTERISTICA</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

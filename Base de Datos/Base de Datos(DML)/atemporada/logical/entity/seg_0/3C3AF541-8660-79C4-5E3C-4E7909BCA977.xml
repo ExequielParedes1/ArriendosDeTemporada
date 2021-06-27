@@ -1,0 +1,130 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="3C3AF541-8660-79C4-5E3C-4E7909BCA977" name="VIAJE">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 04:26:05 UTC</createdTime>
+<generatorID>C8A60124-43F5-1692-AA0B-8EEBF72430F7</generatorID>
+<ownerDesignName>atemporada</ownerDesignName>
+<engineerTo>
+<item key="756D5CF2-A825-A39B-4B18-6A5A5D62EDE1" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID VIAJE" id="FE461C7D-2181-9A3D-50EE-D6C1B9D4E18D">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 04:26:05 UTC</createdTime>
+<generatorID>15E2C81B-89BB-7055-8FD4-41D7A25A7D51</generatorID>
+<ownerDesignName>atemporada</ownerDesignName>
+<engineerTo>
+<item key="756D5CF2-A825-A39B-4B18-6A5A5D62EDE1" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>7F5CE799-A5A3-96A8-7F8E-84BB4D8CEE65</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ORIGEN" id="4ACE65A1-F677-8C0B-C696-D42923099B47">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 04:26:05 UTC</createdTime>
+<generatorID>256FCD7A-4576-ED57-23CB-1FC45B511145</generatorID>
+<ownerDesignName>atemporada</ownerDesignName>
+<engineerTo>
+<item key="756D5CF2-A825-A39B-4B18-6A5A5D62EDE1" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>6C160A45-E00E-B833-6CA1-EEB28759E294</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DESTINO" id="D1EE31A5-3078-E14E-37CA-28BFD5AE1E6C">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 04:26:05 UTC</createdTime>
+<generatorID>6FEA96B1-9DE8-C5BC-78E8-B068F9A0A607</generatorID>
+<ownerDesignName>atemporada</ownerDesignName>
+<engineerTo>
+<item key="756D5CF2-A825-A39B-4B18-6A5A5D62EDE1" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>6C160A45-E00E-B833-6CA1-EEB28759E294</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="COMIENZO" id="7DB357D9-EFFC-E297-E495-90D5C6FD9C98">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 04:26:05 UTC</createdTime>
+<generatorID>53DAFBD0-5ADA-9F67-F371-FD0A77B98CC6</generatorID>
+<ownerDesignName>atemporada</ownerDesignName>
+<engineerTo>
+<item key="756D5CF2-A825-A39B-4B18-6A5A5D62EDE1" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<domain>1A4899A4-93A0-E0BF-66BE-3686B603FD88</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="PRECIO" id="FFC48FB5-3742-A2C0-E15A-C24EF3F8CD0C">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 04:26:05 UTC</createdTime>
+<generatorID>66B2748C-ADB2-F8F6-9297-4C22ED29A676</generatorID>
+<ownerDesignName>atemporada</ownerDesignName>
+<engineerTo>
+<item key="756D5CF2-A825-A39B-4B18-6A5A5D62EDE1" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>7F5CE799-A5A3-96A8-7F8E-84BB4D8CEE65</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CONDUCTOR RUT" id="82D68B3F-0FEA-1241-FC7A-371BBDA29CE9">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 04:26:05 UTC</createdTime>
+<generatorID>2D54D10A-316E-F080-1D11-039007886C95</generatorID>
+<ownerDesignName>atemporada</ownerDesignName>
+<engineerTo>
+<item key="756D5CF2-A825-A39B-4B18-6A5A5D62EDE1" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>12962EB1-CF3D-C7B5-7DA0-F15EC6CC773D</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>DDE3F804-77F0-F60B-6D1F-64501E4E002E</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="VEHICULO PATENTE" id="3551F7CB-0EC5-F1D4-54E5-8FF685B67ED2">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 04:26:05 UTC</createdTime>
+<generatorID>7DB8DB3E-108A-61E0-5CBF-94AF1D096B83</generatorID>
+<ownerDesignName>atemporada</ownerDesignName>
+<engineerTo>
+<item key="756D5CF2-A825-A39B-4B18-6A5A5D62EDE1" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>8BD63E33-C27D-EB1E-E39D-8C1CD9F350CC</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>9EDC353E-3941-3EC8-A164-842F4C13BF7A</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="8F561DB4-98AA-D11A-01D8-E7FE58FFE737" name="VIAJE PK">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 04:26:05 UTC</createdTime>
+<generatorID>3FAAD4EC-9F60-288F-F95A-3B8C001457ED</generatorID>
+<ownerDesignName>atemporada</ownerDesignName>
+<engineerTo>
+<item key="756D5CF2-A825-A39B-4B18-6A5A5D62EDE1" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>FE461C7D-2181-9A3D-50EE-D6C1B9D4E18D</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

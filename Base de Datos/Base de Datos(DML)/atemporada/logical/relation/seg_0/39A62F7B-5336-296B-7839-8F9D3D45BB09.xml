@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="REGISTROINVENTARIO_ITEMS_FK" directorySegmentName="seg_0" id="39A62F7B-5336-296B-7839-8F9D3D45BB09">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 04:26:05 UTC</createdTime>
+<generatorID>412F005E-A11F-4F13-6F40-5E40EEA0A6E1</generatorID>
+<ownerDesignName>atemporada</ownerDesignName>
+<engineerTo>
+<item key="756D5CF2-A825-A39B-4B18-6A5A5D62EDE1" value="true"/>
+</engineerTo>
+<sourcePk>5A0D97D6-F81C-A671-5C4A-7633AEA60449</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>E89F0983-FBFB-8B5D-1250-7CE425E6D183</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>207A02E3-93B8-B2AF-D828-08E413ABF192</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

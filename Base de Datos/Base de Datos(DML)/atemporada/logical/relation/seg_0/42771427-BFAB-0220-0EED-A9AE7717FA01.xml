@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="DETALLEMULTA_MULTA_FK" directorySegmentName="seg_0" id="42771427-BFAB-0220-0EED-A9AE7717FA01">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 04:26:05 UTC</createdTime>
+<generatorID>901FE1BC-91E2-BAFF-4FE0-2ED9032031EE</generatorID>
+<ownerDesignName>atemporada</ownerDesignName>
+<engineerTo>
+<item key="756D5CF2-A825-A39B-4B18-6A5A5D62EDE1" value="true"/>
+</engineerTo>
+<sourcePk>002B99C4-EA65-C47A-B0CB-2C8AC94B44E3</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>4A2C7663-4201-4180-F03B-E16E8931BCC5</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>11C76D69-7B66-B7A4-27D0-14016F66B9B8</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

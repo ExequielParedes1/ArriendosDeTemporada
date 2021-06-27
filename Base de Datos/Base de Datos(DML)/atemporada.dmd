@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="atemporada" id="30B3D878-1BD9-061C-5863-958AFC281AF8" version="3.5">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:44:43 UTC</createdTime>
+<ownerDesignName>ultimabd</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>30B3D878-1BD9-061C-5863-958AFC281AF8</designId>
+<usedDesignStorageDescriptors>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="B54C4D74-F5F8-1092-BE11-708793C9FF53">
+<designStoragePath>C:\ATEMPORADA</designStoragePath>
+</designDescr>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="C93E41EF-D511-9164-899B-07224E33D1DC">
+<designStoragePath>C:\ATEMPORADA</designStoragePath>
+</designDescr>
+</usedDesignStorageDescriptors>
+</OSDM_Design>

@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SchemaObject class="oracle.dbtools.crest.model.design.relational.SchemaObject" name="ATEMPORADA" directorySegmentName="seg_0" id="38F1DD73-9AC4-A528-5618-961DAFFDF4DF">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>ultimabd</ownerDesignName>
+<importedID>35DC020E-A3BE-CF65-3158-54E41544E765</importedID>
+</SchemaObject>

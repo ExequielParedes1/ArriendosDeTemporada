@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="VIAJE_CONDUCTOR_FK" directorySegmentName="seg_0" id="2D54D10A-316E-F080-1D11-039007886C95">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 04:26:05 UTC</createdTime>
+<generatorID>02122516-1578-6CB7-B7A3-8818296AF7AA</generatorID>
+<ownerDesignName>atemporada</ownerDesignName>
+<engineerTo>
+<item key="756D5CF2-A825-A39B-4B18-6A5A5D62EDE1" value="true"/>
+</engineerTo>
+<sourcePk>9C1177AA-39D0-6C59-2268-65DAF913A663</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>66903E0C-213D-33DE-39CC-BC2F615E68D6</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>3C3AF541-8660-79C4-5E3C-4E7909BCA977</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

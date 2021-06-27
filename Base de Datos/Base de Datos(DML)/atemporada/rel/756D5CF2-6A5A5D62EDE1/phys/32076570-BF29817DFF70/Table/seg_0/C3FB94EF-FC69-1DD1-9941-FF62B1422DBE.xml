@@ -1,0 +1,103 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="MANTENCION" directorySegmentName="seg_0" id="C3FB94EF-FC69-1DD1-9941-FF62B1422DBE">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>3B24DBD1-707E-7BD7-D783-0430D9CE230D</segment>
+<tableSpace>F16DF57D-452A-CEA6-46D4-58EAF3F6CC35</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="DEPARTAMENTO_ID_DEPARTAMENTO" id="0EA061A7-3C12-1CBE-9CA7-E8E1C2E62DFB">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ESTADO" id="1730E026-9CC5-EC09-C70E-17193E36CEC0">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ENCARGADO_RUT" id="29E3C4A7-8952-A5DF-3F60-16BC70B81E46">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MOTIVO" id="56C4BFD9-9740-A3A8-213A-BABE10254C1A">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DESCRIPCION" id="77EB2AE9-637C-A2E7-CEFC-DF0315678B79">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ID_MANTENCION" id="B37D4747-6D4D-D81F-5D5A-3D8961FF1CF3">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TIPO_MANTENCION" id="CB0BCD5C-B6CE-57F4-B650-273F3F34165D">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="FECHA_INICIO" id="CF6AF80E-0FED-CFA0-0F3E-1EBEF363A6ED">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="VALOR_TOTAL" id="D7382D72-FF2B-EB99-A61B-E17554EBF2F3">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="FECHA_TERMINO" id="E6E57347-61FB-5AB6-EE26-FD3D2306E070">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="MANTENCION_PK" id="002A88ED-8F5C-597C-8B83-61FEBCD5D96B">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<schemaObject>38F1DD73-9AC4-A528-5618-961DAFFDF4DF</schemaObject>
+<computeStatistics>YES</computeStatistics>
+<logging></logging>
+<segment>F290ACDC-F5FF-BBA4-C89F-8A483729129D</segment>
+<tableSpace>F16DF57D-452A-CEA6-46D4-58EAF3F6CC35</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="MANTENCION_DEPARTAMENTO_FK" id="4FD55E9D-F89B-349D-6D51-1AF04EF32896">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="MANTENCION_ENCARGADO_FK" id="5D789161-CCDF-80F6-E774-7ED660CEECE2">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="MANTENCION_PK" id="3C30C896-8B9D-DF15-307A-33CE2195E13F">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<computeStatistics>YES</computeStatistics>
+<logging></logging>
+<segment>5CCE0640-57DB-F67B-B829-1827910B1E02</segment>
+<tableSpace>F16DF57D-452A-CEA6-46D4-58EAF3F6CC35</tableSpace>
+<indexSegment>5CCE0640-57DB-F67B-B829-1827910B1E02</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

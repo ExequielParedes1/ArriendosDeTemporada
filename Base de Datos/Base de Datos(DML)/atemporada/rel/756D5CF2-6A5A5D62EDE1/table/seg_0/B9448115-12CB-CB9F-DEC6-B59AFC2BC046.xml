@@ -1,0 +1,179 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B9448115-12CB-CB9F-DEC6-B59AFC2BC046" name="DETALLESERVICIOS">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>F47BE0A5-C029-3C37-8DE4-C6DF6821887E</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_DETSER" id="E5D0F2E0-3DC6-7CDA-8AFD-89DC468CE93A">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>8EA1D081-FCA1-89F1-158C-299ADDE2DDD9</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>7F5CE799-A5A3-96A8-7F8E-84BB4D8CEE65</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRECIO" id="17B74F75-8F03-FAB7-E645-8AE41496AE5D">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>B27C70DE-1A28-6E40-15DE-45B357D5A5E0</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>7F5CE799-A5A3-96A8-7F8E-84BB4D8CEE65</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FECHA" id="614D83D5-4B2E-7FA8-4FDE-438242AB139A">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>62556DBE-B982-CF80-A85F-B406576C8D89</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<domain>1A4899A4-93A0-E0BF-66BE-3686B603FD88</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SERVICIOEXTRA_ID_SERVICIO" id="89602978-3543-A960-9D74-ABD9AEE03659">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>65F8CDA1-456F-3112-DC46-F1DB2FF422B9</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>7F5CE799-A5A3-96A8-7F8E-84BB4D8CEE65</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A6FEB8A9-EB4A-DA49-5B08-34ADAAF11777" referredColumn="C668E136-2CD8-50C2-0409-7D546990C3E7"/>
+</associations>
+</Column>
+<Column name="RESERVA_ID_RESERVA" id="FDBD4BD4-5061-9ECB-BB55-349E60EDBBA7">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>E4367D29-D9E9-B23B-4C49-9ED9261D5A3B</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>7F5CE799-A5A3-96A8-7F8E-84BB4D8CEE65</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B5D64336-1BBA-3899-F1B0-31BADB7891E3" referredColumn="AA1FA1AA-BA22-47FB-971E-1A0EC9334C73"/>
+</associations>
+</Column>
+<Column name="TOUR_ID_TOUR" id="3DCE0A27-4169-B24E-8598-38F766831D12">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>D6893B17-366E-B304-45E4-2DD50ABDADC9</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>7F5CE799-A5A3-96A8-7F8E-84BB4D8CEE65</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4065E70F-4BB2-3241-92B8-725CF1B6E4B3" referredColumn="C7E3A208-FCDE-4232-E7B7-5E3DB2BC54EA"/>
+</associations>
+</Column>
+<Column name="VIAJE_ID_VIAJE" id="C63138A2-C688-9C3E-E0D9-E3D371AFA662">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>2B6F5C14-6214-C1F8-854D-9B6E39EC4E4F</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>7F5CE799-A5A3-96A8-7F8E-84BB4D8CEE65</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="798E15A5-4ACA-E247-EF05-4B90E4DE66DD" referredColumn="15E2C81B-89BB-7055-8FD4-41D7A25A7D51"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="DD229ABA-5C99-B7B6-A015-83E89962355A" name="DETALLESERVICIOS_PK">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>37757304-C0D2-2CEA-04EC-4545CD55A29D</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FDBD4BD4-5061-9ECB-BB55-349E60EDBBA7"/>
+<colUsage columnID="E5D0F2E0-3DC6-7CDA-8AFD-89DC468CE93A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="EDF8D5DB-324B-A9BF-9741-756D4F7E0829" schemaObject="38F1DD73-9AC4-A528-5618-961DAFFDF4DF" name="DETALLESERVICIOS_PK">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>4E0EEF6F-68ED-F468-FA1E-396DEC773ECD</importedID>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FDBD4BD4-5061-9ECB-BB55-349E60EDBBA7"/>
+<colUsage columnID="E5D0F2E0-3DC6-7CDA-8AFD-89DC468CE93A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="92A9C000-5199-EAB7-4A63-99541E1D977F" name="DETALLESERVICIOS_RESERVA_FK">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FDBD4BD4-5061-9ECB-BB55-349E60EDBBA7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="863E5E6C-A11A-8511-B8FF-282A23BB8074" name="DETALLESERVICIOS_SERVICIOEX_FK">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="89602978-3543-A960-9D74-ABD9AEE03659"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FF11C0B9-88E1-CC63-954B-39ED36C019A0" name="DETALLESERVICIOS_TOUR_FK">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3DCE0A27-4169-B24E-8598-38F766831D12"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4FC83293-4975-3728-6672-1233B7CF2D0A" name="DETALLESERVICIOS_VIAJE_FK">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C63138A2-C688-9C3E-E0D9-E3D371AFA662"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

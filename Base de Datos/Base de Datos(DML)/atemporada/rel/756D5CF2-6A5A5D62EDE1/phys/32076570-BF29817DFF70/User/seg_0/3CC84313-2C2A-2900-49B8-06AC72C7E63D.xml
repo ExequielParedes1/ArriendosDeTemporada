@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<UserOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UserOraclev10g" name="ATEMPORADA" directorySegmentName="seg_0" id="3CC84313-2C2A-2900-49B8-06AC72C7E63D">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:19 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<schemaObject>38F1DD73-9AC4-A528-5618-961DAFFDF4DF</schemaObject>
+</UserOraclev10g>

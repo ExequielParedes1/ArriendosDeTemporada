@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="39A3C91F-B452-D56C-138F-A6887F44E12A" containerWithKeyObject="4E16E9B2-4859-CB5D-4C73-E02CC66E1C55" localFKIndex="F338D0EB-8EF6-EE7D-E12B-5CDC2DBC3461" name="LISTAACOMP_RESERVA_FK">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>56F67CC2-FB39-9B9B-EF36-40B31465D492</importedID>
+<referredTableLongName>RESERVA</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>8DF6D56D-E716-81B3-826E-9BDFB85D8F36</referredTableID>
+<keyObject>8E2738DC-0044-1DE0-687A-678868B51C0C</keyObject>
+<referredKeyID>8E2738DC-0044-1DE0-687A-678868B51C0C</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ID_RESERVA</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

@@ -1,0 +1,135 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E072D75C-212D-66EC-0C27-0BAF955F5566" name="REVISION">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>CDA475D9-6A9E-7177-F915-B5313867A6D0</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ESTADO" id="B6514E94-2382-D53E-1F51-23660281569B">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>2FE33922-855C-17BA-C116-C24D27C856DF</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>9DE39475-558F-E9AD-56AF-CAC9F4EE635D</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="OBSERVACIONES" id="02C3A3DD-FEF3-C1CC-ADDA-99D73DCE7B0A">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>982310C1-79C3-10E1-F2A5-EAF3D62813C7</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>7BA9CF24-56C1-08FD-0298-C9AD0662CF28</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="INVENTARIO_ITEMS_ID_ITEM" id="C857C2CA-B6BD-B29A-BC4D-D2A017C0C59E">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>32BA9DED-7025-9F93-67AA-5BB935DEA863</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>7F5CE799-A5A3-96A8-7F8E-84BB4D8CEE65</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="243A1A99-B994-F780-6A3A-A877FAC31A8E" referredColumn="4E226019-9129-70C0-30AE-E5B6FEC73B5D"/>
+</associations>
+</Column>
+<Column name="INVENTARIO_DEPTO_ID_DEPTO" id="0448F530-CEAB-564C-FD77-259982E71163">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>80543AD7-9C85-A632-8BE2-685CE1DC3628</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>7F5CE799-A5A3-96A8-7F8E-84BB4D8CEE65</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="243A1A99-B994-F780-6A3A-A877FAC31A8E" referredColumn="88F00EDE-E4C6-2FD9-5052-ADBA49EF9D68"/>
+</associations>
+</Column>
+<Column name="RESERVA_ID_RESERVA" id="6B5A2613-CE4D-C76E-3C82-EC5AEDE69FBC">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>219FF799-3285-099D-2A15-8B5F99A52E40</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>7F5CE799-A5A3-96A8-7F8E-84BB4D8CEE65</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4975EA7B-3AB6-9E95-6B60-B5F36A4F28C2" referredColumn="AA1FA1AA-BA22-47FB-971E-1A0EC9334C73"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="49BF0B98-B49B-4E99-E3A5-B00D4B9AB567" name="REVISION_PK">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>7A8D89D0-880B-5B66-BE83-91C73D176F25</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C857C2CA-B6BD-B29A-BC4D-D2A017C0C59E"/>
+<colUsage columnID="0448F530-CEAB-564C-FD77-259982E71163"/>
+<colUsage columnID="6B5A2613-CE4D-C76E-3C82-EC5AEDE69FBC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7E862EF3-BF46-17F6-8D3A-3EEBCB8D79BE" schemaObject="38F1DD73-9AC4-A528-5618-961DAFFDF4DF" name="REVISION_PK">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>4FC73A16-BD3F-A521-4D74-8718A14F96C4</importedID>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C857C2CA-B6BD-B29A-BC4D-D2A017C0C59E"/>
+<colUsage columnID="0448F530-CEAB-564C-FD77-259982E71163"/>
+<colUsage columnID="6B5A2613-CE4D-C76E-3C82-EC5AEDE69FBC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="AA043E66-3C6E-1591-2D95-65473B925D35" name="REVISION_INVENTARIO_FK">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C857C2CA-B6BD-B29A-BC4D-D2A017C0C59E"/>
+<colUsage columnID="0448F530-CEAB-564C-FD77-259982E71163"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="47A4D7F5-6C6E-9F8F-2694-57287AAA5DC4" name="REVISION_RESERVA_FK">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6B5A2613-CE4D-C76E-3C82-EC5AEDE69FBC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

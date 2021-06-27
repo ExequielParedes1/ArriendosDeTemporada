@@ -1,0 +1,78 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="REVISION" directorySegmentName="seg_0" id="E072D75C-212D-66EC-0C27-0BAF955F5566">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>3B24DBD1-707E-7BD7-D783-0430D9CE230D</segment>
+<tableSpace>F16DF57D-452A-CEA6-46D4-58EAF3F6CC35</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="OBSERVACIONES" id="02C3A3DD-FEF3-C1CC-ADDA-99D73DCE7B0A">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="INVENTARIO_DEPTO_ID_DEPTO" id="0448F530-CEAB-564C-FD77-259982E71163">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="RESERVA_ID_RESERVA" id="6B5A2613-CE4D-C76E-3C82-EC5AEDE69FBC">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ESTADO" id="B6514E94-2382-D53E-1F51-23660281569B">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="INVENTARIO_ITEMS_ID_ITEM" id="C857C2CA-B6BD-B29A-BC4D-D2A017C0C59E">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="REVISION_PK" id="7E862EF3-BF46-17F6-8D3A-3EEBCB8D79BE">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<schemaObject>38F1DD73-9AC4-A528-5618-961DAFFDF4DF</schemaObject>
+<computeStatistics>YES</computeStatistics>
+<logging></logging>
+<segment>F290ACDC-F5FF-BBA4-C89F-8A483729129D</segment>
+<tableSpace>F16DF57D-452A-CEA6-46D4-58EAF3F6CC35</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="REVISION_RESERVA_FK" id="47A4D7F5-6C6E-9F8F-2694-57287AAA5DC4">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="REVISION_INVENTARIO_FK" id="AA043E66-3C6E-1591-2D95-65473B925D35">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="REVISION_PK" id="49BF0B98-B49B-4E99-E3A5-B00D4B9AB567">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<computeStatistics>YES</computeStatistics>
+<logging></logging>
+<segment>5CCE0640-57DB-F67B-B829-1827910B1E02</segment>
+<tableSpace>F16DF57D-452A-CEA6-46D4-58EAF3F6CC35</tableSpace>
+<indexSegment>5CCE0640-57DB-F67B-B829-1827910B1E02</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

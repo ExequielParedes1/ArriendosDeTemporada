@@ -1,0 +1,92 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F2D613A7-A7AD-526B-D5F1-B5BCF163666B" name="LISTACARACTERISTICAS">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>826DAA5E-FF7F-B736-BF95-F2CC6508526D</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="DEPARTAMENTO_ID_DEPARTAMENTO" id="A091303B-53FD-A5B1-8CF2-3FF05908FB48">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>96F0DADE-CEEE-BE1A-53A2-240ABD441BB2</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>7F5CE799-A5A3-96A8-7F8E-84BB4D8CEE65</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A204A977-1C8B-3749-F7A2-AB3FE8537E59" referredColumn="EADBFAE7-07DB-BC71-C236-4E56FB38C747"/>
+</associations>
+</Column>
+<Column name="CARACTERISTICAS_ID_CARACT" id="58F3A997-AA68-5583-140D-51AF2526C4E9">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>0CB4D3FE-9D91-8437-EE12-2F32BD1A6A1D</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>7F5CE799-A5A3-96A8-7F8E-84BB4D8CEE65</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2C68CF67-0C89-1F31-8841-003A8164B2F4" referredColumn="92412DE0-A5AD-F227-1ADC-2E75DDC86FBF"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3B783BEB-D13B-6FDD-3491-A1BDFD50774F" name="LISTACARACTERISTICAS_PK">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>945C9EA9-EAD0-CB35-7CE5-D6D7CF8AF19D</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A091303B-53FD-A5B1-8CF2-3FF05908FB48"/>
+<colUsage columnID="58F3A997-AA68-5583-140D-51AF2526C4E9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CDEFE857-E542-49AD-D9AD-8D9F45629016" schemaObject="38F1DD73-9AC4-A528-5618-961DAFFDF4DF" name="LISTACARACTERISTICAS_PK">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>25EDEEE2-87F1-5CCF-39A9-EF33375806BF</importedID>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A091303B-53FD-A5B1-8CF2-3FF05908FB48"/>
+<colUsage columnID="58F3A997-AA68-5583-140D-51AF2526C4E9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9863902E-D71D-E08C-3070-9DACAFD298EC" name="LISTACARACTERISTICAS_CARACT_FK">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="58F3A997-AA68-5583-140D-51AF2526C4E9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D329A805-CCE3-BDFB-D2BB-64FE5A92162A" name="LISTACARACTERISTICAS_DEPTO_FK">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A091303B-53FD-A5B1-8CF2-3FF05908FB48"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

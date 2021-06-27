@@ -1,0 +1,115 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9B76BA6B-4EB6-880F-DEEB-8EDFFECEAF9C" name="FOTO">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>0D0595F7-26A4-8945-EEF9-C4342292E5AE</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_FOTO" id="83417EB5-8308-32AA-A93E-030EFAF4DEC1">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>9B775363-9A3D-535C-3672-65A4115BD16A</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>7F5CE799-A5A3-96A8-7F8E-84BB4D8CEE65</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DESCRIPCION" id="2D15BD94-6FCE-DAAC-EEEF-46A6906F839F">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>65E5BD7E-2C4D-FDA5-31F2-75AEC764ED0A</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>9A2A7733-53FB-D718-F07F-76CA2A534020</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NOMBRE" id="762EBC28-2DE6-BDDF-68E1-3B2EC14F5BA1">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>7725F407-8153-9676-D3C4-A43B9A9E0929</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>6C160A45-E00E-B833-6CA1-EEB28759E294</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DEPARTAMENTO_ID_DEPARTAMENTO" id="BEFE787A-FF5B-2195-5C8E-FF36712B377E">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>A9F62C4B-75B7-52DD-201B-F4C840CCA83F</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>7F5CE799-A5A3-96A8-7F8E-84BB4D8CEE65</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="876D8A1D-C39C-42E2-B8D5-5E9B76EE87D9" referredColumn="EADBFAE7-07DB-BC71-C236-4E56FB38C747"/>
+</associations>
+</Column>
+<Column name="IMAGEN" id="98C8D893-9657-3CCF-35F3-B96A968F8181">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>AE6C6598-623F-613B-343C-B94C668F2494</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT029</logicalDatatype>
+<domain>7AADF193-419E-89D2-487C-58B3EDAC7FC7</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B3E8882B-B8A6-C749-B73A-7547535D8FF2" name="FOTO_PK">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>FE65F714-7DF4-CBD4-AAA5-552971133C1B</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="83417EB5-8308-32AA-A93E-030EFAF4DEC1"/>
+<colUsage columnID="BEFE787A-FF5B-2195-5C8E-FF36712B377E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3CB37098-1608-4FE5-D8AF-7F0CB5A49D57" schemaObject="38F1DD73-9AC4-A528-5618-961DAFFDF4DF" name="FOTO_PK">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>5046ADDB-6363-90BC-F434-F217EF20EF55</importedID>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="83417EB5-8308-32AA-A93E-030EFAF4DEC1"/>
+<colUsage columnID="BEFE787A-FF5B-2195-5C8E-FF36712B377E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F4A001E5-EAF1-3113-A93C-32F79408D5F5" name="FOTO_DEPARTAMENTO_FK">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BEFE787A-FF5B-2195-5C8E-FF36712B377E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

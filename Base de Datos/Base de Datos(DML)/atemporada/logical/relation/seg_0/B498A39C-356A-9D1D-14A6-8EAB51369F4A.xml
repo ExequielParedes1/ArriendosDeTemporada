@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="LISTACARACTERISTICAS_CARACT_FK" directorySegmentName="seg_0" id="B498A39C-356A-9D1D-14A6-8EAB51369F4A">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 04:26:05 UTC</createdTime>
+<generatorID>2C68CF67-0C89-1F31-8841-003A8164B2F4</generatorID>
+<ownerDesignName>atemporada</ownerDesignName>
+<engineerTo>
+<item key="756D5CF2-A825-A39B-4B18-6A5A5D62EDE1" value="true"/>
+</engineerTo>
+<sourcePk>74C749DF-27C8-5572-623F-29E2EC1B9F2A</sourcePk>
+<identifying>true</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>877F8210-B057-A753-D1BB-0DE7FB81CD10</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>6F498EA4-16AB-1E0A-BC59-B9FF7DB555D5</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

@@ -1,0 +1,57 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="REGISTROINVENTARIO" directorySegmentName="seg_0" id="E54A1905-64EF-0B7D-3BF0-467FA12E9DDA">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>3B24DBD1-707E-7BD7-D783-0430D9CE230D</segment>
+<tableSpace>F16DF57D-452A-CEA6-46D4-58EAF3F6CC35</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="VALOR_TOTAL" id="0D6F7229-E3A5-5207-6ACB-AE5A62899D92">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="FECHA_ASIGNACION" id="2E278F90-A2F4-A6B5-2AA4-730964960313">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ITEMS_ID_ITEM" id="3E627B6D-1F8F-CDCD-9B0A-DDFF9AC57FD5">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="FECHA_ULTIMA_MODIFICACION" id="82D73D50-0E92-4273-2208-B7808947F4B5">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DEPARTAMENTO_ID_DEPARTAMENTO" id="9C412DD6-9695-027C-2D08-8F4DD83084FD">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CANTIDAD" id="B38A5C7A-B169-51D1-B056-97B1FF00C6D7">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="REGISTROINVENTARIO_ITEMS_FK" id="05FCD801-4EDB-E89E-D2BE-B1037DBE770C">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="REGISTROINVENTARIO_DEPTO_FK" id="C0B028BE-75E3-BF96-0FF0-723AC46C559D">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+</TableProxyOraclev11g>

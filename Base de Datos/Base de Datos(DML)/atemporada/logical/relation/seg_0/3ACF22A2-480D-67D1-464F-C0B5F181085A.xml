@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="RESERVA_DEPARTAMENTO_FK" directorySegmentName="seg_0" id="3ACF22A2-480D-67D1-464F-C0B5F181085A">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 04:26:05 UTC</createdTime>
+<generatorID>92CCFB84-E8F1-5496-7842-727CC7C3F660</generatorID>
+<ownerDesignName>atemporada</ownerDesignName>
+<engineerTo>
+<item key="756D5CF2-A825-A39B-4B18-6A5A5D62EDE1" value="true"/>
+</engineerTo>
+<sourcePk>EAA61F73-1B30-ADB6-3FB7-4B930C98CF0B</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>E1C03C91-7D6F-34EE-0888-931D9091E1BD</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>6651BF87-3A13-FF64-73D6-682B53DBE6D6</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

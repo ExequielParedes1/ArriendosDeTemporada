@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="0AA7DC5F-C4F2-7D14-F132-452BC75C4946" containerWithKeyObject="C3FB94EF-FC69-1DD1-9941-FF62B1422DBE" localFKIndex="5D789161-CCDF-80F6-E774-7ED660CEECE2" name="MANTENCION_ENCARGADO_FK">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>1494AB9B-AD65-D77A-BFEB-4FE9BC23F870</importedID>
+<referredTableLongName>ENCARGADO</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>C7343A0C-2534-95FE-148F-6B260A9E8CA3</referredTableID>
+<keyObject>2B873B46-996A-2D68-886D-C641A58FFD1E</keyObject>
+<referredKeyID>2B873B46-996A-2D68-886D-C641A58FFD1E</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>RUT</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

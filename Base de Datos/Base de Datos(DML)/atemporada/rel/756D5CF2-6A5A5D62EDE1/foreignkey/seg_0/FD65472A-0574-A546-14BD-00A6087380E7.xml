@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="FD65472A-0574-A546-14BD-00A6087380E7" containerWithKeyObject="E54A1905-64EF-0B7D-3BF0-467FA12E9DDA" localFKIndex="C0B028BE-75E3-BF96-0FF0-723AC46C559D" name="REGISTROINVENTARIO_DEPTO_FK">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>6F611408-DDB3-465C-D9F0-4EDD8E3E82BC</importedID>
+<referredTableLongName>DEPARTAMENTO</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>FB1A6FC5-E080-4DEB-9A86-C313BD9313E5</referredTableID>
+<keyObject>DF8BE6BC-8532-83DB-B2E4-E994A6CB8A11</keyObject>
+<referredKeyID>DF8BE6BC-8532-83DB-B2E4-E994A6CB8A11</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ID_DEPARTAMENTO</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

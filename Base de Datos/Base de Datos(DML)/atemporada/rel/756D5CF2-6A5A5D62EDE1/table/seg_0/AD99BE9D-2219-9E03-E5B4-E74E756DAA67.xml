@@ -1,0 +1,126 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="AD99BE9D-2219-9E03-E5B4-E74E756DAA67" name="DETALLEMULTA">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>7F6448AA-C4E0-26D0-1F00-32E3E2C7EEBE</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_DMULTA" id="825E6803-6527-50C4-6881-40DED1232537">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>E0CD6E58-562C-2D31-3C07-631FBA9912F0</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>7F5CE799-A5A3-96A8-7F8E-84BB4D8CEE65</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="OBSERVACIONES" id="D93D9DBA-14DA-432E-62F3-89B28A42DBBA">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>E69D977E-B31A-3E9E-7F0E-0700F76C746A</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>9A2A7733-53FB-D718-F07F-76CA2A534020</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RESERVA_ID_RESERVA" id="365A379A-540F-F185-CEC2-73DF6F16ED49">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>190BA4AC-E8A7-FD48-E4C9-D2EB51E001B3</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>7F5CE799-A5A3-96A8-7F8E-84BB4D8CEE65</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4A98FE9A-A787-A453-920A-B3A2B4C2C300" referredColumn="AA1FA1AA-BA22-47FB-971E-1A0EC9334C73"/>
+</associations>
+</Column>
+<Column name="MULTA_ID_MULTA" id="23B8FFF5-3619-4A74-904F-C083671DC99B">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>E6F1335A-2590-C1E0-6966-B1E3A2F53DA2</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>7F5CE799-A5A3-96A8-7F8E-84BB4D8CEE65</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="901FE1BC-91E2-BAFF-4FE0-2ED9032031EE" referredColumn="E0FC1ACB-9D73-9731-2366-486F96D9CD69"/>
+</associations>
+</Column>
+<Column name="ESTADOMULTA" id="666E9D5C-0445-13F5-DE23-F7B2F7EA4538">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>FC975424-E206-0418-7F39-AFDDE720A6B7</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>6C160A45-E00E-B833-6CA1-EEB28759E294</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="89EB5E72-77A4-9FFF-C2F2-9BC9B39FFA9A" name="DETALLEMULTA_PK">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>123B64BE-7655-32EE-3191-D400649486FB</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="825E6803-6527-50C4-6881-40DED1232537"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="243B09E4-7F1D-F079-E11A-04202B1B9E5C" schemaObject="38F1DD73-9AC4-A528-5618-961DAFFDF4DF" name="DETALLEMULTA_PK">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>394157DE-7F34-CB9E-88A2-D5353C41D6C4</importedID>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="825E6803-6527-50C4-6881-40DED1232537"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3DC914A5-FB70-7B1E-1255-44105DACBFCB" name="DETALLEMULTA_MULTA_FK">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="23B8FFF5-3619-4A74-904F-C083671DC99B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BDCE8556-FBB7-EA5B-DC1A-E8EDA3140903" name="DETALLEMULTA_RESERVA_FK">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="365A379A-540F-F185-CEC2-73DF6F16ED49"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="DBDB5033-7117-FA7A-3DC2-AF988B34A5C9" containerWithKeyObject="4E16E9B2-4859-CB5D-4C73-E02CC66E1C55" localFKIndex="07BBBE37-E683-ECEF-5AA6-3BFA55673710" name="LISTAACOMP_ACOMPANANTE_FK">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>4FB0AC96-3342-7A56-29F3-2EB516CC5BE3</importedID>
+<referredTableLongName>ACOMPANANTE</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>FE5CEB38-FB9A-E69D-2B6F-815E0158C4A1</referredTableID>
+<keyObject>4D13BE67-C1D1-A113-2F1F-92F46A3EA229</keyObject>
+<referredKeyID>4D13BE67-C1D1-A113-2F1F-92F46A3EA229</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>CEDULA</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

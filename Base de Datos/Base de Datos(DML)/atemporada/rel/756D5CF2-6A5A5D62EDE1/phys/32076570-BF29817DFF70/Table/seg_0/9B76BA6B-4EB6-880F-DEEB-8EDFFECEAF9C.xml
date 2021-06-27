@@ -1,0 +1,89 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="FOTO" directorySegmentName="seg_0" id="9B76BA6B-4EB6-880F-DEEB-8EDFFECEAF9C">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>3B24DBD1-707E-7BD7-D783-0430D9CE230D</segment>
+<tableSpace>F16DF57D-452A-CEA6-46D4-58EAF3F6CC35</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="DESCRIPCION" id="2D15BD94-6FCE-DAAC-EEEF-46A6906F839F">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="NOMBRE" id="762EBC28-2DE6-BDDF-68E1-3B2EC14F5BA1">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ID_FOTO" id="83417EB5-8308-32AA-A93E-030EFAF4DEC1">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="IMAGEN" id="98C8D893-9657-3CCF-35F3-B96A968F8181">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DEPARTAMENTO_ID_DEPARTAMENTO" id="BEFE787A-FF5B-2195-5C8E-FF36712B377E">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="FOTO_PK" id="3CB37098-1608-4FE5-D8AF-7F0CB5A49D57">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<schemaObject>38F1DD73-9AC4-A528-5618-961DAFFDF4DF</schemaObject>
+<computeStatistics>YES</computeStatistics>
+<logging></logging>
+<segment>F290ACDC-F5FF-BBA4-C89F-8A483729129D</segment>
+<tableSpace>F16DF57D-452A-CEA6-46D4-58EAF3F6CC35</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FOTO_DEPARTAMENTO_FK" id="F4A001E5-EAF1-3113-A93C-32F79408D5F5">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<lobStorages>
+<LobStorage class="oracle.dbtools.crest.model.design.storage.oracle.v11g.LobStorageOraclev11g" name="LS1" id="55355495-FAE4-8668-FDB2-6AEDD4835F3C">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<cache>NOCACHE</cache>
+<chunk>8192</chunk>
+<column>IMAGEN</column>
+<compression>NO</compression>
+<duplication>KEEP_DUPLICATES</duplication>
+<logging>YES</logging>
+<tableSpace>F16DF57D-452A-CEA6-46D4-58EAF3F6CC35</tableSpace>
+<lobStorageType>SECUREFILE</lobStorageType>
+</LobStorage>
+</lobStorages>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="FOTO_PK" id="B3E8882B-B8A6-C749-B73A-7547535D8FF2">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<computeStatistics>YES</computeStatistics>
+<logging></logging>
+<segment>5CCE0640-57DB-F67B-B829-1827910B1E02</segment>
+<tableSpace>F16DF57D-452A-CEA6-46D4-58EAF3F6CC35</tableSpace>
+<indexSegment>5CCE0640-57DB-F67B-B829-1827910B1E02</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

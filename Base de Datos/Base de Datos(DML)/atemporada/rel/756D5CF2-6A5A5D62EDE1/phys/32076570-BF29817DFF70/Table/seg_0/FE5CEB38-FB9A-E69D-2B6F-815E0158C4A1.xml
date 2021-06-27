@@ -1,0 +1,61 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="ACOMPANANTE" directorySegmentName="seg_0" id="FE5CEB38-FB9A-E69D-2B6F-815E0158C4A1">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>3B24DBD1-707E-7BD7-D783-0430D9CE230D</segment>
+<tableSpace>F16DF57D-452A-CEA6-46D4-58EAF3F6CC35</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="NOMBRE" id="0084A099-794E-1F7E-82BF-7F0B0E1913FD">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TELEFONO" id="10DF4F8F-C930-EB21-E289-E731BAECC1D0">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CEDULA" id="2862528F-A6C4-7479-1157-7E673F28AACB">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="APELLIDO" id="2EF57D7B-59EE-D6BC-17AF-651E54E3F0A2">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="ACOMPANANTE_PK" id="41916D61-9DF2-C850-EA7C-956243CCE3DB">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<schemaObject>38F1DD73-9AC4-A528-5618-961DAFFDF4DF</schemaObject>
+<computeStatistics>YES</computeStatistics>
+<logging></logging>
+<segment>F290ACDC-F5FF-BBA4-C89F-8A483729129D</segment>
+<tableSpace>F16DF57D-452A-CEA6-46D4-58EAF3F6CC35</tableSpace>
+</IndexProxy>
+</indexProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="ACOMPANANTE_PK" id="4D13BE67-C1D1-A113-2F1F-92F46A3EA229">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<computeStatistics>YES</computeStatistics>
+<logging></logging>
+<segment>5CCE0640-57DB-F67B-B829-1827910B1E02</segment>
+<tableSpace>F16DF57D-452A-CEA6-46D4-58EAF3F6CC35</tableSpace>
+<indexSegment>5CCE0640-57DB-F67B-B829-1827910B1E02</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

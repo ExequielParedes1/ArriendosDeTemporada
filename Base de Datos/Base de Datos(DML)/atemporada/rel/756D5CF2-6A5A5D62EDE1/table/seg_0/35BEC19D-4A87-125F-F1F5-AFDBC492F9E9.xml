@@ -1,0 +1,92 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="35BEC19D-4A87-125F-F1F5-AFDBC492F9E9" name="INVOLUCRADOS">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>B4BE75F2-BBAE-041D-636A-6B08EC0725D1</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="USUARIO_EMAIL" id="4C08C0D2-79D2-52FA-7AC1-541201E49349">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>0AFF8481-406B-3E84-5E5E-4818436DD1DA</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>E1E41294-F554-8BE6-8164-DD6F798EBF70</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="85D972BF-742B-9F3A-6AE5-27AF7362B926" referredColumn="2BFB7BD5-151F-40D6-BBB1-4F8D373F8F56"/>
+</associations>
+</Column>
+<Column name="RESERVA_ID_RESERVA" id="34002679-2B07-B84F-C047-48441EB8BFC1">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>2C25EFE0-9ED2-8DCE-7CA7-CA04A7710548</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>7F5CE799-A5A3-96A8-7F8E-84BB4D8CEE65</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="968E0DBE-3FA7-ED81-2D42-B951B219FC30" referredColumn="AA1FA1AA-BA22-47FB-971E-1A0EC9334C73"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E3621E08-88A4-3B23-452A-603910014655" name="INVOLUCRADOS_PK">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>CD0A16DC-32A9-3533-1F90-87AA2B9ED293</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4C08C0D2-79D2-52FA-7AC1-541201E49349"/>
+<colUsage columnID="34002679-2B07-B84F-C047-48441EB8BFC1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7C6E8365-5B00-26C8-61E8-38AB978841FE" schemaObject="38F1DD73-9AC4-A528-5618-961DAFFDF4DF" name="INVOLUCRADOS_PK">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>0B4F85DA-A3C5-DB44-D46C-98C59CBB6AE2</importedID>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4C08C0D2-79D2-52FA-7AC1-541201E49349"/>
+<colUsage columnID="34002679-2B07-B84F-C047-48441EB8BFC1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="54207587-432E-04FB-2D86-EDC2342FB53C" name="INVOLUCRADOS_RESERVA_FK">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="34002679-2B07-B84F-C047-48441EB8BFC1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="AD1BA584-0931-A14C-E548-4100615AE860" name="INVOLUCRADOS_USUARIO_FK">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4C08C0D2-79D2-52FA-7AC1-541201E49349"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="02122516-1578-6CB7-B7A3-8818296AF7AA" containerWithKeyObject="C8A60124-43F5-1692-AA0B-8EEBF72430F7" localFKIndex="C69A0F10-371B-F132-06C1-A4AED9566084" name="VIAJE_CONDUCTOR_FK">
+<sourceDDLFile>ATEMPORADA.sql</sourceDDLFile>
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 03:49:40 UTC</createdTime>
+<ownerDesignName>atemporada</ownerDesignName>
+<importedID>511179D0-0DC2-8D41-A9B2-7AA6D78885E1</importedID>
+<referredTableLongName>CONDUCTOR</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>7B629C88-B63A-719B-504E-6C27062A15CE</referredTableID>
+<keyObject>8591344A-3799-D7C3-183D-2349C204034E</keyObject>
+<referredKeyID>8591344A-3799-D7C3-183D-2349C204034E</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>RUT</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

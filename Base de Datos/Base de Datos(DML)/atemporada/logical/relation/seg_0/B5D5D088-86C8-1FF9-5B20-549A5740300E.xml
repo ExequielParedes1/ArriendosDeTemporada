@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="INVOLUCRADOS_USUARIO_FK" directorySegmentName="seg_0" id="B5D5D088-86C8-1FF9-5B20-549A5740300E">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 04:26:05 UTC</createdTime>
+<generatorID>85D972BF-742B-9F3A-6AE5-27AF7362B926</generatorID>
+<ownerDesignName>atemporada</ownerDesignName>
+<engineerTo>
+<item key="756D5CF2-A825-A39B-4B18-6A5A5D62EDE1" value="true"/>
+</engineerTo>
+<sourcePk>D2A02EF4-ABE0-BF89-3CB5-136FD4DB8B1C</sourcePk>
+<identifying>true</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>0B4A55DE-10BF-CF27-BF6D-4F9DBD1D6072</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>DDEF1DF0-AC69-5D4E-F985-F1F77EDF24C3</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

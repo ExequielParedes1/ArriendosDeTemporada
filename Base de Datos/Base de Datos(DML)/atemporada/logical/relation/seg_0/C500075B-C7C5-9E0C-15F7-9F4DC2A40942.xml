@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="LISTAACOMP_RESERVA_FK" directorySegmentName="seg_0" id="C500075B-C7C5-9E0C-15F7-9F4DC2A40942">
+<createdBy>alanb</createdBy>
+<createdTime>2021-06-12 04:26:05 UTC</createdTime>
+<generatorID>39A3C91F-B452-D56C-138F-A6887F44E12A</generatorID>
+<ownerDesignName>atemporada</ownerDesignName>
+<engineerTo>
+<item key="756D5CF2-A825-A39B-4B18-6A5A5D62EDE1" value="true"/>
+</engineerTo>
+<sourcePk>26011A09-F2AB-551C-9E26-FF16FE26BFBF</sourcePk>
+<identifying>true</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>6651BF87-3A13-FF64-73D6-682B53DBE6D6</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>40D593C6-DBF4-7751-30C9-132A83A68329</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>
