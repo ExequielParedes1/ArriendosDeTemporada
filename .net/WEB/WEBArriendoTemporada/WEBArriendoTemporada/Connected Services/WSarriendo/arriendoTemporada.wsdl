@@ -1,0 +1,2835 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="AgregarUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usr" type="tns:UsuarioBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UsuarioBLL">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Correo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cedula" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Apellido" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumeroContacto" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Contrasenha" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tipo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Estado" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AgregarUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgregarUsuarioResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarUsuario">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListarUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarUsuarioResult" type="tns:ArrayOfUsuarioBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfUsuarioBLL">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="UsuarioBLL" nillable="true" type="tns:UsuarioBLL" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ModificarUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usr" type="tns:UsuarioBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModificarUsuarioResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarReserva">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="arr" type="tns:ReservaBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ReservaBLL">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_reserva" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Dias_reserva" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Valor_final" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Check_in" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Check_Out" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Total_multas" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Fecha_contrato" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Metodo_pago" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Departamento_id_departamento" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Anticipo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Estado_pago" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Estado" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AgregarReservaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgregarReservaResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarReserva">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListarReservaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarReservaResult" type="tns:ArrayOfReservaBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfReservaBLL">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ReservaBLL" nillable="true" type="tns:ReservaBLL" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ModificarReserva">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="arr" type="tns:ReservaBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarReservaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModificarReservaResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="listarCaracteristicas">
+        <s:complexType />
+      </s:element>
+      <s:element name="listarCaracteristicasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="listarCaracteristicasResult" type="tns:ArrayOfCaracteristicaBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCaracteristicaBLL">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CaracteristicaBLL" nillable="true" type="tns:CaracteristicaBLL" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CaracteristicaBLL">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idCaracteristica" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ModificarCaracteristica">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nuevo" type="tns:CaracteristicaBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarCaracteristicaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModificarCaracteristicaResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarCaracteristica">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nuevo" type="tns:CaracteristicaBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarCaracteristicaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgregarCaracteristicaResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarCarateristica">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idCaracteristica" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarCarateristicaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EliminarCarateristicaResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarConductor">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListarConductorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarConductorResult" type="tns:ArrayOfConductorBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfConductorBLL">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ConductorBLL" nillable="true" type="tns:ConductorBLL" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ConductorBLL">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Rut" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Apellido" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Disponible" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Telefono" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ModificarConductor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="con" type="tns:ConductorBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarConductorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModificarConductorResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarConductor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="con" type="tns:ConductorBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarConductorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgregarConductorResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarDepartamento">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListarDepartamentoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarDepartamentoResult" type="tns:ArrayOfDepartamentoBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDepartamentoBLL">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DepartamentoBLL" nillable="true" type="tns:DepartamentoBLL" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DepartamentoBLL">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idDepartamento" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Direccion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MtrsCuadrados" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValorDiario" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Disponible" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Zona" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nro_habitaciones" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nro_banhos" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AgregarDepartamento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dpto" type="tns:DepartamentoBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarDepartamentoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgregarDepartamentoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarDepartamento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dpto" type="tns:DepartamentoBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarDepartamentoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModificarDepartamentoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarDetalleMulta">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListarDetalleMultaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarDetalleMultaResult" type="tns:ArrayOfDetalleMultaBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDetalleMultaBLL">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DetalleMultaBLL" nillable="true" type="tns:DetalleMultaBLL" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DetalleMultaBLL">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_dmulta" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Objervaciones" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EstadoMulta" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="reserva_id_reserva" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="multa_id_multa" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AgregarDetalleMulta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dm" type="tns:DetalleMultaBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarDetalleMultaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgregarDetalleMultaResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarEncargado">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListarEncargadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarEncargadoResult" type="tns:ArrayOfEncargadoBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEncargadoBLL">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EncargadoBLL" nillable="true" type="tns:EncargadoBLL" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EncargadoBLL">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Rut" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nro_contacto" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Apellido" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AgregarEncargado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="en" type="tns:EncargadoBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarEncargadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgregarEncargadoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarEncargado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="en" type="tns:EncargadoBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarEncargadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModificarEncargadoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarAcompanante">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListarAcompananteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarAcompananteResult" type="tns:ArrayOfAcompananteBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAcompananteBLL">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AcompananteBLL" nillable="true" type="tns:AcompananteBLL" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AcompananteBLL">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Cedula" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Apellido" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Telefono" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AgregarAcompanante">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="hu" type="tns:AcompananteBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarAcompananteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgregarAcompananteResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarAcompanante">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="hr" type="tns:AcompananteBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarAcompananteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModificarAcompananteResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarAcompanante">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cedula" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarAcompananteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EliminarAcompananteResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarInvolucrado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inv" type="tns:InvolucradoBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="InvolucradoBLL">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="usuario_correo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="reserva_id_reserva" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AgregarInvolucradoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgregarInvolucradoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListaInvolucrado">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListaInvolucradoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListaInvolucradoResult" type="tns:ArrayOfInvolucradoBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInvolucradoBLL">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="InvolucradoBLL" nillable="true" type="tns:InvolucradoBLL" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="EliminarAsociacionFuncionario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inv" type="tns:InvolucradoBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarAsociacionFuncionarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EliminarAsociacionFuncionarioResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarListaCaracteristica">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="lc" type="tns:ListaCaracteristicasBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ListaCaracteristicasBLL">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idCaracteristica" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="idDepartamento" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AgregarListaCaracteristicaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgregarListaCaracteristicaResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarListaCaracteristica">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="lc" type="tns:ListaCaracteristicasBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarListaCaracteristicaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EliminarListaCaracteristicaResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarListaCaracteristica">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListarListaCaracteristicaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarListaCaracteristicaResult" type="tns:ArrayOfListaCaracteristicasBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfListaCaracteristicasBLL">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ListaCaracteristicasBLL" nillable="true" type="tns:ListaCaracteristicasBLL" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AgregarListaAcompanante">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="lh" type="tns:ListaAcompBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ListaAcompBLL">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="cedulaAcompanante" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="idReserva" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AgregarListaAcompananteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgregarListaAcompananteResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarListaAcompanante">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListarListaAcompananteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarListaAcompananteResult" type="tns:ArrayOfListaAcompBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfListaAcompBLL">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ListaAcompBLL" nillable="true" type="tns:ListaAcompBLL" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="EliminarListaAcompanante">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="lh" type="tns:ListaAcompBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarListaAcompananteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EliminarListaAcompananteResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarMantencion">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListarMantencionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarMantencionResult" type="tns:ArrayOfMantencionBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMantencionBLL">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MantencionBLL" nillable="true" type="tns:MantencionBLL" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MantencionBLL">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_mantencion" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Varlo_total" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Fecha_inicio" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Fecha_termino" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Motivo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tipo_mantencion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Encargado_rut" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Departamento_id_departamento" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="EstadoMantencion" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AgregarMantencion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="man" type="tns:MantencionBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarMantencionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgregarMantencionResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarMantencion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="man" type="tns:MantencionBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarMantencionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModificarMantencionResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarMulta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="mul" type="tns:MultaBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="MultaBLL">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idMulta" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Valor" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Estado_Multa" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AgregarMultaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgregarMultaResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarMulta">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListarMultaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarMultaResult" type="tns:ArrayOfMultaBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMultaBLL">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MultaBLL" nillable="true" type="tns:MultaBLL" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ModificarMulta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="mul" type="tns:MultaBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarMultaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModificarMultaResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarVehiculo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vh" type="tns:VehiculoBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="VehiculoBLL">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Patente" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Modelo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Anho" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Color" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Disponible" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AgregarVehiculoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgregarVehiculoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarVehiculo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vh" type="tns:VehiculoBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarVehiculoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModificarVehiculoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarVehiculo">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListarVehiculoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarVehiculoResult" type="tns:ArrayOfVehiculoBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfVehiculoBLL">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="VehiculoBLL" nillable="true" type="tns:VehiculoBLL" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AgregarFoto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nueva" type="tns:FotoBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FotoBLL">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_foto" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:base64Binary" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_departamento_id" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AgregarFotoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgregarFotoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="listarImagenes">
+        <s:complexType />
+      </s:element>
+      <s:element name="listarImagenesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="listarImagenesResult" type="tns:ArrayOfFotoBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfFotoBLL">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FotoBLL" nillable="true" type="tns:FotoBLL" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="EliminarFoto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nueva" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarFotoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EliminarFotoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="otro" type="tns:ItemBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ItemBLL">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_item" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Valor" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AgregarItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgregarItemResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarItem">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListarItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarItemResult" type="tns:ArrayOfItemBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfItemBLL">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ItemBLL" nillable="true" type="tns:ItemBLL" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="EliminarItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EliminarItemResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarRegistroInventario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ri" type="tns:InventarioBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="InventarioBLL">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="fecha_ultima_moficacion" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Fecha_asignacion" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_item_id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cantidad" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_departamento_id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Valor_total" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AgregarRegistroInventarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgregarRegistroInventarioResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarRegistroInventario">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListarRegistroInventarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarRegistroInventarioResult" type="tns:ArrayOfInventarioBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInventarioBLL">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="InventarioBLL" nillable="true" type="tns:InventarioBLL" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="eliminarRegistroInventario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inv" type="tns:InventarioBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="eliminarRegistroInventarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="eliminarRegistroInventarioResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="modificarRegistroInventario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inv" type="tns:InventarioBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="modificarRegistroInventarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="modificarRegistroInventarioResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarViaje">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nuevo" type="tns:ViajeBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ViajeBLL">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_viaje" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Origen" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Destino" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Comienzo" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Precio" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Conductor_rut" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Vehiculo_patente" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AgregarViajeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgregarViajeResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarViaje">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListarViajeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarViajeResult" type="tns:ArrayOfViajeBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfViajeBLL">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ViajeBLL" nillable="true" type="tns:ViajeBLL" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ModificarViaje">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="viaje" type="tns:ViajeBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarViajeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModificarViajeResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarServicioExtra">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="se" type="tns:ServicioExtraBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServicioExtraBLL">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_servicio_extra" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre_servicio" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Valor_servicio" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Disponible" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AgregarServicioExtraResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgregarServicioExtraResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarServicioExtra">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListarServicioExtraResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarServicioExtraResult" type="tns:ArrayOfServicioExtraBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfServicioExtraBLL">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ServicioExtraBLL" nillable="true" type="tns:ServicioExtraBLL" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ModificarServicioExtra">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sr" type="tns:ServicioExtraBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarServicioExtraResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModificarServicioExtraResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarRevision">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="rev" type="tns:RevisionBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RevisionBLL">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Estado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Observaciones" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="inventario_items_id_item" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="inventario_depto_id_depto" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="reserva_id_reserva" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AgregarRevisionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgregarRevisionResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarRevision">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="rev" type="tns:RevisionBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarRevisionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModificarRevisionResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarRevision">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListarRevisionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarRevisionResult" type="tns:ArrayOfRevisionBLL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfRevisionBLL">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RevisionBLL" nillable="true" type="tns:RevisionBLL" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AgregarUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="AgregarUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ListarUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificarUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ModificarUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarReservaSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarReserva" />
+  </wsdl:message>
+  <wsdl:message name="AgregarReservaSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarReservaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarReservaSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarReserva" />
+  </wsdl:message>
+  <wsdl:message name="ListarReservaSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarReservaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificarReservaSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificarReserva" />
+  </wsdl:message>
+  <wsdl:message name="ModificarReservaSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificarReservaResponse" />
+  </wsdl:message>
+  <wsdl:message name="listarCaracteristicasSoapIn">
+    <wsdl:part name="parameters" element="tns:listarCaracteristicas" />
+  </wsdl:message>
+  <wsdl:message name="listarCaracteristicasSoapOut">
+    <wsdl:part name="parameters" element="tns:listarCaracteristicasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificarCaracteristicaSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificarCaracteristica" />
+  </wsdl:message>
+  <wsdl:message name="ModificarCaracteristicaSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificarCaracteristicaResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarCaracteristicaSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarCaracteristica" />
+  </wsdl:message>
+  <wsdl:message name="AgregarCaracteristicaSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarCaracteristicaResponse" />
+  </wsdl:message>
+  <wsdl:message name="EliminarCarateristicaSoapIn">
+    <wsdl:part name="parameters" element="tns:EliminarCarateristica" />
+  </wsdl:message>
+  <wsdl:message name="EliminarCarateristicaSoapOut">
+    <wsdl:part name="parameters" element="tns:EliminarCarateristicaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarConductorSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarConductor" />
+  </wsdl:message>
+  <wsdl:message name="ListarConductorSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarConductorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificarConductorSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificarConductor" />
+  </wsdl:message>
+  <wsdl:message name="ModificarConductorSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificarConductorResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarConductorSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarConductor" />
+  </wsdl:message>
+  <wsdl:message name="AgregarConductorSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarConductorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarDepartamentoSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarDepartamento" />
+  </wsdl:message>
+  <wsdl:message name="ListarDepartamentoSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarDepartamentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarDepartamentoSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarDepartamento" />
+  </wsdl:message>
+  <wsdl:message name="AgregarDepartamentoSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarDepartamentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificarDepartamentoSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificarDepartamento" />
+  </wsdl:message>
+  <wsdl:message name="ModificarDepartamentoSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificarDepartamentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarDetalleMultaSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarDetalleMulta" />
+  </wsdl:message>
+  <wsdl:message name="ListarDetalleMultaSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarDetalleMultaResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarDetalleMultaSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarDetalleMulta" />
+  </wsdl:message>
+  <wsdl:message name="AgregarDetalleMultaSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarDetalleMultaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarEncargadoSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarEncargado" />
+  </wsdl:message>
+  <wsdl:message name="ListarEncargadoSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarEncargadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarEncargadoSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarEncargado" />
+  </wsdl:message>
+  <wsdl:message name="AgregarEncargadoSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarEncargadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificarEncargadoSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificarEncargado" />
+  </wsdl:message>
+  <wsdl:message name="ModificarEncargadoSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificarEncargadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarAcompananteSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarAcompanante" />
+  </wsdl:message>
+  <wsdl:message name="ListarAcompananteSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarAcompananteResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarAcompananteSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarAcompanante" />
+  </wsdl:message>
+  <wsdl:message name="AgregarAcompananteSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarAcompananteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificarAcompananteSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificarAcompanante" />
+  </wsdl:message>
+  <wsdl:message name="ModificarAcompananteSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificarAcompananteResponse" />
+  </wsdl:message>
+  <wsdl:message name="EliminarAcompananteSoapIn">
+    <wsdl:part name="parameters" element="tns:EliminarAcompanante" />
+  </wsdl:message>
+  <wsdl:message name="EliminarAcompananteSoapOut">
+    <wsdl:part name="parameters" element="tns:EliminarAcompananteResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarInvolucradoSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarInvolucrado" />
+  </wsdl:message>
+  <wsdl:message name="AgregarInvolucradoSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarInvolucradoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListaInvolucradoSoapIn">
+    <wsdl:part name="parameters" element="tns:ListaInvolucrado" />
+  </wsdl:message>
+  <wsdl:message name="ListaInvolucradoSoapOut">
+    <wsdl:part name="parameters" element="tns:ListaInvolucradoResponse" />
+  </wsdl:message>
+  <wsdl:message name="EliminarAsociacionFuncionarioSoapIn">
+    <wsdl:part name="parameters" element="tns:EliminarAsociacionFuncionario" />
+  </wsdl:message>
+  <wsdl:message name="EliminarAsociacionFuncionarioSoapOut">
+    <wsdl:part name="parameters" element="tns:EliminarAsociacionFuncionarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarListaCaracteristicaSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarListaCaracteristica" />
+  </wsdl:message>
+  <wsdl:message name="AgregarListaCaracteristicaSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarListaCaracteristicaResponse" />
+  </wsdl:message>
+  <wsdl:message name="EliminarListaCaracteristicaSoapIn">
+    <wsdl:part name="parameters" element="tns:EliminarListaCaracteristica" />
+  </wsdl:message>
+  <wsdl:message name="EliminarListaCaracteristicaSoapOut">
+    <wsdl:part name="parameters" element="tns:EliminarListaCaracteristicaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarListaCaracteristicaSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarListaCaracteristica" />
+  </wsdl:message>
+  <wsdl:message name="ListarListaCaracteristicaSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarListaCaracteristicaResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarListaAcompananteSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarListaAcompanante" />
+  </wsdl:message>
+  <wsdl:message name="AgregarListaAcompananteSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarListaAcompananteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarListaAcompananteSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarListaAcompanante" />
+  </wsdl:message>
+  <wsdl:message name="ListarListaAcompananteSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarListaAcompananteResponse" />
+  </wsdl:message>
+  <wsdl:message name="EliminarListaAcompananteSoapIn">
+    <wsdl:part name="parameters" element="tns:EliminarListaAcompanante" />
+  </wsdl:message>
+  <wsdl:message name="EliminarListaAcompananteSoapOut">
+    <wsdl:part name="parameters" element="tns:EliminarListaAcompananteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarMantencionSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarMantencion" />
+  </wsdl:message>
+  <wsdl:message name="ListarMantencionSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarMantencionResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarMantencionSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarMantencion" />
+  </wsdl:message>
+  <wsdl:message name="AgregarMantencionSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarMantencionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificarMantencionSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificarMantencion" />
+  </wsdl:message>
+  <wsdl:message name="ModificarMantencionSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificarMantencionResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarMultaSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarMulta" />
+  </wsdl:message>
+  <wsdl:message name="AgregarMultaSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarMultaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarMultaSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarMulta" />
+  </wsdl:message>
+  <wsdl:message name="ListarMultaSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarMultaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificarMultaSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificarMulta" />
+  </wsdl:message>
+  <wsdl:message name="ModificarMultaSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificarMultaResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarVehiculoSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarVehiculo" />
+  </wsdl:message>
+  <wsdl:message name="AgregarVehiculoSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarVehiculoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificarVehiculoSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificarVehiculo" />
+  </wsdl:message>
+  <wsdl:message name="ModificarVehiculoSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificarVehiculoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarVehiculoSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarVehiculo" />
+  </wsdl:message>
+  <wsdl:message name="ListarVehiculoSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarVehiculoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarFotoSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarFoto" />
+  </wsdl:message>
+  <wsdl:message name="AgregarFotoSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarFotoResponse" />
+  </wsdl:message>
+  <wsdl:message name="listarImagenesSoapIn">
+    <wsdl:part name="parameters" element="tns:listarImagenes" />
+  </wsdl:message>
+  <wsdl:message name="listarImagenesSoapOut">
+    <wsdl:part name="parameters" element="tns:listarImagenesResponse" />
+  </wsdl:message>
+  <wsdl:message name="EliminarFotoSoapIn">
+    <wsdl:part name="parameters" element="tns:EliminarFoto" />
+  </wsdl:message>
+  <wsdl:message name="EliminarFotoSoapOut">
+    <wsdl:part name="parameters" element="tns:EliminarFotoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarItemSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarItem" />
+  </wsdl:message>
+  <wsdl:message name="AgregarItemSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarItemSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarItem" />
+  </wsdl:message>
+  <wsdl:message name="ListarItemSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="EliminarItemSoapIn">
+    <wsdl:part name="parameters" element="tns:EliminarItem" />
+  </wsdl:message>
+  <wsdl:message name="EliminarItemSoapOut">
+    <wsdl:part name="parameters" element="tns:EliminarItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarRegistroInventarioSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarRegistroInventario" />
+  </wsdl:message>
+  <wsdl:message name="AgregarRegistroInventarioSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarRegistroInventarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarRegistroInventarioSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarRegistroInventario" />
+  </wsdl:message>
+  <wsdl:message name="ListarRegistroInventarioSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarRegistroInventarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="eliminarRegistroInventarioSoapIn">
+    <wsdl:part name="parameters" element="tns:eliminarRegistroInventario" />
+  </wsdl:message>
+  <wsdl:message name="eliminarRegistroInventarioSoapOut">
+    <wsdl:part name="parameters" element="tns:eliminarRegistroInventarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="modificarRegistroInventarioSoapIn">
+    <wsdl:part name="parameters" element="tns:modificarRegistroInventario" />
+  </wsdl:message>
+  <wsdl:message name="modificarRegistroInventarioSoapOut">
+    <wsdl:part name="parameters" element="tns:modificarRegistroInventarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarViajeSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarViaje" />
+  </wsdl:message>
+  <wsdl:message name="AgregarViajeSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarViajeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarViajeSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarViaje" />
+  </wsdl:message>
+  <wsdl:message name="ListarViajeSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarViajeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificarViajeSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificarViaje" />
+  </wsdl:message>
+  <wsdl:message name="ModificarViajeSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificarViajeResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarServicioExtraSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarServicioExtra" />
+  </wsdl:message>
+  <wsdl:message name="AgregarServicioExtraSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarServicioExtraResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarServicioExtraSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarServicioExtra" />
+  </wsdl:message>
+  <wsdl:message name="ListarServicioExtraSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarServicioExtraResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificarServicioExtraSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificarServicioExtra" />
+  </wsdl:message>
+  <wsdl:message name="ModificarServicioExtraSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificarServicioExtraResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarRevisionSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarRevision" />
+  </wsdl:message>
+  <wsdl:message name="AgregarRevisionSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarRevisionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificarRevisionSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificarRevision" />
+  </wsdl:message>
+  <wsdl:message name="ModificarRevisionSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificarRevisionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarRevisionSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarRevision" />
+  </wsdl:message>
+  <wsdl:message name="ListarRevisionSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarRevisionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="arriendoTemporadaSoap">
+    <wsdl:operation name="AgregarUsuario">
+      <wsdl:input message="tns:AgregarUsuarioSoapIn" />
+      <wsdl:output message="tns:AgregarUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarUsuario">
+      <wsdl:input message="tns:ListarUsuarioSoapIn" />
+      <wsdl:output message="tns:ListarUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarUsuario">
+      <wsdl:input message="tns:ModificarUsuarioSoapIn" />
+      <wsdl:output message="tns:ModificarUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarReserva">
+      <wsdl:input message="tns:AgregarReservaSoapIn" />
+      <wsdl:output message="tns:AgregarReservaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarReserva">
+      <wsdl:input message="tns:ListarReservaSoapIn" />
+      <wsdl:output message="tns:ListarReservaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarReserva">
+      <wsdl:input message="tns:ModificarReservaSoapIn" />
+      <wsdl:output message="tns:ModificarReservaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="listarCaracteristicas">
+      <wsdl:input message="tns:listarCaracteristicasSoapIn" />
+      <wsdl:output message="tns:listarCaracteristicasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarCaracteristica">
+      <wsdl:input message="tns:ModificarCaracteristicaSoapIn" />
+      <wsdl:output message="tns:ModificarCaracteristicaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarCaracteristica">
+      <wsdl:input message="tns:AgregarCaracteristicaSoapIn" />
+      <wsdl:output message="tns:AgregarCaracteristicaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarCarateristica">
+      <wsdl:input message="tns:EliminarCarateristicaSoapIn" />
+      <wsdl:output message="tns:EliminarCarateristicaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarConductor">
+      <wsdl:input message="tns:ListarConductorSoapIn" />
+      <wsdl:output message="tns:ListarConductorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarConductor">
+      <wsdl:input message="tns:ModificarConductorSoapIn" />
+      <wsdl:output message="tns:ModificarConductorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarConductor">
+      <wsdl:input message="tns:AgregarConductorSoapIn" />
+      <wsdl:output message="tns:AgregarConductorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarDepartamento">
+      <wsdl:input message="tns:ListarDepartamentoSoapIn" />
+      <wsdl:output message="tns:ListarDepartamentoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarDepartamento">
+      <wsdl:input message="tns:AgregarDepartamentoSoapIn" />
+      <wsdl:output message="tns:AgregarDepartamentoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarDepartamento">
+      <wsdl:input message="tns:ModificarDepartamentoSoapIn" />
+      <wsdl:output message="tns:ModificarDepartamentoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarDetalleMulta">
+      <wsdl:input message="tns:ListarDetalleMultaSoapIn" />
+      <wsdl:output message="tns:ListarDetalleMultaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarDetalleMulta">
+      <wsdl:input message="tns:AgregarDetalleMultaSoapIn" />
+      <wsdl:output message="tns:AgregarDetalleMultaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarEncargado">
+      <wsdl:input message="tns:ListarEncargadoSoapIn" />
+      <wsdl:output message="tns:ListarEncargadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarEncargado">
+      <wsdl:input message="tns:AgregarEncargadoSoapIn" />
+      <wsdl:output message="tns:AgregarEncargadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarEncargado">
+      <wsdl:input message="tns:ModificarEncargadoSoapIn" />
+      <wsdl:output message="tns:ModificarEncargadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarAcompanante">
+      <wsdl:input message="tns:ListarAcompananteSoapIn" />
+      <wsdl:output message="tns:ListarAcompananteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarAcompanante">
+      <wsdl:input message="tns:AgregarAcompananteSoapIn" />
+      <wsdl:output message="tns:AgregarAcompananteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarAcompanante">
+      <wsdl:input message="tns:ModificarAcompananteSoapIn" />
+      <wsdl:output message="tns:ModificarAcompananteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarAcompanante">
+      <wsdl:input message="tns:EliminarAcompananteSoapIn" />
+      <wsdl:output message="tns:EliminarAcompananteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarInvolucrado">
+      <wsdl:input message="tns:AgregarInvolucradoSoapIn" />
+      <wsdl:output message="tns:AgregarInvolucradoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaInvolucrado">
+      <wsdl:input message="tns:ListaInvolucradoSoapIn" />
+      <wsdl:output message="tns:ListaInvolucradoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarAsociacionFuncionario">
+      <wsdl:input message="tns:EliminarAsociacionFuncionarioSoapIn" />
+      <wsdl:output message="tns:EliminarAsociacionFuncionarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarListaCaracteristica">
+      <wsdl:input message="tns:AgregarListaCaracteristicaSoapIn" />
+      <wsdl:output message="tns:AgregarListaCaracteristicaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarListaCaracteristica">
+      <wsdl:input message="tns:EliminarListaCaracteristicaSoapIn" />
+      <wsdl:output message="tns:EliminarListaCaracteristicaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarListaCaracteristica">
+      <wsdl:input message="tns:ListarListaCaracteristicaSoapIn" />
+      <wsdl:output message="tns:ListarListaCaracteristicaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarListaAcompanante">
+      <wsdl:input message="tns:AgregarListaAcompananteSoapIn" />
+      <wsdl:output message="tns:AgregarListaAcompananteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarListaAcompanante">
+      <wsdl:input message="tns:ListarListaAcompananteSoapIn" />
+      <wsdl:output message="tns:ListarListaAcompananteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarListaAcompanante">
+      <wsdl:input message="tns:EliminarListaAcompananteSoapIn" />
+      <wsdl:output message="tns:EliminarListaAcompananteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarMantencion">
+      <wsdl:input message="tns:ListarMantencionSoapIn" />
+      <wsdl:output message="tns:ListarMantencionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarMantencion">
+      <wsdl:input message="tns:AgregarMantencionSoapIn" />
+      <wsdl:output message="tns:AgregarMantencionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarMantencion">
+      <wsdl:input message="tns:ModificarMantencionSoapIn" />
+      <wsdl:output message="tns:ModificarMantencionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarMulta">
+      <wsdl:input message="tns:AgregarMultaSoapIn" />
+      <wsdl:output message="tns:AgregarMultaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarMulta">
+      <wsdl:input message="tns:ListarMultaSoapIn" />
+      <wsdl:output message="tns:ListarMultaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarMulta">
+      <wsdl:input message="tns:ModificarMultaSoapIn" />
+      <wsdl:output message="tns:ModificarMultaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarVehiculo">
+      <wsdl:input message="tns:AgregarVehiculoSoapIn" />
+      <wsdl:output message="tns:AgregarVehiculoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarVehiculo">
+      <wsdl:input message="tns:ModificarVehiculoSoapIn" />
+      <wsdl:output message="tns:ModificarVehiculoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarVehiculo">
+      <wsdl:input message="tns:ListarVehiculoSoapIn" />
+      <wsdl:output message="tns:ListarVehiculoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarFoto">
+      <wsdl:input message="tns:AgregarFotoSoapIn" />
+      <wsdl:output message="tns:AgregarFotoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="listarImagenes">
+      <wsdl:input message="tns:listarImagenesSoapIn" />
+      <wsdl:output message="tns:listarImagenesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarFoto">
+      <wsdl:input message="tns:EliminarFotoSoapIn" />
+      <wsdl:output message="tns:EliminarFotoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarItem">
+      <wsdl:input message="tns:AgregarItemSoapIn" />
+      <wsdl:output message="tns:AgregarItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarItem">
+      <wsdl:input message="tns:ListarItemSoapIn" />
+      <wsdl:output message="tns:ListarItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarItem">
+      <wsdl:input message="tns:EliminarItemSoapIn" />
+      <wsdl:output message="tns:EliminarItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarRegistroInventario">
+      <wsdl:input message="tns:AgregarRegistroInventarioSoapIn" />
+      <wsdl:output message="tns:AgregarRegistroInventarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarRegistroInventario">
+      <wsdl:input message="tns:ListarRegistroInventarioSoapIn" />
+      <wsdl:output message="tns:ListarRegistroInventarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="eliminarRegistroInventario">
+      <wsdl:input message="tns:eliminarRegistroInventarioSoapIn" />
+      <wsdl:output message="tns:eliminarRegistroInventarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="modificarRegistroInventario">
+      <wsdl:input message="tns:modificarRegistroInventarioSoapIn" />
+      <wsdl:output message="tns:modificarRegistroInventarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarViaje">
+      <wsdl:input message="tns:AgregarViajeSoapIn" />
+      <wsdl:output message="tns:AgregarViajeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarViaje">
+      <wsdl:input message="tns:ListarViajeSoapIn" />
+      <wsdl:output message="tns:ListarViajeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarViaje">
+      <wsdl:input message="tns:ModificarViajeSoapIn" />
+      <wsdl:output message="tns:ModificarViajeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarServicioExtra">
+      <wsdl:input message="tns:AgregarServicioExtraSoapIn" />
+      <wsdl:output message="tns:AgregarServicioExtraSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarServicioExtra">
+      <wsdl:input message="tns:ListarServicioExtraSoapIn" />
+      <wsdl:output message="tns:ListarServicioExtraSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarServicioExtra">
+      <wsdl:input message="tns:ModificarServicioExtraSoapIn" />
+      <wsdl:output message="tns:ModificarServicioExtraSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarRevision">
+      <wsdl:input message="tns:AgregarRevisionSoapIn" />
+      <wsdl:output message="tns:AgregarRevisionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarRevision">
+      <wsdl:input message="tns:ModificarRevisionSoapIn" />
+      <wsdl:output message="tns:ModificarRevisionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarRevision">
+      <wsdl:input message="tns:ListarRevisionSoapIn" />
+      <wsdl:output message="tns:ListarRevisionSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="arriendoTemporadaSoap" type="tns:arriendoTemporadaSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AgregarUsuario">
+      <soap:operation soapAction="http://tempuri.org/AgregarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarUsuario">
+      <soap:operation soapAction="http://tempuri.org/ListarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarUsuario">
+      <soap:operation soapAction="http://tempuri.org/ModificarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarReserva">
+      <soap:operation soapAction="http://tempuri.org/AgregarReserva" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarReserva">
+      <soap:operation soapAction="http://tempuri.org/ListarReserva" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarReserva">
+      <soap:operation soapAction="http://tempuri.org/ModificarReserva" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarCaracteristicas">
+      <soap:operation soapAction="http://tempuri.org/listarCaracteristicas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarCaracteristica">
+      <soap:operation soapAction="http://tempuri.org/ModificarCaracteristica" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarCaracteristica">
+      <soap:operation soapAction="http://tempuri.org/AgregarCaracteristica" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarCarateristica">
+      <soap:operation soapAction="http://tempuri.org/EliminarCarateristica" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarConductor">
+      <soap:operation soapAction="http://tempuri.org/ListarConductor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarConductor">
+      <soap:operation soapAction="http://tempuri.org/ModificarConductor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarConductor">
+      <soap:operation soapAction="http://tempuri.org/AgregarConductor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarDepartamento">
+      <soap:operation soapAction="http://tempuri.org/ListarDepartamento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarDepartamento">
+      <soap:operation soapAction="http://tempuri.org/AgregarDepartamento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarDepartamento">
+      <soap:operation soapAction="http://tempuri.org/ModificarDepartamento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarDetalleMulta">
+      <soap:operation soapAction="http://tempuri.org/ListarDetalleMulta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarDetalleMulta">
+      <soap:operation soapAction="http://tempuri.org/AgregarDetalleMulta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarEncargado">
+      <soap:operation soapAction="http://tempuri.org/ListarEncargado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarEncargado">
+      <soap:operation soapAction="http://tempuri.org/AgregarEncargado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarEncargado">
+      <soap:operation soapAction="http://tempuri.org/ModificarEncargado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarAcompanante">
+      <soap:operation soapAction="http://tempuri.org/ListarAcompanante" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarAcompanante">
+      <soap:operation soapAction="http://tempuri.org/AgregarAcompanante" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarAcompanante">
+      <soap:operation soapAction="http://tempuri.org/ModificarAcompanante" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarAcompanante">
+      <soap:operation soapAction="http://tempuri.org/EliminarAcompanante" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarInvolucrado">
+      <soap:operation soapAction="http://tempuri.org/AgregarInvolucrado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaInvolucrado">
+      <soap:operation soapAction="http://tempuri.org/ListaInvolucrado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarAsociacionFuncionario">
+      <soap:operation soapAction="http://tempuri.org/EliminarAsociacionFuncionario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarListaCaracteristica">
+      <soap:operation soapAction="http://tempuri.org/AgregarListaCaracteristica" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarListaCaracteristica">
+      <soap:operation soapAction="http://tempuri.org/EliminarListaCaracteristica" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarListaCaracteristica">
+      <soap:operation soapAction="http://tempuri.org/ListarListaCaracteristica" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarListaAcompanante">
+      <soap:operation soapAction="http://tempuri.org/AgregarListaAcompanante" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarListaAcompanante">
+      <soap:operation soapAction="http://tempuri.org/ListarListaAcompanante" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarListaAcompanante">
+      <soap:operation soapAction="http://tempuri.org/EliminarListaAcompanante" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarMantencion">
+      <soap:operation soapAction="http://tempuri.org/ListarMantencion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarMantencion">
+      <soap:operation soapAction="http://tempuri.org/AgregarMantencion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarMantencion">
+      <soap:operation soapAction="http://tempuri.org/ModificarMantencion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarMulta">
+      <soap:operation soapAction="http://tempuri.org/AgregarMulta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarMulta">
+      <soap:operation soapAction="http://tempuri.org/ListarMulta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarMulta">
+      <soap:operation soapAction="http://tempuri.org/ModificarMulta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarVehiculo">
+      <soap:operation soapAction="http://tempuri.org/AgregarVehiculo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarVehiculo">
+      <soap:operation soapAction="http://tempuri.org/ModificarVehiculo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarVehiculo">
+      <soap:operation soapAction="http://tempuri.org/ListarVehiculo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarFoto">
+      <soap:operation soapAction="http://tempuri.org/AgregarFoto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarImagenes">
+      <soap:operation soapAction="http://tempuri.org/listarImagenes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarFoto">
+      <soap:operation soapAction="http://tempuri.org/EliminarFoto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarItem">
+      <soap:operation soapAction="http://tempuri.org/AgregarItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarItem">
+      <soap:operation soapAction="http://tempuri.org/ListarItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarItem">
+      <soap:operation soapAction="http://tempuri.org/EliminarItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarRegistroInventario">
+      <soap:operation soapAction="http://tempuri.org/AgregarRegistroInventario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarRegistroInventario">
+      <soap:operation soapAction="http://tempuri.org/ListarRegistroInventario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarRegistroInventario">
+      <soap:operation soapAction="http://tempuri.org/eliminarRegistroInventario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarRegistroInventario">
+      <soap:operation soapAction="http://tempuri.org/modificarRegistroInventario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarViaje">
+      <soap:operation soapAction="http://tempuri.org/AgregarViaje" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarViaje">
+      <soap:operation soapAction="http://tempuri.org/ListarViaje" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarViaje">
+      <soap:operation soapAction="http://tempuri.org/ModificarViaje" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarServicioExtra">
+      <soap:operation soapAction="http://tempuri.org/AgregarServicioExtra" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarServicioExtra">
+      <soap:operation soapAction="http://tempuri.org/ListarServicioExtra" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarServicioExtra">
+      <soap:operation soapAction="http://tempuri.org/ModificarServicioExtra" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarRevision">
+      <soap:operation soapAction="http://tempuri.org/AgregarRevision" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarRevision">
+      <soap:operation soapAction="http://tempuri.org/ModificarRevision" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarRevision">
+      <soap:operation soapAction="http://tempuri.org/ListarRevision" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="arriendoTemporadaSoap12" type="tns:arriendoTemporadaSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AgregarUsuario">
+      <soap12:operation soapAction="http://tempuri.org/AgregarUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarUsuario">
+      <soap12:operation soapAction="http://tempuri.org/ListarUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarUsuario">
+      <soap12:operation soapAction="http://tempuri.org/ModificarUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarReserva">
+      <soap12:operation soapAction="http://tempuri.org/AgregarReserva" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarReserva">
+      <soap12:operation soapAction="http://tempuri.org/ListarReserva" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarReserva">
+      <soap12:operation soapAction="http://tempuri.org/ModificarReserva" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarCaracteristicas">
+      <soap12:operation soapAction="http://tempuri.org/listarCaracteristicas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarCaracteristica">
+      <soap12:operation soapAction="http://tempuri.org/ModificarCaracteristica" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarCaracteristica">
+      <soap12:operation soapAction="http://tempuri.org/AgregarCaracteristica" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarCarateristica">
+      <soap12:operation soapAction="http://tempuri.org/EliminarCarateristica" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarConductor">
+      <soap12:operation soapAction="http://tempuri.org/ListarConductor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarConductor">
+      <soap12:operation soapAction="http://tempuri.org/ModificarConductor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarConductor">
+      <soap12:operation soapAction="http://tempuri.org/AgregarConductor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarDepartamento">
+      <soap12:operation soapAction="http://tempuri.org/ListarDepartamento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarDepartamento">
+      <soap12:operation soapAction="http://tempuri.org/AgregarDepartamento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarDepartamento">
+      <soap12:operation soapAction="http://tempuri.org/ModificarDepartamento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarDetalleMulta">
+      <soap12:operation soapAction="http://tempuri.org/ListarDetalleMulta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarDetalleMulta">
+      <soap12:operation soapAction="http://tempuri.org/AgregarDetalleMulta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarEncargado">
+      <soap12:operation soapAction="http://tempuri.org/ListarEncargado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarEncargado">
+      <soap12:operation soapAction="http://tempuri.org/AgregarEncargado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarEncargado">
+      <soap12:operation soapAction="http://tempuri.org/ModificarEncargado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarAcompanante">
+      <soap12:operation soapAction="http://tempuri.org/ListarAcompanante" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarAcompanante">
+      <soap12:operation soapAction="http://tempuri.org/AgregarAcompanante" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarAcompanante">
+      <soap12:operation soapAction="http://tempuri.org/ModificarAcompanante" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarAcompanante">
+      <soap12:operation soapAction="http://tempuri.org/EliminarAcompanante" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarInvolucrado">
+      <soap12:operation soapAction="http://tempuri.org/AgregarInvolucrado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaInvolucrado">
+      <soap12:operation soapAction="http://tempuri.org/ListaInvolucrado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarAsociacionFuncionario">
+      <soap12:operation soapAction="http://tempuri.org/EliminarAsociacionFuncionario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarListaCaracteristica">
+      <soap12:operation soapAction="http://tempuri.org/AgregarListaCaracteristica" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarListaCaracteristica">
+      <soap12:operation soapAction="http://tempuri.org/EliminarListaCaracteristica" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarListaCaracteristica">
+      <soap12:operation soapAction="http://tempuri.org/ListarListaCaracteristica" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarListaAcompanante">
+      <soap12:operation soapAction="http://tempuri.org/AgregarListaAcompanante" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarListaAcompanante">
+      <soap12:operation soapAction="http://tempuri.org/ListarListaAcompanante" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarListaAcompanante">
+      <soap12:operation soapAction="http://tempuri.org/EliminarListaAcompanante" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarMantencion">
+      <soap12:operation soapAction="http://tempuri.org/ListarMantencion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarMantencion">
+      <soap12:operation soapAction="http://tempuri.org/AgregarMantencion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarMantencion">
+      <soap12:operation soapAction="http://tempuri.org/ModificarMantencion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarMulta">
+      <soap12:operation soapAction="http://tempuri.org/AgregarMulta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarMulta">
+      <soap12:operation soapAction="http://tempuri.org/ListarMulta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarMulta">
+      <soap12:operation soapAction="http://tempuri.org/ModificarMulta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarVehiculo">
+      <soap12:operation soapAction="http://tempuri.org/AgregarVehiculo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarVehiculo">
+      <soap12:operation soapAction="http://tempuri.org/ModificarVehiculo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarVehiculo">
+      <soap12:operation soapAction="http://tempuri.org/ListarVehiculo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarFoto">
+      <soap12:operation soapAction="http://tempuri.org/AgregarFoto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarImagenes">
+      <soap12:operation soapAction="http://tempuri.org/listarImagenes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarFoto">
+      <soap12:operation soapAction="http://tempuri.org/EliminarFoto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarItem">
+      <soap12:operation soapAction="http://tempuri.org/AgregarItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarItem">
+      <soap12:operation soapAction="http://tempuri.org/ListarItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarItem">
+      <soap12:operation soapAction="http://tempuri.org/EliminarItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarRegistroInventario">
+      <soap12:operation soapAction="http://tempuri.org/AgregarRegistroInventario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarRegistroInventario">
+      <soap12:operation soapAction="http://tempuri.org/ListarRegistroInventario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarRegistroInventario">
+      <soap12:operation soapAction="http://tempuri.org/eliminarRegistroInventario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarRegistroInventario">
+      <soap12:operation soapAction="http://tempuri.org/modificarRegistroInventario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarViaje">
+      <soap12:operation soapAction="http://tempuri.org/AgregarViaje" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarViaje">
+      <soap12:operation soapAction="http://tempuri.org/ListarViaje" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarViaje">
+      <soap12:operation soapAction="http://tempuri.org/ModificarViaje" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarServicioExtra">
+      <soap12:operation soapAction="http://tempuri.org/AgregarServicioExtra" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarServicioExtra">
+      <soap12:operation soapAction="http://tempuri.org/ListarServicioExtra" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarServicioExtra">
+      <soap12:operation soapAction="http://tempuri.org/ModificarServicioExtra" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarRevision">
+      <soap12:operation soapAction="http://tempuri.org/AgregarRevision" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarRevision">
+      <soap12:operation soapAction="http://tempuri.org/ModificarRevision" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarRevision">
+      <soap12:operation soapAction="http://tempuri.org/ListarRevision" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="arriendoTemporada">
+    <wsdl:port name="arriendoTemporadaSoap" binding="tns:arriendoTemporadaSoap">
+      <soap:address location="https://localhost:44311/arriendoTemporada.asmx" />
+    </wsdl:port>
+    <wsdl:port name="arriendoTemporadaSoap12" binding="tns:arriendoTemporadaSoap12">
+      <soap12:address location="https://localhost:44311/arriendoTemporada.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,869 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DBAD60D4-B183-43E9-ABD7-9761D6C9C471}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WEBArriendoTemporada</RootNamespace>
+    <AssemblyName>WEBArriendoTemporada</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44332</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.6.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.2\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.19.3.1\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ADMRestaurarConductor.aspx" />
+    <Content Include="ADMRestaurarDepartamento.aspx" />
+    <Content Include="ADMRestaurarServicios.aspx" />
+    <Content Include="ADMRestaurarUsuario.aspx" />
+    <Content Include="ADMRestaurarVehiculo.aspx" />
+    <Content Include="ADMVer_reporte_2.aspx" />
+    <Content Include="ADMVer_reporte_3.aspx" />
+    <Content Include="assets\contact.php" />
+    <Content Include="assets\css\animate.css" />
+    <Content Include="assets\css\bootstrap.min.css" />
+    <Content Include="assets\css\datepicker.css" />
+    <Content Include="assets\css\jquery.mCustomScrollbar.min.css" />
+    <Content Include="assets\css\main.css" />
+    <Content Include="assets\css\media-queries.css" />
+    <Content Include="assets\css\Modal.css" />
+    <Content Include="assets\css\Notice.css" />
+    <Content Include="assets\css\style.css" />
+    <Content Include="assets\css\Tabs.css" />
+    <Content Include="assets\css\tooplate-style.css" />
+    <Content Include="assets\css\util.css" />
+    <Content Include="assets\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="assets\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="assets\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Content Include="assets\fonts\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="assets\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="assets\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\fonts\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Content Include="assets\fonts\Lato\OFL.txt" />
+    <Content Include="assets\fonts\montserrat\OFL.txt" />
+    <Content Include="assets\ico\apple-touch-icon-114-precomposed.png" />
+    <Content Include="assets\ico\apple-touch-icon-144-precomposed.png" />
+    <Content Include="assets\ico\apple-touch-icon-57-precomposed.png" />
+    <Content Include="assets\ico\apple-touch-icon-72-precomposed.png" />
+    <Content Include="assets\ico\favicon.png" />
+    <Content Include="assets\img\about-us.jpg" />
+    <Content Include="assets\img\backgrounds\1.jpg" />
+    <Content Include="assets\img\backgrounds\2.jpg" />
+    <Content Include="assets\img\images\icons\favicon.ico" />
+    <Content Include="assets\img\login1.jpg" />
+    <Content Include="assets\img\logo%402x.png" />
+    <Content Include="assets\img\logo-dark%402x.png" />
+    <Content Include="assets\img\logo-dark.png" />
+    <Content Include="assets\img\logo.png" />
+    <Content Include="assets\img\portfolio\1.jpg" />
+    <Content Include="assets\img\portfolio\2.jpg" />
+    <Content Include="assets\img\portfolio\3.jpg" />
+    <Content Include="assets\img\Reserva\RES01.jpg" />
+    <Content Include="assets\img\Reserva\RES02.jpg" />
+    <Content Include="assets\img\Reserva\RES03.jpg" />
+    <Content Include="assets\js\bootstrap.min.js" />
+    <Content Include="assets\js\datepicker.min.js" />
+    <Content Include="assets\js\jquery-1.11.3.min.js" />
+    <Content Include="assets\js\jquery-3.3.1.min.js" />
+    <Content Include="assets\js\jquery-migrate-3.0.0.min.js" />
+    <Content Include="assets\js\jquery.backstretch.js" />
+    <Content Include="assets\js\jquery.backstretch.min.js" />
+    <Content Include="assets\js\jquery.mCustomScrollbar.concat.min.js" />
+    <Content Include="assets\js\jquery.singlePageNav.min.js" />
+    <Content Include="assets\js\jquery.waypoints.js" />
+    <Content Include="assets\js\jquery.waypoints.min.js" />
+    <Content Include="assets\js\main.js" />
+    <Content Include="assets\js\popper.min.js" />
+    <Content Include="assets\js\scripts.js" />
+    <Content Include="assets\js\waypoints.js" />
+    <Content Include="assets\js\waypoints.min.js" />
+    <Content Include="assets\js\wow.js" />
+    <Content Include="assets\js\wow.min.js" />
+    <Content Include="assets\slick\ajax-loader.gif" />
+    <Content Include="assets\slick\fonts\slick.svg" />
+    <Content Include="assets\slick\slick-theme.css" />
+    <Content Include="assets\slick\slick.css" />
+    <Content Include="assets\slick\slick.js" />
+    <Content Include="assets\slick\slick.min.js" />
+    <Content Include="assets\vendor\animate\animate.css" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="assets\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="assets\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="assets\vendor\bootstrap\js\popper.js" />
+    <Content Include="assets\vendor\bootstrap\js\popper.min.js" />
+    <Content Include="assets\vendor\bootstrap\js\tooltip.js" />
+    <Content Include="assets\vendor\jquery\jquery-3.2.1.min.js" />
+    <Content Include="assets\vendor\perfect-scrollbar\perfect-scrollbar.css" />
+    <Content Include="assets\vendor\perfect-scrollbar\perfect-scrollbar.min.js" />
+    <Content Include="assets\vendor\select2\select2.css" />
+    <Content Include="assets\vendor\select2\select2.js" />
+    <Content Include="assets\vendor\select2\select2.min.css" />
+    <Content Include="assets\vendor\select2\select2.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="WEBDepartamento.aspx" />
+    <Content Include="WEBDetalleReserva.aspx" />
+    <Content Include="WEBGaleriaDepartamento.aspx" />
+    <Content Include="WEBPeticion.aspx" />
+    <Content Include="WEBRecuperarCuenta.aspx" />
+    <Content Include="WEBRegistrar.aspx" />
+    <Content Include="ADMReportes.aspx" />
+    <Content Include="WEBReservar.aspx" />
+    <Content Include="WEBSolicitarServicioExtra.aspx" />
+    <Content Include="WEBSolicitarServicios.aspx" />
+    <Content Include="WEBSolicitarTransporte.aspx" />
+    <Content Include="ADMVer_Reporte.aspx" />
+    <Content Include="WEBViaje.aspx" />
+    <Content Include="WEBVisualizarDepartamento.aspx" />
+    <Content Include="WEBWebForm1.aspx" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="assets\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="assets\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assets\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="assets\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="assets\fonts\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="assets\fonts\font-awesome-4.7.0\less\animated.less" />
+    <Content Include="assets\fonts\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <Content Include="assets\fonts\font-awesome-4.7.0\less\core.less" />
+    <Content Include="assets\fonts\font-awesome-4.7.0\less\fixed-width.less" />
+    <Content Include="assets\fonts\font-awesome-4.7.0\less\font-awesome.less" />
+    <Content Include="assets\fonts\font-awesome-4.7.0\less\icons.less" />
+    <Content Include="assets\fonts\font-awesome-4.7.0\less\larger.less" />
+    <Content Include="assets\fonts\font-awesome-4.7.0\less\list.less" />
+    <Content Include="assets\fonts\font-awesome-4.7.0\less\mixins.less" />
+    <Content Include="assets\fonts\font-awesome-4.7.0\less\path.less" />
+    <Content Include="assets\fonts\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <Content Include="assets\fonts\font-awesome-4.7.0\less\screen-reader.less" />
+    <Content Include="assets\fonts\font-awesome-4.7.0\less\stacked.less" />
+    <Content Include="assets\fonts\font-awesome-4.7.0\less\variables.less" />
+    <Content Include="assets\fonts\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <Content Include="assets\fonts\font-awesome-4.7.0\scss\_animated.scss" />
+    <Content Include="assets\fonts\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <Content Include="assets\fonts\font-awesome-4.7.0\scss\_core.scss" />
+    <Content Include="assets\fonts\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <Content Include="assets\fonts\font-awesome-4.7.0\scss\_icons.scss" />
+    <Content Include="assets\fonts\font-awesome-4.7.0\scss\_larger.scss" />
+    <Content Include="assets\fonts\font-awesome-4.7.0\scss\_list.scss" />
+    <Content Include="assets\fonts\font-awesome-4.7.0\scss\_mixins.scss" />
+    <Content Include="assets\fonts\font-awesome-4.7.0\scss\_path.scss" />
+    <Content Include="assets\fonts\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <Content Include="assets\fonts\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <Content Include="assets\fonts\font-awesome-4.7.0\scss\_stacked.scss" />
+    <Content Include="assets\fonts\font-awesome-4.7.0\scss\_variables.scss" />
+    <Content Include="assets\fonts\Lato\Lato-Black.ttf" />
+    <Content Include="assets\fonts\Lato\Lato-BlackItalic.ttf" />
+    <Content Include="assets\fonts\Lato\Lato-Bold.ttf" />
+    <Content Include="assets\fonts\Lato\Lato-BoldItalic.ttf" />
+    <Content Include="assets\fonts\Lato\Lato-Hairline.ttf" />
+    <Content Include="assets\fonts\Lato\Lato-HairlineItalic.ttf" />
+    <Content Include="assets\fonts\Lato\Lato-Italic.ttf" />
+    <Content Include="assets\fonts\Lato\Lato-Light.ttf" />
+    <Content Include="assets\fonts\Lato\Lato-LightItalic.ttf" />
+    <Content Include="assets\fonts\Lato\Lato-Regular.ttf" />
+    <Content Include="assets\fonts\montserrat\Montserrat-Black.ttf" />
+    <Content Include="assets\fonts\montserrat\Montserrat-BlackItalic.ttf" />
+    <Content Include="assets\fonts\montserrat\Montserrat-Bold.ttf" />
+    <Content Include="assets\fonts\montserrat\Montserrat-BoldItalic.ttf" />
+    <Content Include="assets\fonts\montserrat\Montserrat-ExtraBold.ttf" />
+    <Content Include="assets\fonts\montserrat\Montserrat-ExtraBoldItalic.ttf" />
+    <Content Include="assets\fonts\montserrat\Montserrat-ExtraLight.ttf" />
+    <Content Include="assets\fonts\montserrat\Montserrat-ExtraLightItalic.ttf" />
+    <Content Include="assets\fonts\montserrat\Montserrat-Italic.ttf" />
+    <Content Include="assets\fonts\montserrat\Montserrat-Light.ttf" />
+    <Content Include="assets\fonts\montserrat\Montserrat-LightItalic.ttf" />
+    <Content Include="assets\fonts\montserrat\Montserrat-Medium.ttf" />
+    <Content Include="assets\fonts\montserrat\Montserrat-MediumItalic.ttf" />
+    <Content Include="assets\fonts\montserrat\Montserrat-Regular.ttf" />
+    <Content Include="assets\fonts\montserrat\Montserrat-SemiBold.ttf" />
+    <Content Include="assets\fonts\montserrat\Montserrat-SemiBoldItalic.ttf" />
+    <Content Include="assets\fonts\montserrat\Montserrat-Thin.ttf" />
+    <Content Include="assets\fonts\montserrat\Montserrat-ThinItalic.ttf" />
+    <Content Include="assets\fonts\OpenSans\OpenSans-Bold.ttf" />
+    <Content Include="assets\fonts\OpenSans\OpenSans-BoldItalic.ttf" />
+    <Content Include="assets\fonts\OpenSans\OpenSans-ExtraBold.ttf" />
+    <Content Include="assets\fonts\OpenSans\OpenSans-ExtraBoldItalic.ttf" />
+    <Content Include="assets\fonts\OpenSans\OpenSans-Italic.ttf" />
+    <Content Include="assets\fonts\OpenSans\OpenSans-Light.ttf" />
+    <Content Include="assets\fonts\OpenSans\OpenSans-LightItalic.ttf" />
+    <Content Include="assets\fonts\OpenSans\OpenSans-Regular.otf" />
+    <Content Include="assets\fonts\OpenSans\OpenSans-Regular.ttf" />
+    <Content Include="assets\fonts\OpenSans\OpenSans-SemiBold.ttf" />
+    <Content Include="assets\fonts\OpenSans\OpenSans-SemiBoldItalic.ttf" />
+    <Content Include="assets\slick\config.rb" />
+    <Content Include="assets\slick\fonts\slick.eot" />
+    <Content Include="assets\slick\fonts\slick.ttf" />
+    <Content Include="assets\slick\fonts\slick.woff" />
+    <Content Include="assets\slick\slick-theme.less" />
+    <Content Include="assets\slick\slick-theme.scss" />
+    <Content Include="assets\slick\slick.less" />
+    <Content Include="assets\slick\slick.scss" />
+    <Content Include="assets\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="assets\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assets\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="assets\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="assets\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <None Include="Connected Services\WSarriendo\arriendoTemporada.disco" />
+    <None Include="Connected Services\WSarriendo\configuration91.svcinfo" />
+    <None Include="Connected Services\WSarriendo\configuration.svcinfo" />
+    <None Include="Connected Services\WSarriendo\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="ADMCaracteristicaInventario.aspx" />
+    <Content Include="ADMConductoresVehiculos.aspx" />
+    <Content Include="ADMDepartamento.aspx" />
+    <Content Include="ADMDetalleReserva.aspx" />
+    <Content Include="ADMFuncionario.aspx" />
+    <Content Include="ADMReservas.aspx" />
+    <Content Include="ADMServicio.aspx" />
+    <Content Include="ADMUsuario.aspx" />
+    <Content Include="Contactanos.aspx" />
+    <Content Include="Inicio.aspx" />
+    <Content Include="Login.aspx" />
+    <Content Include="Web.config" />
+    <None Include="Connected Services\WSarriendo\arriendoTemporada.wsdl" />
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.AgregarReservaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.ListarReservaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.ReservaBLL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.AcompananteBLL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.AgregarCaracteristicaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.AgregarConductorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.AgregarDepartamentoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.AgregarDetalleMultaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.AgregarEncargadoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.AgregarFotoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.AgregarInvolucradoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.AgregarItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.AgregarListaCaracteristicaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.AgregarMantencionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.AgregarMultaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.AgregarRegistroInventarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.AgregarRevisionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.AgregarServicioExtraResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.AgregarUsuarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.AgregarVehiculoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.AgregarViajeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.CaracteristicaBLL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.ConductorBLL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.DepartamentoBLL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.DetalleMultaBLL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.EliminarAsociacionFuncionarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.EliminarListaAcompananteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.EliminarListaCaracteristicaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.eliminarRegistroInventarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.EncargadoBLL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.FotoBLL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.InventarioBLL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.InvolucradoBLL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.ItemBLL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.ListaAcompBLL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.ListaCaracteristicasBLL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.ListaInvolucradoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.ListarAcompananteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.listarCaracteristicasResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.ListarConductorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.ListarDepartamentoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.ListarDetalleMultaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.ListarEncargadoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.listarImagenesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.ListarItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.ListarListaAcompananteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.ListarListaCaracteristicaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.ListarMantencionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.ListarMultaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.ListarRegistroInventarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.ListarRevisionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.ListarServicioExtraResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.ListarUsuarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.ListarVehiculoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.ListarViajeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.MantencionBLL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.ModificarCaracteristicaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.ModificarConductorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.ModificarDepartamentoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.ModificarEncargadoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.ModificarMantencionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.ModificarMultaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.modificarRegistroInventarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.ModificarReservaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.ModificarRevisionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.ModificarServicioExtraResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.ModificarUsuarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.ModificarVehiculoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.ModificarViajeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.MultaBLL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.RevisionBLL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.ServicioExtraBLL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.UsuarioBLL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.VehiculoBLL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.ViajeBLL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.AgregarAcompananteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.EliminarAcompananteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.ModificarAcompananteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSarriendo\WEBArriendoTemporada.WSarriendo.AgregarListaAcompananteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ADMCaracteristicaInventario.aspx.cs">
+      <DependentUpon>ADMCaracteristicaInventario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMCaracteristicaInventario.aspx.designer.cs">
+      <DependentUpon>ADMCaracteristicaInventario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADMConductoresVehiculos.aspx.cs">
+      <DependentUpon>ADMConductoresVehiculos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMConductoresVehiculos.aspx.designer.cs">
+      <DependentUpon>ADMConductoresVehiculos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADMDepartamento.aspx.cs">
+      <DependentUpon>ADMDepartamento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMDepartamento.aspx.designer.cs">
+      <DependentUpon>ADMDepartamento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADMDetalleReserva.aspx.cs">
+      <DependentUpon>ADMDetalleReserva.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMDetalleReserva.aspx.designer.cs">
+      <DependentUpon>ADMDetalleReserva.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADMFuncionario.aspx.cs">
+      <DependentUpon>ADMFuncionario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMFuncionario.aspx.designer.cs">
+      <DependentUpon>ADMFuncionario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADMReservas.aspx.cs">
+      <DependentUpon>ADMReservas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMReservas.aspx.designer.cs">
+      <DependentUpon>ADMReservas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADMRestaurarConductor.aspx.cs">
+      <DependentUpon>ADMRestaurarConductor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMRestaurarConductor.aspx.designer.cs">
+      <DependentUpon>ADMRestaurarConductor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADMRestaurarDepartamento.aspx.cs">
+      <DependentUpon>ADMRestaurarDepartamento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMRestaurarDepartamento.aspx.designer.cs">
+      <DependentUpon>ADMRestaurarDepartamento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADMRestaurarServicios.aspx.cs">
+      <DependentUpon>ADMRestaurarServicios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMRestaurarServicios.aspx.designer.cs">
+      <DependentUpon>ADMRestaurarServicios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADMRestaurarUsuario.aspx.cs">
+      <DependentUpon>ADMRestaurarUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMRestaurarUsuario.aspx.designer.cs">
+      <DependentUpon>ADMRestaurarUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADMRestaurarVehiculo.aspx.cs">
+      <DependentUpon>ADMRestaurarVehiculo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMRestaurarVehiculo.aspx.designer.cs">
+      <DependentUpon>ADMRestaurarVehiculo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADMServicio.aspx.cs">
+      <DependentUpon>ADMServicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMServicio.aspx.designer.cs">
+      <DependentUpon>ADMServicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADMUsuario.aspx.cs">
+      <DependentUpon>ADMUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMUsuario.aspx.designer.cs">
+      <DependentUpon>ADMUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADMVer_reporte_2.aspx.cs">
+      <DependentUpon>ADMVer_reporte_2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMVer_reporte_2.aspx.designer.cs">
+      <DependentUpon>ADMVer_reporte_2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADMVer_reporte_3.aspx.cs">
+      <DependentUpon>ADMVer_reporte_3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMVer_reporte_3.aspx.designer.cs">
+      <DependentUpon>ADMVer_reporte_3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\WSarriendo\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Contactanos.aspx.cs">
+      <DependentUpon>Contactanos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contactanos.aspx.designer.cs">
+      <DependentUpon>Contactanos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inicio.aspx.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inicio.aspx.designer.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage.Master.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage.Master.designer.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="metodos\passCodificar.cs" />
+    <Compile Include="metodos\Redimension.cs" />
+    <Compile Include="NEGOCIO\AcompananteBLL.cs" />
+    <Compile Include="NEGOCIO\CaracteristicaDptoBLL.cs" />
+    <Compile Include="NEGOCIO\ConductorBLL.cs" />
+    <Compile Include="NEGOCIO\Correos.cs" />
+    <Compile Include="NEGOCIO\DepartamentoBLL.cs" />
+    <Compile Include="NEGOCIO\DetalleMulta.cs" />
+    <Compile Include="NEGOCIO\DetalleServicioBLL.cs" />
+    <Compile Include="NEGOCIO\EncargadoBLL.cs" />
+    <Compile Include="NEGOCIO\FotoBLL.cs" />
+    <Compile Include="NEGOCIO\InventarioBLL.cs" />
+    <Compile Include="NEGOCIO\InvolucradoBLL.cs" />
+    <Compile Include="NEGOCIO\ItemBLL.cs" />
+    <Compile Include="NEGOCIO\ListaAcompBLL.cs" />
+    <Compile Include="NEGOCIO\ListaCaracteristicaBLL.cs" />
+    <Compile Include="NEGOCIO\MantencionBLL.cs" />
+    <Compile Include="NEGOCIO\MultaBLL.cs" />
+    <Compile Include="NEGOCIO\PeticionBLL.cs" />
+    <Compile Include="NEGOCIO\RelacionesBLL.cs" />
+    <Compile Include="NEGOCIO\ReservaBLL.cs" />
+    <Compile Include="NEGOCIO\ServicioBLL.cs" />
+    <Compile Include="NEGOCIO\TourBLL.cs" />
+    <Compile Include="NEGOCIO\UsuarioBLL.cs" />
+    <Compile Include="NEGOCIO\validar.cs" />
+    <Compile Include="NEGOCIO\VehiculoBLL.cs" />
+    <Compile Include="NEGOCIO\ViajeBLL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WEBDepartamento.aspx.cs">
+      <DependentUpon>WEBDepartamento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WEBDepartamento.aspx.designer.cs">
+      <DependentUpon>WEBDepartamento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WEBDetalleReserva.aspx.cs">
+      <DependentUpon>WEBDetalleReserva.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WEBDetalleReserva.aspx.designer.cs">
+      <DependentUpon>WEBDetalleReserva.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WEBGaleriaDepartamento.aspx.cs">
+      <DependentUpon>WEBGaleriaDepartamento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WEBGaleriaDepartamento.aspx.designer.cs">
+      <DependentUpon>WEBGaleriaDepartamento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WEBPeticion.aspx.cs">
+      <DependentUpon>WEBPeticion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WEBPeticion.aspx.designer.cs">
+      <DependentUpon>WEBPeticion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WEBRecuperarCuenta.aspx.cs">
+      <DependentUpon>WEBRecuperarCuenta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WEBRecuperarCuenta.aspx.designer.cs">
+      <DependentUpon>WEBRecuperarCuenta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WEBRegistrar.aspx.cs">
+      <DependentUpon>WEBRegistrar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WEBRegistrar.aspx.designer.cs">
+      <DependentUpon>WEBRegistrar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADMReportes.aspx.cs">
+      <DependentUpon>ADMReportes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMReportes.aspx.designer.cs">
+      <DependentUpon>ADMReportes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WEBReservar.aspx.cs">
+      <DependentUpon>WEBReservar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WEBReservar.aspx.designer.cs">
+      <DependentUpon>WEBReservar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WEBSolicitarServicioExtra.aspx.cs">
+      <DependentUpon>WEBSolicitarServicioExtra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WEBSolicitarServicioExtra.aspx.designer.cs">
+      <DependentUpon>WEBSolicitarServicioExtra.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WEBSolicitarServicios.aspx.cs">
+      <DependentUpon>WEBSolicitarServicios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WEBSolicitarServicios.aspx.designer.cs">
+      <DependentUpon>WEBSolicitarServicios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WEBSolicitarTransporte.aspx.cs">
+      <DependentUpon>WEBSolicitarTransporte.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WEBSolicitarTransporte.aspx.designer.cs">
+      <DependentUpon>WEBSolicitarTransporte.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADMVer_Reporte.aspx.cs">
+      <DependentUpon>ADMVer_Reporte.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMVer_Reporte.aspx.designer.cs">
+      <DependentUpon>ADMVer_Reporte.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WEBViaje.aspx.cs">
+      <DependentUpon>WEBViaje.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WEBViaje.aspx.designer.cs">
+      <DependentUpon>WEBViaje.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WEBVisualizarDepartamento.aspx.cs">
+      <DependentUpon>WEBVisualizarDepartamento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WEBVisualizarDepartamento.aspx.designer.cs">
+      <DependentUpon>WEBVisualizarDepartamento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WEBWebForm1.aspx.cs">
+      <DependentUpon>WEBWebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WEBWebForm1.aspx.designer.cs">
+      <DependentUpon>WEBWebForm1.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MasterPage.Master" />
+    <None Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\WSarriendo\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="files\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50119</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44332/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
