@@ -1518,3 +1518,17 @@ as
     FROM USUARIO WHERE email=p_email AND (password=p_passw) AND tipo!='Cliente';
   END;
 /
+set define off;
+CREATE OR REPLACE PROCEDURE insert_multa (nombre IN VARCHAR2, descripcion IN VARCHAR2, valor IN NUMBER,estado_multa IN VARCHAR2) IS
+BEGIN
+INSERT INTO multa (id_multa, nombre, descripcion, valor,estado_multa)
+VALUES (SEQ_ID_MULTA.nextval,nombre, descripcion, valor,estado_multa);
+END;
+/
+set define off;
+CREATE OR REPLACE PROCEDURE insert_dmulta (observaciones IN VARCHAR2, reserva_id_reserva IN NUMBER, multa_id_multa IN NUMBER,estadomulta IN VARCHAR2) IS
+BEGIN
+INSERT INTO detallemulta (id_dmulta, observaciones, reserva_id_reserva, multa_id_multa,estadomulta)
+VALUES (SEQ_ID_DMULTA.nextval,observaciones, reserva_id_reserva, multa_id_multa,estadomulta);
+END; 
+/
